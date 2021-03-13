@@ -1,10 +1,18 @@
 import dataset
-import pandas as pd
+
+import os
+
+
+__location__ = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
+dbName = 'Preparation//testQuery.db'
+dbPath = os.path.join(__location__, dbName)
 
 confirmedTransaction_keyCols = ['date', 'info', 'whose', 'totalPayment', 'category']
 
 # open db
-db = dataset.connect('sqlite:///Preparation//testQuery.db')
+db = dataset.connect('sqlite:///' + dbPath)
 
 expenseLibTable = db['ExpenseLib']
 transactionTable = db['rakuten_transaction']
@@ -30,7 +38,7 @@ for transaction in transactions:
         confirmedTransactionTable.insert_ignore(dict(date=transaction['date'],
                                                      info=transaction['info'],
                                                      whose=transaction['whose'],
-                                                     totalPayment=transaction['totalPayment'],
+                                                     totalPayment=int(transaction['totalPayment']),
                                                      category=transaction['category']
                                                      ),
                                                 confirmedTransaction_keyCols

@@ -2,6 +2,18 @@ import dataset
 import pandas as pd
 from datetime import datetime
 
+import os
+
+
+__location__ = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
+csvName = 'Rakuten202102.csv'
+csvPath = os.path.join(__location__, csvName)
+
+dbName = 'testQuery.db'
+dbPath = os.path.join(__location__, dbName)
+
 #read csv
 rakuten_usedColumns = ['利用日', '利用店名・商品名', '利用者', '支払総額']
 rakuten_colsDict = {'利用日': 'date', '利用店名・商品名': 'where', '利用者': 'whose', '支払総額': 'totalPayment'}
@@ -11,7 +23,7 @@ rakuten_keyCols = ['date', 'where', 'whose', 'totalPayment']
 # Read Rakuten Data
 ###########################
 
-rakuten_data = pd.read_csv('Rakuten202102.csv', usecols=rakuten_usedColumns)
+rakuten_data = pd.read_csv(csvPath, usecols=rakuten_usedColumns)
 
 # Handle dummy row section
 rakuten_df = pd.DataFrame(rakuten_data).dropna()
@@ -26,7 +38,7 @@ print(rakuten_df)
 ###########################
 
 #create new db
-db = dataset.connect('sqlite:///testQuery.db')
+db = dataset.connect('sqlite:///' + dbPath)
 
 transactionTable = db['rakuten_transaction']
 
