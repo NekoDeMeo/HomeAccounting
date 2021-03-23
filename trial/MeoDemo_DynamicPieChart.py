@@ -16,8 +16,6 @@ others = 3
 raw_data = {'Category': ['Food', 'EatingOut', 'Housing', 'Medical', 'Others'],
             'Payment': [food, eatOut, housing, medical, others]}
 df = pd.DataFrame(raw_data, columns = ['Category', 'Payment'])
-#df['total_arrests'] = df['jan_arrests'] + df['feb_arrests'] + df['march_arrests']
-
 
 
 def draw_figure(canvas, figure, loc=(0, 0)):
@@ -39,9 +37,7 @@ layout = [[sg.Text('Plot test')],
              sg.Button('Increase5'),]
           ]
 
-def update_table(df, ax1, ax2):
-    global fig_agg
-
+def update_table(fig_agg, df, ax1, ax2):
     df.at[0, 'Payment'] += 1
     ax1.cla()
     ax1.axis('off')
@@ -86,7 +82,7 @@ while True:
     if event in (sg.WIN_CLOSED, 'Cancel'):
         break
     elif event == 'Increase1':
-        update_table(df, ax1, ax2)
+        update_table(fig_agg, df, ax1, ax2)
 
     elif event == 'Increase2':
         eatOut += 1
