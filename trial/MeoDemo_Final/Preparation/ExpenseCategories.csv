@@ -5,15 +5,16 @@ Ultilities,Expense,"Bills (Electric, Water, Gas, Phone, Net..)"
 Insurances,Expense,"Personal health Insurances, Home insurance"
 Kids,Expense,"Clothes, Toys, Books, schools"
 Medical,Expense,Medical bills
-Household supplies,Expense,
+Household supplies,Expense,"Kitchen, toilet"
 Education,Expense,Parent books?
-Transportation,Expense,
+Transportation,Expense,"Train, taxi,…"
 Entertainment,Expense,"Trips, Games, Videos, Subsciptions…"
 Pocket Money,Expense,For Meo - Vit monthly
 Income,Income,Income
 Income,Transfer,Transfer between accounts
 Adjustment,Adjustment,In case manual adjustment
 Return,Return,"Some one sent money, cash back"
+Personal,Personal,Personal expense
 Others,Expense,Confirmed but non-above
 Unknown,Expense,No idea what it is
 Need Confirmed,Expense,"No database, manual confirmation needed"

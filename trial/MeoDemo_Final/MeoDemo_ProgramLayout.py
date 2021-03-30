@@ -196,6 +196,7 @@ def process_import_Rakuten(csvPath):
     db = dataset.connect('sqlite:///' + dbPath)
 
     expenseLibTable = db['ExpenseLib']
+    expenseCatTable = db['ExpenseCat']
 
     dbName = 'CreditDB.db'
     dbPath = os.path.join(__location__, dbName)
@@ -223,7 +224,7 @@ def process_import_Rakuten(csvPath):
 
     rakuten_usedColumns = ['利用日', '利用店名・商品名', '利用者', '支払総額']
     rakuten_colsDict = {'利用日': 'date', '利用店名・商品名': 'where', '利用者': 'whose', '支払総額': 'totalPayment'}
-    rakuten_keyCols = ['date', 'info', 'whose', 'totalPayment', 'category', 'note']
+    rakuten_keyCols = ['date', 'info', 'whose', 'totalPayment', 'category', 'classification', 'note']
 
     strange_CatDict = ['Pocket Money', 'Income', 'Income', 'Adjustment', 'Return', 'Others', 'Unknown', 'Need Confirmed']
 
@@ -252,27 +253,38 @@ def process_import_Rakuten(csvPath):
             category = libData['category']
             info = libData['what']
 
-            if category in strange_CatDict:
-                print('Strange Data - Need Handle', libData)
-                needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
-                                            where=row.where,
-                                            whose=row.whose,
-                                            totalPayment=int(row.totalPayment),
-                                            info=info,
-                                            category=category,
-                                            note='Need correction due to strange category'
-                                            )
-                                       )
-            else:
-                #print('Normal Data - Imported', libData)
-                rakutenTable.insert_ignore(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
-                                                info=info,
-                                                whose='Home',
+            catData = expenseCatTable.find_one(Category=category)
+
+            if (catData != None):
+                classification = catData['Classification']
+
+                if category in strange_CatDict:
+                    print('Strange Data - Need Handle', libData)
+                    needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
+                                                where=row.where,
+                                                whose=row.whose,
                                                 totalPayment=int(row.totalPayment),
-                                                note='Automatically imported'
-                                                ),
-                                           rakuten_keyCols
+                                                info=info,
+                                                category=category,
+                                                note='Need correction due to strange category'
+                                                )
                                            )
+                else:
+                    # print('Normal Data - Imported', libData)
+                    print('Classification = ', classification)
+                    rakutenTable.insert_ignore(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
+                                                    info=info,
+                                                    whose='Home',
+                                                    totalPayment=int(row.totalPayment),
+                                                    classification=classification,
+                                                    note='Automatically imported'
+                                                    ),
+                                               rakuten_keyCols
+                                               )
+
+            else:
+                print('Error: could not get classification for category', category)
+
         else:
             print('New Item - Need Hanlde', libData)
             needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
