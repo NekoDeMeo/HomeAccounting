@@ -1,0 +1,19 @@
+Category,Classification,Explain
+Groceries,Expense,Foods
+Eating Out,Expense,Restautants
+Ultilities,Expense,"Bills (Electric, Water, Gas, Phone, Net..)"
+Insurances,Expense,"Personal health Insurances, Home insurance"
+Kids,Expense,"Clothes, Toys, Books, schools"
+Medical,Expense,Medical bills
+Household supplies,Expense,
+Education,Expense,Parent books?
+Transportation,Expense,
+Entertainment,Expense,"Trips, Games, Videos, Subsciptions…"
+Pocket Money,Expense,For Meo - Vit monthly
+Income,Income,Income
+Income,Transfer,Transfer between accounts
+Adjustment,Adjustment,In case manual adjustment
+Return,Return,"Some one sent money, cash back"
+Others,Expense,Confirmed but non-above
+Unknown,Expense,No idea what it is
+Need Confirmed,Expense,"No database, manual confirmation needed"
