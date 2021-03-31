@@ -183,12 +183,8 @@ def get_rakutenTable():
 
     return db, rakutenTable
 
-def process_import_Rakuten(csvPath):
+def search_lib_for_cat_info_classification(payAt):
 
-    #############
-    # DB path
-    # TODO: handling this bullshit (pass table does not work)
-    #############
     dbName = 'Preparation//ExpenseLibrary.db'
     dbPath = os.path.join(__location__, dbName)
 
@@ -197,6 +193,53 @@ def process_import_Rakuten(csvPath):
 
     expenseLibTable = db['ExpenseLib']
     expenseCatTable = db['ExpenseCat']
+
+    category = None
+    classification = None
+    info = None
+
+    libData = expenseLibTable.find_one(where=payAt)
+
+    if (libData != None):
+        category = libData['category']
+        info = libData['what']
+
+        catData = expenseCatTable.find_one(Category=category)
+
+        if (catData != None):
+            classification = catData['Classification']
+
+    return category, info, classification
+
+def from_cat_to_classification(category):
+
+    dbName = 'Preparation//ExpenseLibrary.db'
+    dbPath = os.path.join(__location__, dbName)
+
+    # open db
+    db = dataset.connect('sqlite:///' + dbPath)
+
+    expenseLibTable = db['ExpenseLib']
+    expenseCatTable = db['ExpenseCat']
+
+    classification = None
+
+    catData = expenseCatTable.find_one(Category=category)
+
+    if (catData != None):
+        classification = catData['Classification']
+    else:
+        print('Error: could not find classification')
+
+    return classification
+
+
+def process_import_Rakuten(csvPath):
+
+    #############
+    # DB path
+    # TODO: handling this bullshit (pass table does not work)
+    #############
 
     dbName = 'CreditDB.db'
     dbPath = os.path.join(__location__, dbName)
@@ -240,42 +283,39 @@ def process_import_Rakuten(csvPath):
     # Store to db (ignore duplicates)
     ###########################
 
-    needModifiedRow_cols = ['date', 'where', 'whose', 'totalPayment', 'info', 'category', 'note']
+    needModifiedRow_cols = ['date', 'where', 'whose', 'totalPayment', 'info', 'category', 'type', 'note']
     needModifiedRow = []
 
     for row in rakuten_df.itertuples():
 
         payAt = row.where
-        libData = expenseLibTable.find_one(where=payAt)
 
-        if (libData != None):
+        category, info, classification = search_lib_for_cat_info_classification(payAt)
 
-            category = libData['category']
-            info = libData['what']
+        if (category != None):
 
-            catData = expenseCatTable.find_one(Category=category)
-
-            if (catData != None):
-                classification = catData['Classification']
+            if (classification != None):
 
                 if category in strange_CatDict:
-                    print('Strange Data - Need Handle', libData)
+                    print('Strange Data - Need Handle', payAt, category)
                     needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                                 where=row.where,
                                                 whose=row.whose,
                                                 totalPayment=int(row.totalPayment),
                                                 info=info,
                                                 category=category,
+                                                type = 'Rakuten',
                                                 note='Need correction due to strange category'
                                                 )
                                            )
                 else:
                     # print('Normal Data - Imported', libData)
-                    print('Classification = ', classification)
+                    # print('Classification = ', classification)
                     rakutenTable.insert_ignore(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                                     info=info,
                                                     whose='Home',
                                                     totalPayment=int(row.totalPayment),
+                                                    category=category,
                                                     classification=classification,
                                                     note='Automatically imported'
                                                     ),
@@ -286,18 +326,20 @@ def process_import_Rakuten(csvPath):
                 print('Error: could not get classification for category', category)
 
         else:
-            print('New Item - Need Hanlde', libData)
+            print('New Item - Need Hanlde', payAt)
             needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                         where=row.where,
                                         whose=row.whose,
                                         totalPayment=int(row.totalPayment),
                                         info='No info',
                                         category='No catefory',
+                                        type='Rakuten',
                                         note='New Data'
                                         )
                                    )
 
-    #print(needModifiedRow)
+    for tran in rakutenTable.all():
+        print(tran)
 
     needModifiedRow_df = pd.DataFrame(needModifiedRow, columns=needModifiedRow_cols)
 
@@ -305,6 +347,159 @@ def process_import_Rakuten(csvPath):
     modCsvPath = os.path.join(__location__, modCsvName)
 
     needModifiedRow_df.to_csv(modCsvPath)
+
+def process_import_Yahoo(csvPath):
+
+    #############
+    # DB path
+    # TODO: handling this bullshit (pass table does not work)
+    #############
+
+    dbName = 'CreditDB.db'
+    dbPath = os.path.join(__location__, dbName)
+
+    # open db
+    db = dataset.connect('sqlite:///' + dbPath)
+
+    rakutenTable = db['Yahoo']
+
+    #############
+    # CSV Definition
+    #############
+
+    rakuten_usedColumns = ['利用日', '利用店名・商品名', '利用者', '支払総額']
+    rakuten_colsDict = {'利用日': 'date', '利用店名・商品名': 'where', '利用者': 'whose', '支払総額': 'totalPayment'}
+    rakuten_keyCols = ['date', 'info', 'whose', 'totalPayment', 'category', 'classification', 'note']
+
+    strange_CatDict = ['Pocket Money', 'Income', 'Income', 'Adjustment', 'Return', 'Others', 'Unknown', 'Need Confirmed']
+
+    rakuten_data = pd.read_csv(csvPath, usecols=rakuten_usedColumns)
+
+    # Handle dummy row section
+    rakuten_df = pd.DataFrame(rakuten_data).dropna()
+
+    # rename column for future use
+    rakuten_df = rakuten_df.rename(columns=rakuten_colsDict)
+
+    ###########################
+    # Store to db (ignore duplicates)
+    ###########################
+
+    needModifiedRow_cols = ['date', 'where', 'whose', 'totalPayment', 'info', 'category', 'type', 'note']
+    needModifiedRow = []
+
+    for row in rakuten_df.itertuples():
+
+        payAt = row.where
+
+        category, info, classification = search_lib_for_cat_info_classification(payAt)
+
+        if (category != None):
+
+            if (classification != None):
+
+                if category in strange_CatDict:
+                    print('Strange Data - Need Handle', payAt, category)
+                    needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
+                                                where=row.where,
+                                                whose=row.whose,
+                                                totalPayment=int(row.totalPayment),
+                                                info=info,
+                                                category=category,
+                                                type = 'Rakuten',
+                                                note='Need correction due to strange category'
+                                                )
+                                           )
+                else:
+                    # print('Normal Data - Imported', libData)
+                    # print('Classification = ', classification)
+                    rakutenTable.insert_ignore(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
+                                                    info=info,
+                                                    whose='Home',
+                                                    totalPayment=int(row.totalPayment),
+                                                    category=category,
+                                                    classification=classification,
+                                                    note='Automatically imported'
+                                                    ),
+                                               rakuten_keyCols
+                                               )
+
+            else:
+                print('Error: could not get classification for category', category)
+
+        else:
+            print('New Item - Need Hanlde', payAt)
+            needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
+                                        where=row.where,
+                                        whose=row.whose,
+                                        totalPayment=int(row.totalPayment),
+                                        info='No info',
+                                        category='No catefory',
+                                        type='Rakuten',
+                                        note='New Data'
+                                        )
+                                   )
+
+    for tran in rakutenTable.all():
+        print(tran)
+
+    needModifiedRow_df = pd.DataFrame(needModifiedRow, columns=needModifiedRow_cols)
+
+    modCsvName = 'Output//tobeConfirmed_Rakuten_{date:%Y%m%d_%H%M%S}.csv'.format(date=datetime.now())
+    modCsvPath = os.path.join(__location__, modCsvName)
+
+    needModifiedRow_df.to_csv(modCsvPath)
+
+def process_import_Amazon(csvPath):
+
+    #############
+    # CSV Definition
+    #############
+
+    amazon_usedColumns = ['�t�@���^���@�~���@�l', '5334-9114-6839-5***', '�`�����������}�X�^�[�N���V�b�N']
+    amazon_colsDict = {'�t�@���^���@�~���@�l': 'date', '5334-9114-6839-5***': 'where', '�`�����������}�X�^�[�N���V�b�N': 'totalPayment'}
+
+    amazon_data = pd.read_csv(csvPath, usecols=amazon_usedColumns)
+    #amazon_data = pd.read_csv(csvPath)
+
+    # Handle dummy row section
+    amazon_df = pd.DataFrame(amazon_data).dropna()
+
+    #print(amazon_df)
+
+    # rename column for future use
+    amazon_df = amazon_df.rename(columns=amazon_colsDict)
+
+    ###########################
+    # Store to db (ignore duplicates)
+    ###########################
+
+    needModifiedRow_cols = ['date', 'where', 'whose', 'totalPayment', 'info', 'category', 'type', 'note']
+    needModifiedRow = []
+
+    for row in amazon_df.itertuples():
+
+        # All amazon items need manual modification
+
+        needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
+                                    where=row.where,
+                                    whose='Need Check',
+                                    totalPayment=int(row.totalPayment),
+                                    info='No info',
+                                    category='No Cat',
+                                    type= 'Amazon',
+                                    note='Need manual check all Amazon Data'
+                                    )
+                               )
+
+    needModifiedRow_df = pd.DataFrame(needModifiedRow, columns=needModifiedRow_cols)
+
+    modCsvName = 'Output//tobeConfirmed_Amazon_{date:%Y%m%d_%H%M%S}.csv'.format(date=datetime.now())
+    modCsvPath = os.path.join(__location__, modCsvName)
+
+    needModifiedRow_df.to_csv(modCsvPath)
+
+
 
 def main():
 
@@ -338,6 +533,15 @@ def main():
             if ((csvPath != "") and (Path(csvPath).exists())):
                 #print('Csvpath = ', csvPath)
                 process_import_Rakuten(csvPath)
+            else:
+                print('Invalid path')
+
+        elif event == 'Process Amazon':
+            print("[LOG] Clicked Amazon Button!")
+            csvPath = values['-INPUT-']
+            if ((csvPath != "") and (Path(csvPath).exists())):
+                #print('Csvpath = ', csvPath)
+                process_import_Amazon(csvPath)
             else:
                 print('Invalid path')
 
