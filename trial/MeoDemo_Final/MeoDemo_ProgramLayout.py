@@ -58,7 +58,7 @@ def declare_window():
                         sg.Button('Process Correction Sheet'),
                         sg.Button('Process Manual Data')
                     ],
-                   [sg.Combo(values=YearList), sg.Combo(values=MonthList)],
+                   [sg.Combo(values=YearList), sg.Combo(values=MonthList), sg.Button('Show')],
                    [sg.Canvas(key='-AccountSummary-')],
                    [sg.Canvas(key='-PieChartWithTable-'), sg.Canvas(key='-GraphChart-')]
                 ]
@@ -233,6 +233,28 @@ def from_cat_to_classification(category):
 
     return classification
 
+def check_valid_category(category):
+
+    dbName = 'Preparation//ExpenseLibrary.db'
+    dbPath = os.path.join(__location__, dbName)
+
+    # open db
+    db = dataset.connect('sqlite:///' + dbPath)
+
+    expenseCatTable = db['ExpenseCat']
+
+    classification = None
+
+    catData = expenseCatTable.find_one(Category=category)
+
+    if (catData != None):
+        ret = True
+        classification = catData['Classification']
+    else:
+        ret = False
+        print('Error: could not find classification')
+
+    return ret, classification
 
 def process_import_Rakuten(csvPath):
 
@@ -361,25 +383,25 @@ def process_import_Yahoo(csvPath):
     # open db
     db = dataset.connect('sqlite:///' + dbPath)
 
-    rakutenTable = db['Yahoo']
+    yahooTable = db['Yahoo']
 
     #############
     # CSV Definition
     #############
 
-    rakuten_usedColumns = ['利用日', '利用店名・商品名', '利用者', '支払総額']
-    rakuten_colsDict = {'利用日': 'date', '利用店名・商品名': 'where', '利用者': 'whose', '支払総額': 'totalPayment'}
-    rakuten_keyCols = ['date', 'info', 'whose', 'totalPayment', 'category', 'classification', 'note']
+    yahoo_usedColumns = ['利用日', '利用店名・商品名', '利用者', '支払総額']
+    yahoo_colsDict = {'利用日': 'date', '利用店名・商品名': 'where', '利用者': 'whose', '支払総額': 'totalPayment'}
+    yahoo_keyCols = ['date', 'info', 'whose', 'totalPayment', 'category', 'classification', 'note']
 
     strange_CatDict = ['Pocket Money', 'Income', 'Income', 'Adjustment', 'Return', 'Others', 'Unknown', 'Need Confirmed']
 
-    rakuten_data = pd.read_csv(csvPath, usecols=rakuten_usedColumns)
+    yahoo_data = pd.read_csv(csvPath, encoding='cp932', usecols=yahoo_usedColumns)
 
     # Handle dummy row section
-    rakuten_df = pd.DataFrame(rakuten_data).dropna()
+    yahoo_df = pd.DataFrame(yahoo_data).dropna()
 
     # rename column for future use
-    rakuten_df = rakuten_df.rename(columns=rakuten_colsDict)
+    yahoo_df = yahoo_df.rename(columns=yahoo_colsDict)
 
     ###########################
     # Store to db (ignore duplicates)
@@ -388,7 +410,7 @@ def process_import_Yahoo(csvPath):
     needModifiedRow_cols = ['date', 'where', 'whose', 'totalPayment', 'info', 'category', 'type', 'note']
     needModifiedRow = []
 
-    for row in rakuten_df.itertuples():
+    for row in yahoo_df.itertuples():
 
         payAt = row.where
 
@@ -406,14 +428,14 @@ def process_import_Yahoo(csvPath):
                                                 totalPayment=int(row.totalPayment),
                                                 info=info,
                                                 category=category,
-                                                type = 'Rakuten',
+                                                type = 'Yahoo',
                                                 note='Need correction due to strange category'
                                                 )
                                            )
                 else:
                     # print('Normal Data - Imported', libData)
                     # print('Classification = ', classification)
-                    rakutenTable.insert_ignore(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
+                    yahooTable.insert_ignore(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                                     info=info,
                                                     whose='Home',
                                                     totalPayment=int(row.totalPayment),
@@ -421,7 +443,7 @@ def process_import_Yahoo(csvPath):
                                                     classification=classification,
                                                     note='Automatically imported'
                                                     ),
-                                               rakuten_keyCols
+                                               yahoo_keyCols
                                                )
 
             else:
@@ -435,17 +457,17 @@ def process_import_Yahoo(csvPath):
                                         totalPayment=int(row.totalPayment),
                                         info='No info',
                                         category='No catefory',
-                                        type='Rakuten',
+                                        type='Yahoo',
                                         note='New Data'
                                         )
                                    )
 
-    for tran in rakutenTable.all():
+    for tran in yahooTable.all():
         print(tran)
 
     needModifiedRow_df = pd.DataFrame(needModifiedRow, columns=needModifiedRow_cols)
 
-    modCsvName = 'Output//tobeConfirmed_Rakuten_{date:%Y%m%d_%H%M%S}.csv'.format(date=datetime.now())
+    modCsvName = 'Output//tobeConfirmed_Yahoo_{date:%Y%m%d_%H%M%S}.csv'.format(date=datetime.now())
     modCsvPath = os.path.join(__location__, modCsvName)
 
     needModifiedRow_df.to_csv(modCsvPath)
@@ -499,7 +521,66 @@ def process_import_Amazon(csvPath):
 
     needModifiedRow_df.to_csv(modCsvPath)
 
+def process_import_Modified(csvPath):
 
+    #############
+    # DB path
+    # TODO: handling this bullshit (pass table does not work)
+    #############
+
+    dbName = 'CreditDB.db'
+    dbPath = os.path.join(__location__, dbName)
+
+    # open db
+    db = dataset.connect('sqlite:///' + dbPath)
+
+    #############
+    # CSV Definition
+    #############
+
+    needModifiedRow_cols = ['date', 'where', 'whose', 'totalPayment', 'info', 'category', 'type', 'note']
+
+    credit_keyCols = ['date', 'info', 'whose', 'totalPayment', 'category', 'classification', 'note']
+
+    modified_data = pd.read_csv(csvPath, usecols=needModifiedRow_cols)
+
+    # Handle dummy row section
+    modified_df = pd.DataFrame(modified_data).dropna()
+
+    ###########################
+    # Store to db (ignore duplicates)
+    ###########################
+
+    for row in modified_df.itertuples():
+
+        tableName = row.type
+        targetTable = db[tableName]
+
+        ret, classification = check_valid_category(row.category)
+
+        if (ret == True):
+
+            validWhose = ['Home', 'Vit', 'Meo']
+            if row.whose in validWhose:
+                targetTable.insert_ignore(dict(date=datetime.strptime(row.date, '%Y-%m-%d').date(),
+                                                info=row.info,
+                                                whose=row.whose,
+                                                totalPayment=int(row.totalPayment),
+                                                category=row.category,
+                                                classification=classification,
+                                                note='Manually Modified'
+                                                ),
+                                           credit_keyCols
+                                           )
+            else:
+                print('Error: invalid User', row.category)
+
+        else:
+            print('Error: invalid Category', row.category)
+
+
+    #for tran in targetTable.all():
+    #    print(tran)
 
 def main():
 
@@ -542,6 +623,24 @@ def main():
             if ((csvPath != "") and (Path(csvPath).exists())):
                 #print('Csvpath = ', csvPath)
                 process_import_Amazon(csvPath)
+            else:
+                print('Invalid path')
+
+        elif event == 'Process Yahoo':
+            print("[LOG] Clicked Yahoo Button!")
+            csvPath = values['-INPUT-']
+            if ((csvPath != "") and (Path(csvPath).exists())):
+                #print('Csvpath = ', csvPath)
+                process_import_Yahoo(csvPath)
+            else:
+                print('Invalid path')
+
+        elif event == 'Process Correction Sheet':
+            print("[LOG] Clicked Correction Button!")
+            csvPath = values['-INPUT-']
+            if ((csvPath != "") and (Path(csvPath).exists())):
+                #print('Csvpath = ', csvPath)
+                process_import_Modified(csvPath)
             else:
                 print('Invalid path')
 

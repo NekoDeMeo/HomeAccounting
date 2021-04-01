@@ -1,0 +1,13 @@
+﻿Name,Database,Source,Currency
+HomeYBMeoCard,Home,YB1,JPY
+HomeVCB,Home,VCB,VND
+MomVCB,Mom,VCB,VND
+MomYB,Mom,YB1,JPY
+HomeUSD,Home,USD,USD
+HomeCash,Home,HomeCash,JPY
+HomeYBVitCard,Home,YB2,JPY
+Paypay,Home,Paypay,JPY
+MeoYB,Meo,YB1,JPY
+MeoCash,Meo,MeoCash,JPY
+VitYB,Vit,YB2,JPY
+VitCash,Vit,VitCash,JPY
