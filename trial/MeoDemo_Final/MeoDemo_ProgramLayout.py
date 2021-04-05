@@ -55,21 +55,21 @@ def init_window_up(window, df_tb1, df_tb2, df_tb3):
 
     ax_tb1 = fig.add_subplot(131, aspect='equal')
     ax_tb1.axis('off')
-    tbl1 = table(ax_tb1, df_tb1, loc='center')
+    tbl1 = ax_tb1.table(cellText=df_tb1.values, colLabels=df_tb1.keys(), loc='center')
     tbl1.auto_set_font_size(False)
     tbl1.set_fontsize(12)
     tbl1.scale(2, 2)
 
     ax_tb2 = fig.add_subplot(132, aspect='equal')
     ax_tb2.axis('off')
-    tbl2 = table(ax_tb2, df_tb2, loc='center')
+    tbl2 = ax_tb2.table(cellText=df_tb2.values, colLabels=df_tb2.keys(), loc='center')
     tbl2.auto_set_font_size(False)
     tbl2.set_fontsize(12)
     tbl2.scale(2, 2)
 
     ax_tb3 = fig.add_subplot(133, aspect='equal')
     ax_tb3.axis('off')
-    tbl3 = table(ax_tb3, df_tb3, loc='center')
+    tbl3 = ax_tb3.table(cellText=df_tb3.values, colLabels=df_tb3.keys(), loc='center')
     tbl3.auto_set_font_size(False)
     tbl3.set_fontsize(12)
     tbl3.scale(2, 2)
@@ -92,7 +92,7 @@ def init_window_down(window, df):
     ax2 = fig.add_subplot(122, aspect='equal')
     ax2.axis('off')
 
-    tbl = table(ax2, df, loc='center')
+    tbl = ax2.table(cellText=df.values, colLabels=df.keys(), loc='center')
     tbl.auto_set_font_size(False)
     tbl.set_fontsize(12)
     tbl.scale(1, 2) #width, heigth
@@ -107,15 +107,15 @@ def update_account_tables(fig_agg, df_tb1, df_tb2, df_tb3, ax_tb1, ax_tb2, ax_tb
 
     ax_tb1.cla()
     ax_tb1.axis('off')
-    tbl1 = table(ax_tb1, df_tb1, loc='center')
+    tbl1 = ax_tb1.table(cellText=df_tb1.values, colLabels=df_tb1.keys(), loc='center')
 
     ax_tb2.cla()
     ax_tb2.axis('off')
-    tbl2 = table(ax_tb2, df_tb2, loc='center')
+    tbl2 = ax_tb2.table(cellText=df_tb2.values, colLabels=df_tb2.keys(), loc='center')
 
     ax_tb3.cla()
     ax_tb3.axis('off')
-    tbl3 = table(ax_tb3, df_tb3, loc='center')
+    tbl1 = ax_tb3.table(cellText=df_tb3.values, colLabels=df_tb3.keys(), loc='center')
 
     tbl1.auto_set_font_size(False)
     tbl1.set_fontsize(12)
