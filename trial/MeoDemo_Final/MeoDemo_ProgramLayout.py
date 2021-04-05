@@ -989,6 +989,10 @@ def main():
     window, df, df_tb1, df_tb2, df_tb3 = declare_window()
 
     fig_agg_up, ax_tb1, ax_tb2, ax_tb3 = init_window_up(window, df_tb1, df_tb2, df_tb3)
+
+    # Sort Data for Expense
+    df =df.sort_values('Value')
+
     fig_agg_down, ax1, ax2 = init_window_down(window, df)
 
 
