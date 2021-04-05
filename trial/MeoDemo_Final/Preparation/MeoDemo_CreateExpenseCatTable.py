@@ -15,7 +15,7 @@ dbName = 'ExpenseLibrary.db'
 dbPath = os.path.join(__location__, dbName)
 
 # read csv
-expenseCat_usedColumns = ['Category', 'Classification', 'Explain']
+expenseCat_usedColumns = ['Category', 'Classification', 'Direction', 'Explain']
 
 ###########################
 # Read CSV Data
@@ -40,6 +40,7 @@ expenseCatTable = db['ExpenseCat']
 for row in expenseCat_df.itertuples():
     expenseCatTable.insert_ignore(dict(Category=row.Category,
                                        Classification=row.Classification,
+                                       Direction=row.Direction,
                                        Explain=row.Explain,
                                        ),
                                   expenseCat_usedColumns

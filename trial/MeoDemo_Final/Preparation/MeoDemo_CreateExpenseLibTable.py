@@ -15,7 +15,7 @@ dbName = 'ExpenseLibrary.db'
 dbPath = os.path.join(__location__, dbName)
 
 # read csv
-expenseLib_usedColumns = ['PaymentAt', 'Information', 'Category']
+expenseLib_usedColumns = ['PaymentAt', 'Information', 'Category', 'Whose']
 
 ###########################
 # Read CSV Data
@@ -41,6 +41,7 @@ for row in expenseLib_df.itertuples():
     expenseLibTable.insert_ignore(dict(where=row.PaymentAt,
                                        what=row.Information,
                                        category=row.Category,
+                                       whose=row.Whose
                                        ),
                                   expenseLib_usedColumns
                                   )

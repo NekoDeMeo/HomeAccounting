@@ -1,21 +1,28 @@
-Category,Classification,Explain
-Groceries,Expense,Foods
-Eating Out,Expense,Restautants
-Utilities,Expense,"Bills (Electric, Water, Gas, Phone, Net..)"
-Insurances,Expense,"Personal health Insurances, Home insurance"
-Kids,Expense,"Clothes, Toys, Books, schools"
-Medical,Expense,Medical bills
-Household supplies,Expense,"Kitchen, toilet"
-Furniture,Expense,"Sofa, bed, etc"
-Education,Expense,Parent books?
-Transportation,Expense,"Train, taxi,…"
-Entertainment,Expense,"Trips, Games, Videos, Subsciptions…"
-Pocket Money,Expense,For Meo - Vit monthly
-Income,Income,Income
-Transfer,Transfer,Transfer between accounts
-Adjustment,Adjustment,In case manual adjustment
-Return,Return,"Some one sent money, cash back"
-Personal,Personal,Personal expense
-Others,Expense,Confirmed but non-above
-Unknown,Expense,No idea what it is
-Need Confirmed,Expense,"No database, manual confirmation needed"
+﻿Category,Classification,Direction,Explain
+Groceries,Expense,Out,Foods
+Eating Out,Expense,Out,Restautants
+Utilities,Expense,Out,"Bills (Electric, Water, Gas, Phone, Net..)"
+Insurances,Expense,Out,"Personal health Insurances, Home insurance"
+Kids,Expense,Out,"Clothes, Toys, Books, schools"
+Medical,Expense,Out,Medical bills
+Household Supplies,Expense,Out,"Kitchen, toilet"
+Housing,Expense,Out,"Rental, Mortgage"
+Furniture,Expense,Out,"Sofa, bed, etc"
+Education,Expense,Out,"Parent books, language lession, study materials"
+Transportation,Expense,Out,"Train, taxi,…"
+Entertainment,Expense,Out,"Trips, Games, Videos, Subsciptions…"
+Allowance,Expense,Out,For Meo - Vit monthly
+Fashion,Expense,Out,"Clothes, Hat, Shoes"
+Salary,Income,In,Income
+Transfer In,Neutral,In,Transfer from another accounts
+Transfer Out,Neutral,Out,Transfer to another account
+Adjustment Up,Income,In,Manual Adjustment (not sure if needed)
+Adjustment Down,Expense,Out,Manual Adjustment (not sure if needed)
+Return,Income,In,"Some one sent money, cash back (get back for what was spent)"
+Bonus,Income,In,Get bonus or interest (free money)
+Credit Payment,Neutral,Out,Pay credit card
+Personal,Expense,Out,Personal expense
+Other Expense,Expense,Out,Confirmed but non-above
+Other Income,Income,In,Confirmed but non-above
+Unknown,Expense,Out,No idea what it is
+Need Confirmed,Restricted,Out,"No database, manual confirmation needed"

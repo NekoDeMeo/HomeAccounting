@@ -63,7 +63,7 @@ def declare_window():
                    [sg.Canvas(key='-PieChartWithTable-'), sg.Canvas(key='-GraphChart-')]
                 ]
 
-    window = sg.Window('Home Accounting Tool Test', main_layout, finalize=True)
+    window = sg.Window('Home Accounting Tool Test', main_layout, finalize=True, location = (500, 100))
 
     return window, df, df_tb1, df_tb2, df_tb3
 
@@ -183,7 +183,7 @@ def get_rakutenTable():
 
     return db, rakutenTable
 
-def search_lib_for_cat_info_classification(payAt):
+def search_lib_for_cat_info_classification_direction_whose(payAt):
 
     dbName = 'Preparation//ExpenseLibrary.db'
     dbPath = os.path.join(__location__, dbName)
@@ -197,19 +197,23 @@ def search_lib_for_cat_info_classification(payAt):
     category = None
     classification = None
     info = None
+    direction = None
+    whose = None
 
     libData = expenseLibTable.find_one(where=payAt)
 
     if (libData != None):
         category = libData['category']
         info = libData['what']
+        whose = libData['whose']
 
         catData = expenseCatTable.find_one(Category=category)
 
         if (catData != None):
             classification = catData['Classification']
+            direction = catData['Direction']
 
-    return category, info, classification
+    return category, info, classification, direction, whose
 
 def from_cat_to_classification(category):
 
@@ -250,11 +254,29 @@ def check_valid_category(category):
     if (catData != None):
         ret = True
         classification = catData['Classification']
+        direction = catData['Direction']
     else:
         ret = False
         print('Error: could not find classification')
 
-    return ret, classification
+    return ret, classification, direction
+
+def getCycle_Rakuten(csvPath, type):
+
+    filename = os.path.basename(csvPath)
+
+    cycle = None
+
+    if type == 'Rakuten':
+        cycle = filename[5:11]
+
+    if type == 'Yahoo':
+        cycle = filename[6:12]
+
+    if type == 'Amazon':
+        cycle = filename[0:6]
+
+    return cycle
 
 def process_import_Rakuten(csvPath):
 
@@ -289,7 +311,7 @@ def process_import_Rakuten(csvPath):
 
     rakuten_usedColumns = ['利用日', '利用店名・商品名', '利用者', '支払総額']
     rakuten_colsDict = {'利用日': 'date', '利用店名・商品名': 'where', '利用者': 'whose', '支払総額': 'totalPayment'}
-    rakuten_keyCols = ['date', 'info', 'whose', 'totalPayment', 'category', 'classification', 'note']
+    rakuten_keyCols = ['date', 'info', 'whose', 'totalPayment', 'category', 'classification', 'direction', 'cycle', 'note']
 
     strange_CatDict = ['Pocket Money', 'Income', 'Income', 'Adjustment', 'Return', 'Others', 'Unknown', 'Need Confirmed']
 
@@ -305,14 +327,22 @@ def process_import_Rakuten(csvPath):
     # Store to db (ignore duplicates)
     ###########################
 
-    needModifiedRow_cols = ['date', 'where', 'whose', 'totalPayment', 'info', 'category', 'type', 'note']
+    needModifiedRow_cols = ['date', 'where', 'whose', 'totalPayment', 'info', 'category', 'type', 'cycle', 'note']
     needModifiedRow = []
+
+    cycle = getCycle_Rakuten(csvPath, 'Rakuten')
+
+    if cycle == None:
+        print('Error: File name error')
 
     for row in rakuten_df.itertuples():
 
         payAt = row.where
 
-        category, info, classification = search_lib_for_cat_info_classification(payAt)
+        category, info, classification, direction, whose = search_lib_for_cat_info_classification_direction_whose(payAt)
+
+        if whose == 'Not sure':
+            whose = row.whose
 
         if (category != None):
 
@@ -322,12 +352,13 @@ def process_import_Rakuten(csvPath):
                     print('Strange Data - Need Handle', payAt, category)
                     needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                                 where=row.where,
-                                                whose=row.whose,
+                                                whose=whose,
                                                 totalPayment=int(row.totalPayment),
                                                 info=info,
                                                 category=category,
                                                 type = 'Rakuten',
-                                                note='Need correction due to strange category'
+                                                cycle = cycle,
+                                                note='Manual confirmed unclear transaction'
                                                 )
                                            )
                 else:
@@ -335,10 +366,12 @@ def process_import_Rakuten(csvPath):
                     # print('Classification = ', classification)
                     rakutenTable.insert_ignore(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                                     info=info,
-                                                    whose='Home',
+                                                    whose=whose,
                                                     totalPayment=int(row.totalPayment),
                                                     category=category,
                                                     classification=classification,
+                                                    direction=direction,
+                                                    cycle = cycle,
                                                     note='Automatically imported'
                                                     ),
                                                rakuten_keyCols
@@ -356,7 +389,8 @@ def process_import_Rakuten(csvPath):
                                         info='No info',
                                         category='No catefory',
                                         type='Rakuten',
-                                        note='New Data'
+                                        cycle= cycle,
+                                        note='Confirmed new transaction data'
                                         )
                                    )
 
@@ -365,8 +399,10 @@ def process_import_Rakuten(csvPath):
 
     needModifiedRow_df = pd.DataFrame(needModifiedRow, columns=needModifiedRow_cols)
 
-    modCsvName = 'Output//tobeConfirmed_Rakuten_{date:%Y%m%d_%H%M%S}.csv'.format(date=datetime.now())
-    modCsvPath = os.path.join(__location__, modCsvName)
+    folderName = 'Output'
+    folderpath = os.path.join(__location__, folderName)
+    modCsvName = 'tobeConfirmed_' + cycle + '_Rakuten_{date:%Y%m%d_%H%M%S}.csv'.format(date=datetime.now())
+    modCsvPath = os.path.join(folderpath, modCsvName)
 
     needModifiedRow_df.to_csv(modCsvPath)
 
@@ -391,7 +427,7 @@ def process_import_Yahoo(csvPath):
 
     yahoo_usedColumns = ['利用日', '利用店名・商品名', '利用者', '支払総額']
     yahoo_colsDict = {'利用日': 'date', '利用店名・商品名': 'where', '利用者': 'whose', '支払総額': 'totalPayment'}
-    yahoo_keyCols = ['date', 'info', 'whose', 'totalPayment', 'category', 'classification', 'note']
+    yahoo_keyCols = ['date', 'info', 'whose', 'totalPayment', 'category', 'classification', 'direction', 'cycle', 'note']
 
     strange_CatDict = ['Pocket Money', 'Income', 'Income', 'Adjustment', 'Return', 'Others', 'Unknown', 'Need Confirmed']
 
@@ -407,14 +443,22 @@ def process_import_Yahoo(csvPath):
     # Store to db (ignore duplicates)
     ###########################
 
-    needModifiedRow_cols = ['date', 'where', 'whose', 'totalPayment', 'info', 'category', 'type', 'note']
+    needModifiedRow_cols = ['date', 'where', 'whose', 'totalPayment', 'info', 'category', 'type', 'cycle', 'note']
     needModifiedRow = []
+
+    cycle = getCycle_Rakuten(csvPath, 'Yahoo')
+
+    if cycle == None:
+        print('Error: File name error')
 
     for row in yahoo_df.itertuples():
 
         payAt = row.where
 
-        category, info, classification = search_lib_for_cat_info_classification(payAt)
+        category, info, classification, direction, whose = search_lib_for_cat_info_classification_direction_whose(payAt)
+
+        if whose == 'Not sure':
+            whose = row.whose
 
         if (category != None):
 
@@ -428,8 +472,9 @@ def process_import_Yahoo(csvPath):
                                                 totalPayment=int(row.totalPayment),
                                                 info=info,
                                                 category=category,
-                                                type = 'Yahoo',
-                                                note='Need correction due to strange category'
+                                                type='Yahoo',
+                                                cycle=cycle,
+                                                note='Manually confirmed unclear transaction'
                                                 )
                                            )
                 else:
@@ -441,6 +486,8 @@ def process_import_Yahoo(csvPath):
                                                     totalPayment=int(row.totalPayment),
                                                     category=category,
                                                     classification=classification,
+                                                    direction=direction,
+                                                    cycle=cycle,
                                                     note='Automatically imported'
                                                     ),
                                                yahoo_keyCols
@@ -456,8 +503,9 @@ def process_import_Yahoo(csvPath):
                                         whose=row.whose,
                                         totalPayment=int(row.totalPayment),
                                         info='No info',
-                                        category='No catefory',
+                                        category='No category',
                                         type='Yahoo',
+                                        cycle=cycle,
                                         note='New Data'
                                         )
                                    )
@@ -467,7 +515,7 @@ def process_import_Yahoo(csvPath):
 
     needModifiedRow_df = pd.DataFrame(needModifiedRow, columns=needModifiedRow_cols)
 
-    modCsvName = 'Output//tobeConfirmed_Yahoo_{date:%Y%m%d_%H%M%S}.csv'.format(date=datetime.now())
+    modCsvName = 'Output//tobeConfirmed_' + cycle + '_Yahoo_{date:%Y%m%d_%H%M%S}.csv'.format(date=datetime.now())
     modCsvPath = os.path.join(__location__, modCsvName)
 
     needModifiedRow_df.to_csv(modCsvPath)
@@ -478,10 +526,10 @@ def process_import_Amazon(csvPath):
     # CSV Definition
     #############
 
-    amazon_usedColumns = ['�t�@���^���@�~���@�l', '5334-9114-6839-5***', '�`�����������}�X�^�[�N���V�b�N']
-    amazon_colsDict = {'�t�@���^���@�~���@�l': 'date', '5334-9114-6839-5***': 'where', '�`�����������}�X�^�[�N���V�b�N': 'totalPayment'}
+    amazon_usedColumns = ['ファンタン　ミン　様', '5334-9114-6839-5***', 'Ａｍａｚｏｎマスタークラシック']
+    amazon_colsDict = {'ファンタン　ミン　様': 'date', '5334-9114-6839-5***': 'where', 'Ａｍａｚｏｎマスタークラシック': 'totalPayment'}
 
-    amazon_data = pd.read_csv(csvPath, usecols=amazon_usedColumns)
+    amazon_data = pd.read_csv(csvPath, encoding='cp932', usecols=amazon_usedColumns)
     #amazon_data = pd.read_csv(csvPath)
 
     # Handle dummy row section
@@ -496,8 +544,13 @@ def process_import_Amazon(csvPath):
     # Store to db (ignore duplicates)
     ###########################
 
-    needModifiedRow_cols = ['date', 'where', 'whose', 'totalPayment', 'info', 'category', 'type', 'note']
+    needModifiedRow_cols = ['date', 'where', 'whose', 'totalPayment', 'info', 'category', 'type', 'cycle', 'note']
     needModifiedRow = []
+
+    cycle = getCycle_Rakuten(csvPath, 'Amazon')
+
+    if cycle == None:
+        print('Error: File name error')
 
     for row in amazon_df.itertuples():
 
@@ -509,14 +562,15 @@ def process_import_Amazon(csvPath):
                                     totalPayment=int(row.totalPayment),
                                     info='No info',
                                     category='No Cat',
-                                    type= 'Amazon',
-                                    note='Need manual check all Amazon Data'
+                                    type='Amazon',
+                                    cycle=cycle,
+                                    note='Manually confirmed Amazon Transaction'
                                     )
                                )
 
     needModifiedRow_df = pd.DataFrame(needModifiedRow, columns=needModifiedRow_cols)
 
-    modCsvName = 'Output//tobeConfirmed_Amazon_{date:%Y%m%d_%H%M%S}.csv'.format(date=datetime.now())
+    modCsvName = 'Output//tobeConfirmed_' + cycle + '_Amazon_{date:%Y%m%d_%H%M%S}.csv'.format(date=datetime.now())
     modCsvPath = os.path.join(__location__, modCsvName)
 
     needModifiedRow_df.to_csv(modCsvPath)
@@ -538,9 +592,9 @@ def process_import_Modified(csvPath):
     # CSV Definition
     #############
 
-    needModifiedRow_cols = ['date', 'where', 'whose', 'totalPayment', 'info', 'category', 'type', 'note']
+    needModifiedRow_cols = ['date', 'where', 'whose', 'totalPayment', 'info', 'category', 'type', 'cycle', 'note']
 
-    credit_keyCols = ['date', 'info', 'whose', 'totalPayment', 'category', 'classification', 'note']
+    credit_keyCols = ['date', 'info', 'whose', 'totalPayment', 'category', 'classification', 'direction', 'cycle', 'note']
 
     modified_data = pd.read_csv(csvPath, usecols=needModifiedRow_cols)
 
@@ -556,7 +610,7 @@ def process_import_Modified(csvPath):
         tableName = row.type
         targetTable = db[tableName]
 
-        ret, classification = check_valid_category(row.category)
+        ret, classification, direction = check_valid_category(row.category)
 
         if (ret == True):
 
@@ -568,7 +622,9 @@ def process_import_Modified(csvPath):
                                                 totalPayment=int(row.totalPayment),
                                                 category=row.category,
                                                 classification=classification,
-                                                note='Manually Modified'
+                                                direction=direction,
+                                                cycle=row.cycle,
+                                                note=row.note
                                                 ),
                                            credit_keyCols
                                            )
