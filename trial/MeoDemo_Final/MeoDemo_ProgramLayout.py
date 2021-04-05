@@ -38,7 +38,10 @@ def declare_window():
                         sg.Button('Reload Table'),
                     ],
                    [sg.Canvas(key='-AccountSummary-')],
-                   [sg.Combo(values=YearList, key='-YEAR-'), sg.Combo(values=MonthList, key='-MONTH-'), sg.Button('Show')],
+                   [sg.Combo(values=YearList, key='-YEAR-', default_value='2021'),
+                    sg.Combo(values=MonthList, key='-MONTH-', default_value='02'),
+                    sg.Button('Show')
+                    ],
                    [sg.Canvas(key='-PieChartWithTable-'), sg.Canvas(key='-GraphChart-')]
                 ]
 
@@ -158,7 +161,10 @@ def update_pilechart_and_table(fig_agg, df, ax1, ax2):
 
     ax2.cla()
     ax2.axis('off')
-    tbl = table(ax2, df, loc='center')
+    tbl = ax2.table(cellText=df.values, colLabels=df.keys(), loc='center')
+    tbl.auto_set_font_size(False)
+    tbl.set_fontsize(12)
+    tbl.scale(1, 2)  # width, heigth
 
     fig_agg.draw()
 
@@ -991,7 +997,7 @@ def main():
     fig_agg_up, ax_tb1, ax_tb2, ax_tb3 = init_window_up(window, df_tb1, df_tb2, df_tb3)
 
     # Sort Data for Expense
-    df =df.sort_values('Value')
+    df =df.sort_values('Value', ascending=False)
 
     fig_agg_down, ax1, ax2 = init_window_down(window, df)
 
@@ -1063,6 +1069,8 @@ def main():
 
             if ((year != '') and (month != '')):
                 df = get_expense_data(year, month)
+                # Sort Data for Expense
+                df = df.sort_values('Value', ascending=False)
                 update_pilechart_and_table(fig_agg_down, df, ax1, ax2)
             else:
                 print('Error: year or month is blank')
