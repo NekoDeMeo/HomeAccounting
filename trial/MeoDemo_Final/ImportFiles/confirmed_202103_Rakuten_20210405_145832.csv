@@ -1,0 +1,12 @@
+,date,where,whose,totalPayment,info,category,type,cycle,note
+0,2021-02-26,ﾉ-ｽﾎﾟ-ﾄ･ﾓ-ﾙ,Vit,1450,World 3can4onQ,Fashion,Rakuten,202103,Manual confirmed unclear transaction
+1,2021-02-26,ﾉ-ｽﾎﾟ-ﾄ･ﾓ-ﾙ,Meo,590,Muji,Personal,Rakuten,202103,Wrongly set to Vit but corrected in Manual Master file
+2,2021-02-23,ユニクロジーユーオンライン,Vit,429,Uniqlo Online,Fashion,Rakuten,202103,Manual confirmed unclear transaction
+3,2021-02-21,ユニクロジーユーオンライン,Vit,1309,Uniqlo Online,Fashion,Rakuten,202103,Manual confirmed unclear transaction
+4,2021-02-21,ユニクロジーユーオンライン,Vit,429,Uniqlo Online,Fashion,Rakuten,202103,Manual confirmed unclear transaction
+5,2021-02-20,ﾉ-ｽﾎﾟ-ﾄ･ﾓ-ﾙ,Vit,959,Northport mall,Unknown,Rakuten,202103,No data but Vit card so set to Vit
+6,2021-02-20,ﾉ-ｽﾎﾟ-ﾄ･ﾓ-ﾙ,Vit,1300,Northport mall,Personal,Rakuten,202103,Stocks Vit
+7,2021-02-14,SPOTIFY利用国SWE,Meo,980,Spotify,Personal,Rakuten,202103,Confirmed new transaction data
+8,2021-02-11,モザイクモール港北,Vit,490,Mosaic Mall,Unknown,Rakuten,202103,No data but Vit card so set to Vit
+9,2021-02-06,イオンリテール,Home,518,AEON,Unknown,Rakuten,202103,Not sure but probably household item
+10,2021-01-29,イオンリテール,Home,3636,AEON,Kids,Rakuten,202103,Nancy pampers
