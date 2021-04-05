@@ -21,31 +21,9 @@ __location__ = os.path.realpath(
 
 def declare_window():
 
+    df_tb1, df_tb2, df_tb3 = update_balance_data()
 
-    acc_table1 = {'Account': ['Home Balance', '- Yucho Main', 'Yucho Saving', 'Cash'],
-                'Value': [9999, 6666, 2222, 1111]}
-
-    acc_table2 = {'Account': ['Vit In Bank', 'Meo In Bank'],
-                  'Value': [9999, 8888]}
-
-    acc_table3 = {'Account': ['USD', 'Yucho 1', 'Yucho 2 (Home + Meo + Vit)', 'VCB'],
-                  'Value': [9999, 8888, 7777, 6666]}
-
-    df_tb1 = pd.DataFrame(acc_table1, columns = ['Account', 'Value'])
-    df_tb2 = pd.DataFrame(acc_table2, columns=['Account', 'Value'])
-    df_tb3 = pd.DataFrame(acc_table3, columns=['Account', 'Value'])
-
-    food = 4
-    eatOut = 24
-    housing = 31
-    medical = 2
-    others = 3
-
-    # sample data
-    raw_data = {'Category': ['Food', 'EatingOut', 'Housing', 'Medical', 'Others'],
-                'Payment': [food, eatOut, housing, medical, others]}
-
-    df = pd.DataFrame(raw_data, columns = ['Category', 'Payment'])
+    df = get_expense_data()
 
     YearList = '2020', '2021'
     MonthList = 'All', '01', '02', '03', '04'
@@ -56,10 +34,11 @@ def declare_window():
                         sg.Button('Process Amazon'),
                         sg.Button('Process Yahoo'),
                         sg.Button('Process Correction Sheet'),
-                        sg.Button('Process Manual Data')
+                        sg.Button('Process Manual Data'),
+                        sg.Button('Reload Table'),
                     ],
-                   [sg.Combo(values=YearList), sg.Combo(values=MonthList), sg.Button('Show')],
                    [sg.Canvas(key='-AccountSummary-')],
+                   [sg.Combo(values=YearList), sg.Combo(values=MonthList), sg.Button('Show')],
                    [sg.Canvas(key='-PieChartWithTable-'), sg.Canvas(key='-GraphChart-')]
                 ]
 
@@ -72,20 +51,28 @@ def init_window_up(window, df_tb1, df_tb2, df_tb3):
     canvas = canvas_elem.TKCanvas
 
     # add the plot to the window
-    fig = Figure(figsize=(6.4,2))
+    fig = Figure(figsize=(12.4,2))
 
     ax_tb1 = fig.add_subplot(131, aspect='equal')
     ax_tb1.axis('off')
     tbl1 = table(ax_tb1, df_tb1, loc='center')
-    # tbl.auto_set_font_size(True)
+    tbl1.auto_set_font_size(False)
+    tbl1.set_fontsize(12)
+    tbl1.scale(2, 2)
 
     ax_tb2 = fig.add_subplot(132, aspect='equal')
     ax_tb2.axis('off')
     tbl2 = table(ax_tb2, df_tb2, loc='center')
+    tbl2.auto_set_font_size(False)
+    tbl2.set_fontsize(12)
+    tbl2.scale(2, 2)
 
     ax_tb3 = fig.add_subplot(133, aspect='equal')
     ax_tb3.axis('off')
     tbl3 = table(ax_tb3, df_tb3, loc='center')
+    tbl3.auto_set_font_size(False)
+    tbl3.set_fontsize(12)
+    tbl3.scale(2, 2)
 
     fig_agg = draw_figure(canvas, fig)
 
@@ -96,16 +83,19 @@ def init_window_down(window, df):
     canvas = canvas_elem.TKCanvas
 
     # add the plot to the window
-    fig = Figure()
+    fig = Figure(figsize=(12.4,8))
     ax1 = fig.add_subplot(121, aspect='equal')
 
-    df.plot(kind='pie', y='Payment', ax=ax1, autopct='%1.1f%%',
+    df.plot(kind='pie', y='Value', ax=ax1, autopct='%1.1f%%',
             startangle=90, shadow=False, labels=df['Category'], legend=False, fontsize=14)
 
     ax2 = fig.add_subplot(122, aspect='equal')
     ax2.axis('off')
+
     tbl = table(ax2, df, loc='center')
-    # tbl.auto_set_font_size(True)
+    tbl.auto_set_font_size(False)
+    tbl.set_fontsize(12)
+    tbl.scale(1, 2) #width, heigth
 
     # plot chart
     ax1.grid()
@@ -126,6 +116,16 @@ def update_account_tables(fig_agg, df_tb1, df_tb2, df_tb3, ax_tb1, ax_tb2, ax_tb
     ax_tb3.cla()
     ax_tb3.axis('off')
     tbl3 = table(ax_tb3, df_tb3, loc='center')
+
+    tbl1.auto_set_font_size(False)
+    tbl1.set_fontsize(12)
+    tbl1.scale(2, 2)
+    tbl2.auto_set_font_size(False)
+    tbl2.set_fontsize(12)
+    tbl2.scale(2, 2)
+    tbl3.auto_set_font_size(False)
+    tbl3.set_fontsize(12)
+    tbl3.scale(2, 2)
 
     fig_agg.draw()
 
@@ -353,7 +353,7 @@ def process_import_Rakuten(csvPath):
                     needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                                 where=row.where,
                                                 whose=whose,
-                                                totalPayment=int(row.totalPayment),
+                                                totalPayment=float(row.totalPayment),
                                                 info=info,
                                                 category=category,
                                                 type = 'Rakuten',
@@ -367,7 +367,7 @@ def process_import_Rakuten(csvPath):
                     rakutenTable.insert_ignore(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                                     info=info,
                                                     whose=whose,
-                                                    totalPayment=int(row.totalPayment),
+                                                    totalPayment=float(row.totalPayment),
                                                     category=category,
                                                     classification=classification,
                                                     direction=direction,
@@ -385,7 +385,7 @@ def process_import_Rakuten(csvPath):
             needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                         where=row.where,
                                         whose=row.whose,
-                                        totalPayment=int(row.totalPayment),
+                                        totalPayment=float(row.totalPayment),
                                         info='No info',
                                         category='No catefory',
                                         type='Rakuten',
@@ -469,7 +469,7 @@ def process_import_Yahoo(csvPath):
                     needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                                 where=row.where,
                                                 whose=row.whose,
-                                                totalPayment=int(row.totalPayment),
+                                                totalPayment=float(row.totalPayment),
                                                 info=info,
                                                 category=category,
                                                 type='Yahoo',
@@ -483,7 +483,7 @@ def process_import_Yahoo(csvPath):
                     yahooTable.insert_ignore(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                                     info=info,
                                                     whose='Home',
-                                                    totalPayment=int(row.totalPayment),
+                                                    totalPayment=float(row.totalPayment),
                                                     category=category,
                                                     classification=classification,
                                                     direction=direction,
@@ -501,7 +501,7 @@ def process_import_Yahoo(csvPath):
             needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                         where=row.where,
                                         whose=row.whose,
-                                        totalPayment=int(row.totalPayment),
+                                        totalPayment=float(row.totalPayment),
                                         info='No info',
                                         category='No category',
                                         type='Yahoo',
@@ -559,7 +559,7 @@ def process_import_Amazon(csvPath):
         needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                     where=row.where,
                                     whose='Need Check',
-                                    totalPayment=int(row.totalPayment),
+                                    totalPayment=float(row.totalPayment),
                                     info='No info',
                                     category='No Cat',
                                     type='Amazon',
@@ -619,7 +619,7 @@ def process_import_Modified(csvPath):
                 targetTable.insert_ignore(dict(date=datetime.strptime(row.date, '%Y-%m-%d').date(),
                                                 info=row.info,
                                                 whose=row.whose,
-                                                totalPayment=int(row.totalPayment),
+                                                totalPayment=float(row.totalPayment),
                                                 category=row.category,
                                                 classification=classification,
                                                 direction=direction,
@@ -716,6 +716,9 @@ def import_Manual_Data(csvPath):
         else:
             print('Error: invalid Category', row.category)
 
+        db.commit()
+        db.close()
+
     # for tran in targetTable.all():
     #    print(tran)
 
@@ -739,7 +742,7 @@ def calc_all_transaction_in_table(dbPath, tableName):
 
     return balance
 
-def cal_HomeBalance():
+def calc_HomeBalance():
 
     homeBalance = 0
     HomeYB_Main = 0
@@ -755,36 +758,218 @@ def cal_HomeBalance():
 
     homeBalance= HomeYB_Main + HomeYB_Saving + HomeCash
 
-    return homeBalance
+    return homeBalance, HomeYB_Main, HomeYB_Saving, HomeCash
 
-def update_balance_data(df1, df2, df3):
+def calc_PersonalBalance():
 
-    acc_table1 = {'Account': ['Home Balance', '- Yucho Main', 'Yucho Saving', 'Cash'],
-                  'Value': [9999, 6666, 2222, 1111]}
+    meoYB = 0
+    vitYB = 0
+
+    meodbName = 'Database//Meo.db'
+    meodbPath = os.path.join(__location__, meodbName)
+
+    vitdbName = 'Database//Vit.db'
+    vitdbPath = os.path.join(__location__, vitdbName)
+
+    meoYB = calc_all_transaction_in_table(meodbPath, 'MeoYB')
+    vitYB = calc_all_transaction_in_table(vitdbPath, 'VitYB')
+
+    return meoYB, vitYB
+
+def calc_OptionalBalance():
+
+    usd = 0
+    yb1 = 0
+    yb2 = 0
+    vcb = 0
+
+    HomeDBName = 'Database//Home.db'
+    homeDBPath = os.path.join(__location__, HomeDBName)
+
+    usd = calc_all_transaction_in_table(homeDBPath, 'HomeUSD')
+
+    MomDBName = 'Database//Mom.db'
+    MomDBPath = os.path.join(__location__, MomDBName)
+
+    momYB = calc_all_transaction_in_table(MomDBPath, 'MomYB')
+    momVCB = calc_all_transaction_in_table(MomDBPath, 'MomVCB')
+
+    homeBalance, HomeYB_Main, HomeYB_Saving, HomeCash = calc_HomeBalance()
+    meoYB, vitYB = calc_PersonalBalance()
+
+    yb1 = HomeYB_Main + momYB
+    yb2 = HomeYB_Saving + meoYB + vitYB
+    vcb = momVCB
+
+    return usd, yb1, yb2, vcb
+
+def remove_zero(str):
+
+    return str[0:len(str)-2]
+
+def update_balance_data():
+
+    # ----------------------
+    # Calc Home Balance
+    # ----------------------
+
+    homeBalance, HomeYB_Main, HomeYB_Saving, HomeCash = calc_HomeBalance()
+
+    acc_table1 = {'Account': ['Home Balance', '- Yucho Main', '- Yucho Saving', '- Cash'],
+                  'Value': [remove_zero(f'{homeBalance:,}'),
+                            remove_zero(f'{HomeYB_Main:,}'),
+                            remove_zero(f'{HomeYB_Saving:,}'),
+                            remove_zero(f'{HomeCash:,}')
+                            ]
+                  }
+
+    df_tb1 = pd.DataFrame(acc_table1, columns = ['Account', 'Value'])
+
+    # ----------------------
+    # Calc Personal Balance
+    # ----------------------
+
+    meoBalance, vitBalance = calc_PersonalBalance()
 
     acc_table2 = {'Account': ['Vit In Bank', 'Meo In Bank'],
-                  'Value': [9999, 8888]}
+                  'Value': [remove_zero(f'{vitBalance:,}'),
+                            remove_zero(f'{meoBalance:,}')
+                            ]
+                  }
 
-    acc_table3 = {'Account': ['USD', 'Yucho 1', 'Yucho 2 (Home + Meo + Vit)', 'VCB'],
-                  'Value': [9999, 8888, 7777, 6666]}
+    df_tb2 = pd.DataFrame(acc_table2, columns=['Account', 'Value'])
+
+    # ----------------------
+    # Calc Optional Balance
+    # ----------------------
+
+    usd, yb1, yb2, vcb = calc_OptionalBalance()
+
+    acc_table3 = {'Account': ['USD', 'Yucho 1', 'Yucho 2', 'VCB'],
+                  'Value': [remove_zero(f'{usd:,}'),
+                            remove_zero(f'{yb1:,}'),
+                            remove_zero(f'{yb2:,}'),
+                            remove_zero(f'{vcb:,}')
+                            ]
+                  }
+
+    df_tb3 = pd.DataFrame(acc_table3, columns=['Account', 'Value'])
+
+    return df_tb1, df_tb2, df_tb3
+
+def get_list_by_classification(classification):
+
+    lst = []
+
+    dbName = 'Preparation//ExpenseLibrary.db'
+    dbPath = os.path.join(__location__, dbName)
+
+    # open db
+    db = dataset.connect('sqlite:///' + dbPath)
+
+    mapTable = db['ExpenseCat']
+
+    result = mapTable.find(Classification=classification)
+
+    for ret in result:
+        lst.append(ret['Category'])
+
+    return lst
 
 
+def get_expense_category_list():
+
+    lst = []
+
+    lst = get_list_by_classification('Expense')
+    print(lst)
+
+    return lst
 
 
-    #df.at[0, 'Value'] += 1
+def get_df_by_year_month(year, month, dbPath, tableName):
 
+    expense = []
+
+    # open db
+    db = dataset.connect('sqlite:///' + dbPath)
+
+    tbl = db[tableName]
+
+    for tran in tbl:
+
+        tmonth = tran['date'].strftime('%m')
+        tyear = tran['date'].strftime('%Y')
+
+        if (tmonth == month) and (tyear == year):
+            expense.append(dict(totalPayment=float(tran['totalPayment']),
+                           category=tran['category']
+                            )
+                        )
+
+    df = pd.DataFrame(expense, columns=['totalPayment', 'category'])
+
+    return df
+
+def get_all_expense_df_by_year_month(year, month):
+
+    CreditDbName = 'CreditDB.db'
+    CreditDBPath = os.path.join(__location__, CreditDbName)
+
+    HomeDbName = 'Database//Home.db'
+    HomeDBPath = os.path.join(__location__, HomeDbName)
+
+    df_Rakuten = get_df_by_year_month(year, month, CreditDBPath, 'Rakuten')
+    df_Amazon = get_df_by_year_month(year, month, CreditDBPath, 'Amazon')
+    df_Yahoo = get_df_by_year_month(year, month, CreditDBPath, 'Yahoo')
+    df_HomeYB_Main = get_df_by_year_month(year, month, HomeDBPath, 'HomeYB_Main')
+    df_HomeYB_Saving = get_df_by_year_month(year, month, HomeDBPath, 'HomeYB_Saving')
+
+    df = pd.concat([df_Rakuten,
+                    df_Amazon,
+                    df_Yahoo,
+                    df_HomeYB_Main,
+                    df_HomeYB_Saving
+                    ],
+                   ignore_index=True,
+                   sort=False
+                   )
+
+    return df
+
+def get_filter_expense(display_df, expense_df):
+
+    # TODO: find a way to do this smarter - pandas data frame query/index
+
+    cnt = 0
+
+    for row in display_df.itertuples():
+        cat = row.Category
+        display_df.at[cnt, 'Value'] = expense_df[expense_df['category'] == cat].sum()['totalPayment']
+        cnt += 1
+
+    return display_df
+
+def get_expense_data():
+
+    expenseLst = get_list_by_classification('Expense')
+    tbl = {'Category': expenseLst, 'Value': 0}
+
+    display_df = pd.DataFrame(tbl, columns=['Category', 'Value'])
+
+    expense_df = get_all_expense_df_by_year_month('2021', '02')
+
+    df = get_filter_expense(display_df, expense_df)
+
+    return df
 
 def main():
 
     # create the form and show it without the plot
     window, df, df_tb1, df_tb2, df_tb3 = declare_window()
 
-    fig_agg_down, ax1, ax2 = init_window_down(window, df)
     fig_agg_up, ax_tb1, ax_tb2, ax_tb3 = init_window_up(window, df_tb1, df_tb2, df_tb3)
-
-    #rakutenDB, rakutenTable = get_expenseLibTable()
-    #expenseLibDB, expenseLibTable = get_rakutenTable()
-
+    fig_agg_down, ax1, ax2 = init_window_down(window, df)
 
 
     # This is an Event Loop
@@ -845,9 +1030,9 @@ def main():
             else:
                 print('Invalid path')
 
-        elif event == 'Process Amazon':
-            print("[LOG] Clicked Amazon Button!")
-            update_pilechart_and_table(fig_agg_down, df, ax1, ax2)
+        elif event == 'Reload Table':
+            print("[LOG] Clicked Reload Table!")
+            df_tb1, df_tb2, df_tb3 = update_balance_data()
             update_account_tables(fig_agg_up, df_tb1, df_tb2, df_tb3, ax_tb1, ax_tb2, ax_tb3)
         elif event == 'Process Manual Data':
             print("[LOG] Clicked Process Manual Data Button!")
