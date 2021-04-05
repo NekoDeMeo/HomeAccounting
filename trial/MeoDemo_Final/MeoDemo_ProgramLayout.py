@@ -46,6 +46,26 @@ def declare_window():
 
     return window, df, df_tb1, df_tb2, df_tb3
 
+def autopct_generator(limit):
+    def inner_autopct(pct):
+        return ('%.2f' % pct) if pct > limit else ''
+    return inner_autopct
+
+def get_new_labels(df, limit):
+
+    new_labels = []
+
+    sum = df.sum()['Value']
+
+    for row in df.itertuples():
+        if (float(row.Value)/sum*100 > limit):
+            new_labels.append(row.Category)
+        else:
+            new_labels.append('')
+
+
+    return new_labels
+
 def init_window_up(window, df_tb1, df_tb2, df_tb3):
     canvas_elem = window['-AccountSummary-']
     canvas = canvas_elem.TKCanvas
@@ -86,8 +106,8 @@ def init_window_down(window, df):
     fig = Figure(figsize=(12.4,8))
     ax1 = fig.add_subplot(121, aspect='equal')
 
-    df.plot(kind='pie', y='Value', ax=ax1, autopct='%1.1f%%',
-            startangle=90, shadow=False, labels=df['Category'], legend=False, fontsize=14)
+    df.plot(kind='pie', y='Value', ax=ax1, autopct=autopct_generator(3),
+            startangle=90, shadow=False, labels=get_new_labels(df, 3), legend=False, fontsize=10)
 
     ax2 = fig.add_subplot(122, aspect='equal')
     ax2.axis('off')
@@ -115,7 +135,7 @@ def update_account_tables(fig_agg, df_tb1, df_tb2, df_tb3, ax_tb1, ax_tb2, ax_tb
 
     ax_tb3.cla()
     ax_tb3.axis('off')
-    tbl1 = ax_tb3.table(cellText=df_tb3.values, colLabels=df_tb3.keys(), loc='center')
+    tbl3 = ax_tb3.table(cellText=df_tb3.values, colLabels=df_tb3.keys(), loc='center')
 
     tbl1.auto_set_font_size(False)
     tbl1.set_fontsize(12)
@@ -133,8 +153,8 @@ def update_pilechart_and_table(fig_agg, df, ax1, ax2):
     df.at[0, 'Payment'] += 1
     ax1.cla()
     ax1.axis('off')
-    df.plot(kind='pie', y='Payment', ax=ax1, autopct='%1.1f%%',
-            startangle=90, shadow=False, labels=df['Category'], legend=False, fontsize=14)
+    df.plot(kind='pie', y='Payment', ax=ax1, autopct=autopct_generator(3),
+            startangle=90, shadow=False, labels=get_new_labels(df, 3), legend=False, fontsize=10)
 
     ax2.cla()
     ax2.axis('off')
