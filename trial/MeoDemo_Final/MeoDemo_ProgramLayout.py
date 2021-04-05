@@ -23,7 +23,7 @@ def declare_window():
 
     df_tb1, df_tb2, df_tb3 = update_balance_data()
 
-    df = get_expense_data()
+    df = get_expense_data('2021', '02')
 
     YearList = '2020', '2021'
     MonthList = 'All', '01', '02', '03', '04'
@@ -38,7 +38,7 @@ def declare_window():
                         sg.Button('Reload Table'),
                     ],
                    [sg.Canvas(key='-AccountSummary-')],
-                   [sg.Combo(values=YearList), sg.Combo(values=MonthList), sg.Button('Show')],
+                   [sg.Combo(values=YearList, key='-YEAR-'), sg.Combo(values=MonthList, key='-MONTH-'), sg.Button('Show')],
                    [sg.Canvas(key='-PieChartWithTable-'), sg.Canvas(key='-GraphChart-')]
                 ]
 
@@ -150,10 +150,10 @@ def update_account_tables(fig_agg, df_tb1, df_tb2, df_tb3, ax_tb1, ax_tb2, ax_tb
     fig_agg.draw()
 
 def update_pilechart_and_table(fig_agg, df, ax1, ax2):
-    df.at[0, 'Payment'] += 1
+
     ax1.cla()
     ax1.axis('off')
-    df.plot(kind='pie', y='Payment', ax=ax1, autopct=autopct_generator(3),
+    df.plot(kind='pie', y='Value', ax=ax1, autopct=autopct_generator(3),
             startangle=90, shadow=False, labels=get_new_labels(df, 3), legend=False, fontsize=10)
 
     ax2.cla()
@@ -970,14 +970,14 @@ def get_filter_expense(display_df, expense_df):
 
     return display_df
 
-def get_expense_data():
+def get_expense_data(year, month):
 
     expenseLst = get_list_by_classification('Expense')
     tbl = {'Category': expenseLst, 'Value': 0}
 
     display_df = pd.DataFrame(tbl, columns=['Category', 'Value'])
 
-    expense_df = get_all_expense_df_by_year_month('2021', '02')
+    expense_df = get_all_expense_df_by_year_month(year, month)
 
     df = get_filter_expense(display_df, expense_df)
 
@@ -1013,7 +1013,6 @@ def main():
             print("[LOG] Clicked Rakuten Button!")
             csvPath = values['-INPUT-']
             if ((csvPath != "") and (Path(csvPath).exists())):
-                #print('Csvpath = ', csvPath)
                 process_import_Rakuten(csvPath)
             else:
                 print('Invalid path')
@@ -1022,7 +1021,6 @@ def main():
             print("[LOG] Clicked Amazon Button!")
             csvPath = values['-INPUT-']
             if ((csvPath != "") and (Path(csvPath).exists())):
-                #print('Csvpath = ', csvPath)
                 process_import_Amazon(csvPath)
             else:
                 print('Invalid path')
@@ -1031,7 +1029,6 @@ def main():
             print("[LOG] Clicked Yahoo Button!")
             csvPath = values['-INPUT-']
             if ((csvPath != "") and (Path(csvPath).exists())):
-                #print('Csvpath = ', csvPath)
                 process_import_Yahoo(csvPath)
             else:
                 print('Invalid path')
@@ -1040,7 +1037,6 @@ def main():
             print("[LOG] Clicked Correction Button!")
             csvPath = values['-INPUT-']
             if ((csvPath != "") and (Path(csvPath).exists())):
-                #print('Csvpath = ', csvPath)
                 process_import_Modified(csvPath)
             else:
                 print('Invalid path')
@@ -1049,7 +1045,6 @@ def main():
             print("[LOG] Clicked Manual Button!")
             csvPath = values['-INPUT-']
             if ((csvPath != "") and (Path(csvPath).exists())):
-                #print('Csvpath = ', csvPath)
                 import_Manual_Data(csvPath)
             else:
                 print('Invalid path')
@@ -1060,6 +1055,22 @@ def main():
             update_account_tables(fig_agg_up, df_tb1, df_tb2, df_tb3, ax_tb1, ax_tb2, ax_tb3)
         elif event == 'Process Manual Data':
             print("[LOG] Clicked Process Manual Data Button!")
+
+        elif event == 'Show':
+            print("[LOG] Clicked Show!")
+            year = values['-YEAR-']
+            month = values['-MONTH-']
+
+            if ((year != '') and (month != '')):
+                df = get_expense_data(year, month)
+                update_pilechart_and_table(fig_agg_down, df, ax1, ax2)
+            else:
+                print('Error: year or month is blank')
+
+        elif event == 'Process Manual Data':
+            print("[LOG] Clicked Process Manual Data Button!")
+
+
 
     window.close()
     exit(0)
