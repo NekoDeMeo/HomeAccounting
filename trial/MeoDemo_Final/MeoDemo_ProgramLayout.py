@@ -22,13 +22,13 @@ __location__ = os.path.realpath(
 def declare_window():
 
 
-    acc_table1 = {'Account': ['Yucho 1 (Meo)', 'Yucho 2 (Vit)', 'Vietcombank', 'USD', 'Cash'],
-                'Value': [9999, 8888, 7777, 6666, 5555]}
+    acc_table1 = {'Account': ['Home Balance', '- Yucho Main', 'Yucho Saving', 'Cash'],
+                'Value': [9999, 6666, 2222, 1111]}
 
-    acc_table2 = {'Account': ['Meo Yucho', 'Meo Cash', 'Vit Yucho', 'Vit Cash'],
-                  'Value': [9999, 8888, 7777, 6666]}
+    acc_table2 = {'Account': ['Vit In Bank', 'Meo In Bank'],
+                  'Value': [9999, 8888]}
 
-    acc_table3 = {'Account': ['Sum Yucho 1', 'Sum Yucho 2', 'Sum Meo', 'Sum Vit'],
+    acc_table3 = {'Account': ['USD', 'Yucho 1', 'Yucho 2 (Home + Meo + Vit)', 'VCB'],
                   'Value': [9999, 8888, 7777, 6666]}
 
     df_tb1 = pd.DataFrame(acc_table1, columns = ['Account', 'Value'])
@@ -638,6 +638,142 @@ def process_import_Modified(csvPath):
     #for tran in targetTable.all():
     #    print(tran)
 
+
+def get_DB_Source(DBName):
+
+    dbName = 'Prepare_Manual//DatabaseLibrary.db'
+    dbPath = os.path.join(__location__, dbName)
+
+    # open db
+    db = dataset.connect('sqlite:///' + dbPath)
+
+    mapTable = db['DBMappingList']
+
+    targetDB = None
+    targetSource = None
+
+    catData = mapTable.find_one(Name=DBName)
+
+    if (catData != None):
+        targetDB = catData['Database']
+        targetSource = catData['Source']
+    else:
+        print('Error: could not find DB Name')
+
+    return targetDB, targetSource
+
+def import_Manual_Data(csvPath):
+
+    #############
+    # CSV Definition
+    #############
+
+    cols = ['date', 'info', 'totalPayment', 'processDB', 'category']
+
+    data = pd.read_csv(csvPath, usecols=cols)
+
+    # Handle dummy row section
+    df = pd.DataFrame(data).dropna()
+
+    ###########################
+    # Store to db (ignore duplicates)
+    ###########################
+
+    for row in df.itertuples():
+
+        tableName = row.processDB
+        targetDB, targetSource = get_DB_Source(tableName)
+
+        #############
+        # DB path
+        # TODO: handling this bullshit (pass table does not work)
+        #############
+
+        dbFileName = 'Database//' + targetDB + '.db'
+        dbPath = os.path.join(__location__, dbFileName)
+
+        # open db
+        db = dataset.connect('sqlite:///' + dbPath)
+
+        targetTable = db[tableName]
+
+        ret, classification, direction = check_valid_category(row.category)
+
+        if (ret == True):
+
+            keyCols = ['date', 'info', 'totalPayment', 'category', 'classification', 'direction', 'note']
+
+            targetTable.insert_ignore(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
+                                           info=row.info,
+                                           totalPayment=float(row.totalPayment.replace(',', '')),
+                                           category=row.category,
+                                           classification=classification,
+                                           direction=direction,
+                                           note='Imported Manual Input data'
+                                           ),
+                                      keyCols
+                                      )
+        else:
+            print('Error: invalid Category', row.category)
+
+    # for tran in targetTable.all():
+    #    print(tran)
+
+def calc_all_transaction_in_table(dbPath, tableName):
+
+    # open db
+    db = dataset.connect('sqlite:///' + dbPath)
+
+    table = db[tableName]
+
+    balance = 0
+
+    for tran in table.all():
+        direction = tran['direction']
+        if direction == 'In':
+            balance += tran['totalPayment']
+        elif  direction == 'Out':
+            balance -= tran['totalPayment']
+        else:
+            print('Error: wrong direction at DB:', tableName, ', transaction: ', tran, ', direction: ', direction)
+
+    return balance
+
+def cal_HomeBalance():
+
+    homeBalance = 0
+    HomeYB_Main = 0
+    HomeYB_Saving = 0
+    HomeCash = 0
+
+    dbName = 'Database//Home.db'
+    dbPath = os.path.join(__location__, dbName)
+
+    HomeYB_Main = calc_all_transaction_in_table(dbPath, 'HomeYB_Main')
+    HomeYB_Saving = calc_all_transaction_in_table(dbPath, 'HomeYB_Saving')
+    HomeCash = calc_all_transaction_in_table(dbPath, 'HomeCash')
+
+    homeBalance= HomeYB_Main + HomeYB_Saving + HomeCash
+
+    return homeBalance
+
+def update_balance_data(df1, df2, df3):
+
+    acc_table1 = {'Account': ['Home Balance', '- Yucho Main', 'Yucho Saving', 'Cash'],
+                  'Value': [9999, 6666, 2222, 1111]}
+
+    acc_table2 = {'Account': ['Vit In Bank', 'Meo In Bank'],
+                  'Value': [9999, 8888]}
+
+    acc_table3 = {'Account': ['USD', 'Yucho 1', 'Yucho 2 (Home + Meo + Vit)', 'VCB'],
+                  'Value': [9999, 8888, 7777, 6666]}
+
+
+
+
+    #df.at[0, 'Value'] += 1
+
+
 def main():
 
     # create the form and show it without the plot
@@ -697,6 +833,15 @@ def main():
             if ((csvPath != "") and (Path(csvPath).exists())):
                 #print('Csvpath = ', csvPath)
                 process_import_Modified(csvPath)
+            else:
+                print('Invalid path')
+
+        elif event == 'Process Manual Data':
+            print("[LOG] Clicked Manual Button!")
+            csvPath = values['-INPUT-']
+            if ((csvPath != "") and (Path(csvPath).exists())):
+                #print('Csvpath = ', csvPath)
+                import_Manual_Data(csvPath)
             else:
                 print('Invalid path')
 
