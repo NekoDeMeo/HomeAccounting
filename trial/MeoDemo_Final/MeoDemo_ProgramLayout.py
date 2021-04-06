@@ -73,7 +73,8 @@ def declare_window():
                    [sg.Canvas(key='-AccountSummary-')],
                    [sg.Combo(values=YearList, key='-YEAR-', default_value=__init_year__),
                     sg.Combo(values=MonthList, key='-MONTH-', default_value=__init_month__),
-                    sg.Button('Show')
+                    sg.Button('Show'),
+                    sg.Button('Export Expense Data')
                     ],
                    [sg.Canvas(key='-CatPieChartWithTable-'), sg.Canvas(key='-SourcePieChartWithTable-')]
                 ]
@@ -498,8 +499,8 @@ def process_import_Rakuten(csvPath):
                                         where=row.where,
                                         whose=row.whose,
                                         totalPayment=float(row.totalPayment),
-                                        info='No info',
-                                        category='No catefory',
+                                        info='No_info',
+                                        category='No_catefory',
                                         type='Rakuten',
                                         cycle= cycle,
                                         note='Confirmed new transaction data'
@@ -614,11 +615,11 @@ def process_import_Yahoo(csvPath):
                                         where=row.where,
                                         whose=row.whose,
                                         totalPayment=float(row.totalPayment),
-                                        info='No info',
-                                        category='No category',
+                                        info='No_info',
+                                        category='No_category',
                                         type='Yahoo',
                                         cycle=cycle,
-                                        note='New Data'
+                                        note='New_Data'
                                         )
                                    )
 
@@ -670,10 +671,10 @@ def process_import_Amazon(csvPath):
 
         needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                     where=row.where,
-                                    whose='Need Check',
+                                    whose='Need_Check',
                                     totalPayment=float(row.totalPayment),
-                                    info='No info',
-                                    category='No Cat',
+                                    info='No_info',
+                                    category='No_Cat',
                                     type='Amazon',
                                     cycle=cycle,
                                     note='Manually confirmed Amazon Transaction'
@@ -999,7 +1000,7 @@ def get_expense_category_list():
     return lst
 
 
-def get_df_by_year_month(year, month, dbPath, tableName, source):
+def get_df_by_year_month(year, month, dbPath, tableName, source, mode):
 
     expense = []
 
@@ -1016,15 +1017,22 @@ def get_df_by_year_month(year, month, dbPath, tableName, source):
         if (tmonth == month) and (tyear == year):
             expense.append(dict(totalPayment=float(tran['totalPayment']),
                            category=tran['category'],
-                            source=source
+                            source=source,
+                            date=tran['date'],
+                            info=tran['info']
                             )
                         )
 
-    df = pd.DataFrame(expense, columns=['totalPayment', 'category', 'source'])
+    if (mode == 'Simple'):
+        df = pd.DataFrame(expense, columns=['totalPayment', 'category', 'source'])
+    elif (mode == 'Detail'):
+        df = pd.DataFrame(expense, columns=['date', 'info', 'totalPayment', 'category', 'source'])
+    else:
+        print('Error: Not supported Mode')
 
     return df
 
-def get_df_by_year_month_whose_credit(year, month, whose, dbPath, tableName, source):
+def get_df_by_year_month_whose_credit(year, month, whose, dbPath, tableName, source, mode):
 
     expense = []
 
@@ -1041,15 +1049,23 @@ def get_df_by_year_month_whose_credit(year, month, whose, dbPath, tableName, sou
         if (tmonth == month) and (tyear == year) and (whose == tran['whose']):
             expense.append(dict(totalPayment=float(tran['totalPayment']),
                            category=tran['category'],
-                            source=source
+                            source=source,
+                            date=tran['date'],
+                            info=tran['info']
                             )
                         )
 
-    df = pd.DataFrame(expense, columns=['totalPayment', 'category', 'source'])
+    if (mode == 'Simple'):
+        df = pd.DataFrame(expense, columns=['totalPayment', 'category', 'source'])
+    elif (mode == 'Detail'):
+        df = pd.DataFrame(expense, columns=['date', 'info', 'totalPayment', 'category', 'source'])
+    else:
+        print('Error: Not supported Mode')
+
 
     return df
 
-def get_all_expense_df_by_year_month(year, month):
+def get_all_expense_df_by_year_month(year, month, mode):
 
     CreditDbName = 'CreditDB.db'
     CreditDBPath = os.path.join(__location__, CreditDbName)
@@ -1057,15 +1073,15 @@ def get_all_expense_df_by_year_month(year, month):
     HomeDbName = 'Database//Home.db'
     HomeDBPath = os.path.join(__location__, HomeDbName)
 
-    df_Rakuten = get_df_by_year_month_whose_credit(year, month, 'Home', CreditDBPath, 'Rakuten', 'Credit')
-    df_Amazon = get_df_by_year_month_whose_credit(year, month, 'Home', CreditDBPath, 'Amazon', 'Credit')
-    df_Yahoo = get_df_by_year_month_whose_credit(year, month, 'Home', CreditDBPath, 'Yahoo', 'Credit')
+    df_Rakuten = get_df_by_year_month_whose_credit(year, month, 'Home', CreditDBPath, 'Rakuten', 'Credit', mode)
+    df_Amazon = get_df_by_year_month_whose_credit(year, month, 'Home', CreditDBPath, 'Amazon', 'Credit', mode)
+    df_Yahoo = get_df_by_year_month_whose_credit(year, month, 'Home', CreditDBPath, 'Yahoo', 'Credit', mode)
 
-    df_HomeYB_Main = get_df_by_year_month(year, month, HomeDBPath, 'HomeYB_Main', 'Bank')
-    df_HomeYB_Saving = get_df_by_year_month(year, month, HomeDBPath, 'HomeYB_Saving', 'Bank')
+    df_HomeYB_Main = get_df_by_year_month(year, month, HomeDBPath, 'HomeYB_Main', 'Bank', mode)
+    df_HomeYB_Saving = get_df_by_year_month(year, month, HomeDBPath, 'HomeYB_Saving', 'Bank', mode)
 
-    df_HomeCash = get_df_by_year_month(year, month, HomeDBPath, 'HomeCash', 'Cash')
-    df_Paypay = get_df_by_year_month(year, month, HomeDBPath, 'Paypay', 'Paypay')
+    df_HomeCash = get_df_by_year_month(year, month, HomeDBPath, 'HomeCash', 'Cash', mode)
+    df_Paypay = get_df_by_year_month(year, month, HomeDBPath, 'Paypay', 'Paypay', mode)
 
     df = pd.concat([df_Rakuten,
                     df_Amazon,
@@ -1094,9 +1110,9 @@ def get_calc_display_df_by_category(display_df, expense_df):
 
     return display_df
 
-def get_filtered_expense(display_df, expense_df):
+def get_filtered_expense(expenseLst, expense_df):
 
-    df = expense_df[expense_df['category'].isin(display_df['Category'])]
+    df = expense_df[expense_df['category'].isin(expenseLst)]
 
     return df
 
@@ -1124,7 +1140,7 @@ def get_expense_data(year, month):
     # -----------------------
     # Get all data base on year month
     # -----------------------
-    expense_df = get_all_expense_df_by_year_month(year, month)
+    expense_df = get_all_expense_df_by_year_month(year, month, 'Simple')
 
     # -----------------------
     # Create Expense Data List
@@ -1134,7 +1150,7 @@ def get_expense_data(year, month):
     display_df = pd.DataFrame(tbl, columns=['Category', 'Value'])
 
     # Filter the list base on Expense Category
-    filteredexpense_df = get_filtered_expense(display_df, expense_df)
+    filteredexpense_df = get_filtered_expense(expenseLst, expense_df)
 
     df_bycat = get_calc_display_df_by_category(display_df, filteredexpense_df)
 
@@ -1151,9 +1167,21 @@ def get_expense_data(year, month):
 
     df_bysource = get_calc_display_df_by_source(source_df, filteredexpense_df)
 
-    print(df_bysource)
-
     return df_bycat, df_bysource
+
+def export_expense_data(year, month):
+
+    expense_df = get_all_expense_df_by_year_month(year, month, 'Detail')
+
+    # Filter the list base on Expense Category
+    expenseLst = get_list_by_classification('Expense')
+    filteredexpense_df = get_filtered_expense(expenseLst, expense_df)
+
+    modCsvName = 'Output//all_Expense_Data_' + year + '_' + month + '_{date:%Y%m%d_%H%M%S}.csv'.format(
+        date=datetime.now())
+    modCsvPath = os.path.join(__location__, modCsvName)
+
+    filteredexpense_df.to_csv(modCsvPath)
 
 def main():
 
@@ -1244,10 +1272,11 @@ def main():
             else:
                 print('Error: year or month is blank')
 
-        elif event == 'Process Manual Data':
-            print("[LOG] Clicked Process Manual Data Button!")
-
-
+        elif event == 'Export Expense Data':
+            print("[LOG] Clicked Export Expense Data Button!")
+            year = values['-YEAR-']
+            month = values['-MONTH-']
+            export_expense_data(year, month)
 
     window.close()
     exit(0)
