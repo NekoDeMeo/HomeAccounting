@@ -1,0 +1,24 @@
+,date,where,whose,totalPayment,info,category,type,cycle,note
+0,2020-12-31,モザイクモール港北,Home,410.0,Mosaic Mall,Unknown,Rakuten,202101,Unclear transaction
+1,2020-12-31,モザイクモール港北,Vit,11000.0,Mosaic Mall,Personal,Rakuten,202101,Manual confirmed unclear transaction
+2,2020-12-31,ﾉ-ｽﾎﾟ-ﾄ･ﾓ-ﾙ,Home,790.0,Northport mall,Unknown,Rakuten,202101,Unclear transaction
+3,2020-12-27,ﾉ-ｽﾎﾟ-ﾄ･ﾓ-ﾙ,Home,1084.0,Northport mall,Eating Out,Rakuten,202101,Manual confirmed unclear transaction
+4,2020-12-27,ﾉ-ｽﾎﾟ-ﾄ･ﾓ-ﾙ,Home,978.0,Northport mall,Unknown,Rakuten,202101,Unclear transaction
+5,2020-12-27,ﾉ-ｽﾎﾟ-ﾄ･ﾓ-ﾙ,Home,219.0,Northport mall,Unknown,Rakuten,202101,Unclear transaction
+6,2020-12-26,ﾉ-ｽﾎﾟ-ﾄ･ﾓ-ﾙ,Home,297.0,Northport mall,Eating Out,Rakuten,202101,Manual confirmed unclear transaction
+7,2020-12-26,ﾉ-ｽﾎﾟ-ﾄ･ﾓ-ﾙ,Home,9460.0,Northport mall,Eating Out,Rakuten,202101,Manual confirmed unclear transaction
+8,2020-12-26,ﾉ-ｽﾎﾟ-ﾄ･ﾓ-ﾙ,Home,750.0,Northport mall,Unknown,Rakuten,202101,Unclear transaction
+9,2020-12-23,AMZN DIGITAL*EH0CI47利用国USA,Meo,104.0,No_info,Entertainment,Rakuten,202101,Confirmed new transaction data
+10,2020-12-23,AMZN DIGITAL*3U6G168利用国LUX,Meo,104.0,No_info,Entertainment,Rakuten,202101,Confirmed new transaction data
+11,2020-12-23,AMZN DIGITAL*9V6ED5S利用国LUX,Meo,104.0,No_info,Entertainment,Rakuten,202101,Confirmed new transaction data
+12,2020-12-21,ﾉ-ｽﾎﾟ-ﾄ･ﾓ-ﾙ,Home,2729.0,Northport mall,Eating Out,Rakuten,202101,Manual confirmed unclear transaction
+13,2020-12-21,モザイクモール港北,Home,500.0,Mosaic Mall,Eating Out,Rakuten,202101,Manual confirmed unclear transaction
+14,2020-12-21,都筑阪急,Home,6994.0,Hankyu Store,Kids,Rakuten,202101,Still not clear but propably Nancy stuffs
+15,2020-12-15,イオンリテール,Home,2781.0,AEON,Kids,Rakuten,202101,Manual confirmed unclear transaction
+16,2020-12-14,モザイクモール港北,Home,559.0,Mosaic Mall,Eating Out,Rakuten,202101,Manual confirmed unclear transaction
+17,2020-12-13,ﾍﾟｲﾍﾟｲ ﾗﾗﾎﾟｰﾄﾖｺﾊ,Vit,4710.0,Paypay Lalaport Yokohama (Shopping),Fashion,Rakuten,202101,Manual confirmed unclear transaction
+18,2020-12-13,ﾍﾟｲﾍﾟｲ ﾗﾗﾎﾟｰﾄﾖｺﾊ,Home,820.0,Paypay Lalaport Yokohama,Eating Out,Rakuten,202101,Manual confirmed unclear transaction
+19,2020-12-13,ららぽーと横浜,Home,600.0,Lalaport Yokohama (Play ground),Kids,Rakuten,202101,Manual confirmed unclear transaction
+20,2020-12-09,ﾀﾏﾌﾟﾗ-ｻﾞﾃﾗｽ,Vit,2365.0,TamaPlaza Terrace Mall (Shopping),Personal,Rakuten,202101,Manual confirmed unclear transaction
+21,2020-12-09,ﾀﾏﾌﾟﾗ-ｻﾞﾃﾗｽ,Vit,950.0,TamaPlaza Terrace Mall (Shopping),Personal,Rakuten,202101,Manual confirmed unclear transaction
+22,2020-12-06,高島屋,Home,1814.0,Takashimaya,Eating Out,Rakuten,202101,Manual confirmed unclear transaction
