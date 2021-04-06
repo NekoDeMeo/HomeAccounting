@@ -10,6 +10,8 @@ import os
 import dataset
 from pathlib import Path
 from datetime import datetime
+import ntpath
+ntpath.basename("a/b/c")
 
 matplotlib.use('TkAgg')
 
@@ -63,12 +65,10 @@ def declare_window():
 
     main_layout = [[sg.Text('Enter File Link')],
                    [sg.Input(key='-INPUT-'), sg.FileBrowse('Select File')],
-                   [    sg.Button('Process Rakuten'),
-                        sg.Button('Process Amazon'),
-                        sg.Button('Process Yahoo'),
+                   [    sg.Button('Import RAW Reports'),
                         sg.Button('Process Correction Sheet'),
                         sg.Button('Process Manual Data'),
-                        sg.Button('Reload Table'),
+                        sg.Button('Reload Table')
                     ],
                    [sg.Canvas(key='-AccountSummary-')],
                    [sg.Combo(values=YearList, key='-YEAR-', default_value=__init_year__),
@@ -426,7 +426,7 @@ def process_import_Rakuten(csvPath):
     rakuten_colsDict = {'利用日': 'date', '利用店名・商品名': 'where', '利用者': 'whose', '支払総額': 'totalPayment'}
     rakuten_keyCols = ['date', 'info', 'whose', 'totalPayment', 'category', 'classification', 'direction', 'cycle', 'note']
 
-    strange_CatDict = ['Pocket Money', 'Income', 'Income', 'Adjustment', 'Return', 'Others', 'Unknown', 'Need Confirmed']
+    strange_CatDict = ['Return', 'Others', 'Unknown', 'Need Confirmed']
 
     rakuten_data = pd.read_csv(csvPath, usecols=rakuten_usedColumns)
 
@@ -506,9 +506,11 @@ def process_import_Rakuten(csvPath):
                                         note='Confirmed new transaction data'
                                         )
                                    )
+    db.commit()
+    db.close()
 
-    for tran in rakutenTable.all():
-        print(tran)
+    #for tran in rakutenTable.all():
+    #    print(tran)
 
     needModifiedRow_df = pd.DataFrame(needModifiedRow, columns=needModifiedRow_cols)
 
@@ -623,8 +625,11 @@ def process_import_Yahoo(csvPath):
                                         )
                                    )
 
-    for tran in yahooTable.all():
-        print(tran)
+    db.commit()
+    db.close()
+
+    #for tran in yahooTable.all():
+    #    print(tran)
 
     needModifiedRow_df = pd.DataFrame(needModifiedRow, columns=needModifiedRow_cols)
 
@@ -747,10 +752,13 @@ def process_import_Modified(csvPath):
         else:
             print('Error: invalid Category', row.category)
 
-
+    db.commit()
+    db.close()
     #for tran in targetTable.all():
     #    print(tran)
 
+    renamedPath = csvPath.replace('tobeConfirmed', 'confirmed')
+    os.rename(csvPath, renamedPath)
 
 def get_DB_Source(DBName):
 
@@ -1183,6 +1191,34 @@ def export_expense_data(year, month):
 
     filteredexpense_df.to_csv(modCsvPath)
 
+def validate_amazon_report_name(date_text):
+    try:
+        datetime.strptime(date_text, '%Y%m')
+    except ValueError:
+        raise ValueError("Not recognize report name - In case Amazon format, should be YYYYMM")
+
+def path_leaf(path):
+    head, tail = ntpath.split(path)
+    return tail or ntpath.basename(head)
+
+def process_import_raw_data(csvPath):
+
+    rakute_substring = 'enavi'
+    yahoo_substring = 'detail'
+
+    filename = path_leaf(csvPath)
+    if rakute_substring in filename:
+        print('Detected Rakuten file, process...')
+        process_import_Rakuten(csvPath)
+    elif yahoo_substring in filename:
+        print('Detected Yahoo file, process...')
+        process_import_Yahoo(csvPath)
+    else:
+        date_text = filename[0:6]
+        validate_amazon_report_name(date_text)
+        print('Detected Amazon file, process...')
+        process_import_Amazon(csvPath)
+
 def main():
 
     # create the form and show it without the plot
@@ -1212,29 +1248,6 @@ def main():
         if event in (None, 'Exit'):
             print("[LOG] Clicked Exit!")
             break
-        elif event == 'Process Rakuten':
-            print("[LOG] Clicked Rakuten Button!")
-            csvPath = values['-INPUT-']
-            if ((csvPath != "") and (Path(csvPath).exists())):
-                process_import_Rakuten(csvPath)
-            else:
-                print('Invalid path')
-
-        elif event == 'Process Amazon':
-            print("[LOG] Clicked Amazon Button!")
-            csvPath = values['-INPUT-']
-            if ((csvPath != "") and (Path(csvPath).exists())):
-                process_import_Amazon(csvPath)
-            else:
-                print('Invalid path')
-
-        elif event == 'Process Yahoo':
-            print("[LOG] Clicked Yahoo Button!")
-            csvPath = values['-INPUT-']
-            if ((csvPath != "") and (Path(csvPath).exists())):
-                process_import_Yahoo(csvPath)
-            else:
-                print('Invalid path')
 
         elif event == 'Process Correction Sheet':
             print("[LOG] Clicked Correction Button!")
@@ -1277,6 +1290,14 @@ def main():
             year = values['-YEAR-']
             month = values['-MONTH-']
             export_expense_data(year, month)
+
+        elif event == 'Import RAW Reports':
+            print("[LOG] Clicked Import RAW Report Button!")
+            csvPath = values['-INPUT-']
+            if ((csvPath != "") and (Path(csvPath).exists())):
+                process_import_raw_data(csvPath)
+            else:
+                print('Invalid path')
 
     window.close()
     exit(0)
