@@ -16,14 +16,21 @@ matplotlib.use('TkAgg')
 __location__ = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
+__text_box_fontsize__ = 10
+__text_box_scale_x__ = 1
+__text_box_scale_x1_ = 2
+__text_box_scale_y__ = 2
 
+__up_chart_size__ = (14.6, 2)
+__downleft_size__ = (8.4, 6)
+__downright_size__ = (6.2, 6)
 
 
 def declare_window():
 
     df_tb1, df_tb2, df_tb3 = update_balance_data()
 
-    df = get_expense_data('2021', '02')
+    df_cat, df_source = get_expense_data('2021', '02')
 
     YearList = '2020', '2021'
     MonthList = 'All', '01', '02', '03', '04'
@@ -42,19 +49,19 @@ def declare_window():
                     sg.Combo(values=MonthList, key='-MONTH-', default_value='02'),
                     sg.Button('Show')
                     ],
-                   [sg.Canvas(key='-PieChartWithTable-'), sg.Canvas(key='-GraphChart-')]
+                   [sg.Canvas(key='-CatPieChartWithTable-'), sg.Canvas(key='-SourcePieChartWithTable-')]
                 ]
 
     window = sg.Window('Home Accounting Tool Test', main_layout, finalize=True, location = (500, 100))
 
-    return window, df, df_tb1, df_tb2, df_tb3
+    return window, df_cat, df_source, df_tb1, df_tb2, df_tb3
 
 def autopct_generator(limit):
     def inner_autopct(pct):
         return ('%.2f' % pct) if pct > limit else ''
     return inner_autopct
 
-def get_new_labels(df, limit):
+def get_new_labels_from_cat_df(df, limit):
 
     new_labels = []
 
@@ -74,57 +81,83 @@ def init_window_up(window, df_tb1, df_tb2, df_tb3):
     canvas = canvas_elem.TKCanvas
 
     # add the plot to the window
-    fig = Figure(figsize=(12.4,2))
+    fig = Figure(figsize=__up_chart_size__)
 
     ax_tb1 = fig.add_subplot(131, aspect='equal')
     ax_tb1.axis('off')
     tbl1 = ax_tb1.table(cellText=df_tb1.values, colLabels=df_tb1.keys(), loc='center')
     tbl1.auto_set_font_size(False)
-    tbl1.set_fontsize(12)
-    tbl1.scale(2, 2)
+    tbl1.set_fontsize(__text_box_fontsize__)
+    tbl1.scale(__text_box_scale_x1_, __text_box_scale_y__)
 
     ax_tb2 = fig.add_subplot(132, aspect='equal')
     ax_tb2.axis('off')
     tbl2 = ax_tb2.table(cellText=df_tb2.values, colLabels=df_tb2.keys(), loc='center')
     tbl2.auto_set_font_size(False)
-    tbl2.set_fontsize(12)
-    tbl2.scale(2, 2)
+    tbl2.set_fontsize(__text_box_fontsize__)
+    tbl2.scale(__text_box_scale_x1_, __text_box_scale_y__)
 
     ax_tb3 = fig.add_subplot(133, aspect='equal')
     ax_tb3.axis('off')
     tbl3 = ax_tb3.table(cellText=df_tb3.values, colLabels=df_tb3.keys(), loc='center')
     tbl3.auto_set_font_size(False)
-    tbl3.set_fontsize(12)
-    tbl3.scale(2, 2)
+    tbl3.set_fontsize(__text_box_fontsize__)
+    tbl3.scale(__text_box_scale_x1_, __text_box_scale_y__)
 
     fig_agg = draw_figure(canvas, fig)
 
     return fig_agg, ax_tb1, ax_tb2, ax_tb3
 
-def init_window_down(window, df):
-    canvas_elem = window['-PieChartWithTable-']
+def init_window_down_left(window, df_cat):
+    canvas_elem = window['-CatPieChartWithTable-']
     canvas = canvas_elem.TKCanvas
 
     # add the plot to the window
-    fig = Figure(figsize=(12.4,8))
+    fig = Figure(figsize=__downleft_size__)
     ax1 = fig.add_subplot(121, aspect='equal')
 
-    df.plot(kind='pie', y='Value', ax=ax1, autopct=autopct_generator(3),
-            startangle=90, shadow=False, labels=get_new_labels(df, 3), legend=False, fontsize=10)
+    df_cat.plot(kind='pie', y='Value', ax=ax1, autopct=autopct_generator(3),
+            startangle=90, shadow=False, labels=get_new_labels_from_cat_df(df_cat, 3), legend=False, fontsize=10)
 
     ax2 = fig.add_subplot(122, aspect='equal')
     ax2.axis('off')
 
-    tbl = ax2.table(cellText=df.values, colLabels=df.keys(), loc='center')
+    tbl = ax2.table(cellText=df_cat.values, colLabels=df_cat.keys(), loc='center')
     tbl.auto_set_font_size(False)
-    tbl.set_fontsize(12)
-    tbl.scale(1, 2) #width, heigth
+    tbl.set_fontsize(__text_box_fontsize__)
+    tbl.scale(__text_box_scale_x__, __text_box_scale_y__) #width, heigth
 
     # plot chart
     ax1.grid()
     fig_agg = draw_figure(canvas, fig)
 
     return fig_agg, ax1, ax2
+
+def init_window_down_right(window, df_source):
+
+    canvas_elem = window['-SourcePieChartWithTable-']
+    canvas = canvas_elem.TKCanvas
+
+    # add the plot to the window
+    fig = Figure(figsize=__downright_size__)
+    ax3 = fig.add_subplot(121, aspect='equal')
+
+    df_source.plot(kind='pie', y='Value', ax=ax3, autopct=autopct_generator(3),
+            startangle=90, shadow=False, labels=df_source['Source'], legend=False, fontsize=10)
+
+    ax4 = fig.add_subplot(122, aspect='equal')
+    ax4.axis('off')
+
+    tbl = ax4.table(cellText=df_source.values, colLabels=df_source.keys(), loc='center')
+    tbl.auto_set_font_size(False)
+    tbl.set_fontsize(__text_box_fontsize__)
+    tbl.scale(__text_box_scale_x__, __text_box_scale_y__) #width, heigth
+
+    # plot chart
+    ax3.grid()
+    fig_agg = draw_figure(canvas, fig)
+
+    return fig_agg, ax3, ax4
 
 def update_account_tables(fig_agg, df_tb1, df_tb2, df_tb3, ax_tb1, ax_tb2, ax_tb3):
 
@@ -141,13 +174,13 @@ def update_account_tables(fig_agg, df_tb1, df_tb2, df_tb3, ax_tb1, ax_tb2, ax_tb
     tbl3 = ax_tb3.table(cellText=df_tb3.values, colLabels=df_tb3.keys(), loc='center')
 
     tbl1.auto_set_font_size(False)
-    tbl1.set_fontsize(12)
+    tbl1.set_fontsize(__text_box_fontsize__)
     tbl1.scale(2, 2)
     tbl2.auto_set_font_size(False)
-    tbl2.set_fontsize(12)
+    tbl2.set_fontsize(__text_box_fontsize__)
     tbl2.scale(2, 2)
     tbl3.auto_set_font_size(False)
-    tbl3.set_fontsize(12)
+    tbl3.set_fontsize(__text_box_fontsize__)
     tbl3.scale(2, 2)
 
     fig_agg.draw()
@@ -163,7 +196,7 @@ def update_pilechart_and_table(fig_agg, df, ax1, ax2):
     ax2.axis('off')
     tbl = ax2.table(cellText=df.values, colLabels=df.keys(), loc='center')
     tbl.auto_set_font_size(False)
-    tbl.set_fontsize(12)
+    tbl.set_fontsize(__text_box_fontsize__)
     tbl.scale(1, 2)  # width, heigth
 
     fig_agg.draw()
@@ -913,7 +946,7 @@ def get_expense_category_list():
     return lst
 
 
-def get_df_by_year_month(year, month, dbPath, tableName):
+def get_df_by_year_month(year, month, dbPath, tableName, source):
 
     expense = []
 
@@ -929,11 +962,37 @@ def get_df_by_year_month(year, month, dbPath, tableName):
 
         if (tmonth == month) and (tyear == year):
             expense.append(dict(totalPayment=float(tran['totalPayment']),
-                           category=tran['category']
+                           category=tran['category'],
+                            source=source
                             )
                         )
 
-    df = pd.DataFrame(expense, columns=['totalPayment', 'category'])
+    df = pd.DataFrame(expense, columns=['totalPayment', 'category', 'source'])
+
+    return df
+
+def get_df_by_year_month_whose_credit(year, month, whose, dbPath, tableName, source):
+
+    expense = []
+
+    # open db
+    db = dataset.connect('sqlite:///' + dbPath)
+
+    tbl = db[tableName]
+
+    for tran in tbl:
+
+        tmonth = tran['date'].strftime('%m')
+        tyear = tran['date'].strftime('%Y')
+
+        if (tmonth == month) and (tyear == year) and (whose == tran['whose']):
+            expense.append(dict(totalPayment=float(tran['totalPayment']),
+                           category=tran['category'],
+                            source=source
+                            )
+                        )
+
+    df = pd.DataFrame(expense, columns=['totalPayment', 'category', 'source'])
 
     return df
 
@@ -945,17 +1004,23 @@ def get_all_expense_df_by_year_month(year, month):
     HomeDbName = 'Database//Home.db'
     HomeDBPath = os.path.join(__location__, HomeDbName)
 
-    df_Rakuten = get_df_by_year_month(year, month, CreditDBPath, 'Rakuten')
-    df_Amazon = get_df_by_year_month(year, month, CreditDBPath, 'Amazon')
-    df_Yahoo = get_df_by_year_month(year, month, CreditDBPath, 'Yahoo')
-    df_HomeYB_Main = get_df_by_year_month(year, month, HomeDBPath, 'HomeYB_Main')
-    df_HomeYB_Saving = get_df_by_year_month(year, month, HomeDBPath, 'HomeYB_Saving')
+    df_Rakuten = get_df_by_year_month_whose_credit(year, month, 'Home', CreditDBPath, 'Rakuten', 'Credit')
+    df_Amazon = get_df_by_year_month_whose_credit(year, month, 'Home', CreditDBPath, 'Amazon', 'Credit')
+    df_Yahoo = get_df_by_year_month_whose_credit(year, month, 'Home', CreditDBPath, 'Yahoo', 'Credit')
+
+    df_HomeYB_Main = get_df_by_year_month(year, month, HomeDBPath, 'HomeYB_Main', 'Bank')
+    df_HomeYB_Saving = get_df_by_year_month(year, month, HomeDBPath, 'HomeYB_Saving', 'Bank')
+
+    df_HomeCash = get_df_by_year_month(year, month, HomeDBPath, 'HomeCash', 'Cash')
+    df_Paypay = get_df_by_year_month(year, month, HomeDBPath, 'Paypay', 'Paypay')
 
     df = pd.concat([df_Rakuten,
                     df_Amazon,
                     df_Yahoo,
                     df_HomeYB_Main,
-                    df_HomeYB_Saving
+                    df_HomeYB_Saving,
+                    df_HomeCash,
+                    df_Paypay
                     ],
                    ignore_index=True,
                    sort=False
@@ -963,7 +1028,7 @@ def get_all_expense_df_by_year_month(year, month):
 
     return df
 
-def get_filter_expense(display_df, expense_df):
+def get_calc_display_df_by_category(display_df, expense_df):
 
     # TODO: find a way to do this smarter - pandas data frame query/index
 
@@ -976,30 +1041,78 @@ def get_filter_expense(display_df, expense_df):
 
     return display_df
 
-def get_expense_data(year, month):
+def get_filtered_expense(display_df, expense_df):
 
-    expenseLst = get_list_by_classification('Expense')
-    tbl = {'Category': expenseLst, 'Value': 0}
-
-    display_df = pd.DataFrame(tbl, columns=['Category', 'Value'])
-
-    expense_df = get_all_expense_df_by_year_month(year, month)
-
-    df = get_filter_expense(display_df, expense_df)
+    df = expense_df[expense_df['category'].isin(display_df['Category'])]
 
     return df
+
+def get_calc_display_df_by_source(source_df, expense_df):
+
+    cnt = 0
+
+    for row in source_df.itertuples():
+        cat = row.Source
+        source_df.at[cnt, 'Value'] = expense_df[expense_df['source'] == cat].sum()['totalPayment']
+        cnt += 1
+
+    return source_df
+
+    return df
+
+def get_source_list():
+
+    sourceList = ['Credit', 'Bank', 'Cash', 'Paypay']
+
+    return sourceList
+
+def get_expense_data(year, month):
+
+    # -----------------------
+    # Get all data base on year month
+    # -----------------------
+    expense_df = get_all_expense_df_by_year_month(year, month)
+
+    # -----------------------
+    # Create Expense Data List
+    # -----------------------
+    expenseLst = get_list_by_classification('Expense')
+    tbl = {'Category': expenseLst, 'Value': 0}
+    display_df = pd.DataFrame(tbl, columns=['Category', 'Value'])
+
+    # Filter the list base on Expense Category
+    filteredexpense_df = get_filtered_expense(display_df, expense_df)
+
+    df_bycat = get_calc_display_df_by_category(display_df, filteredexpense_df)
+
+    # Sort Data for Expense
+    df_bycat = df_bycat.sort_values('Value', ascending=False)
+
+    # -----------------------
+    # Create Source Data list
+    # -----------------------
+
+    sourceLst = get_source_list()
+    tbl = {'Source': sourceLst, 'Value': 0}
+    source_df = pd.DataFrame(tbl, columns=['Source', 'Value'])
+
+    df_bysource = get_calc_display_df_by_source(source_df, filteredexpense_df)
+
+    print(df_bysource)
+
+    return df_bycat, df_bysource
 
 def main():
 
     # create the form and show it without the plot
-    window, df, df_tb1, df_tb2, df_tb3 = declare_window()
+    window, df_cat, df_source, df_tb1, df_tb2, df_tb3 = declare_window()
 
     fig_agg_up, ax_tb1, ax_tb2, ax_tb3 = init_window_up(window, df_tb1, df_tb2, df_tb3)
 
-    # Sort Data for Expense
-    df =df.sort_values('Value', ascending=False)
+    fig_agg_down_left, ax1, ax2 = init_window_down_left(window, df_cat)
 
-    fig_agg_down, ax1, ax2 = init_window_down(window, df)
+    fig_agg_down_right, ax3, ax4 = init_window_down_right(window, df_source)
+
 
 
     # This is an Event Loop
@@ -1068,9 +1181,8 @@ def main():
             month = values['-MONTH-']
 
             if ((year != '') and (month != '')):
-                df = get_expense_data(year, month)
-                # Sort Data for Expense
-                df = df.sort_values('Value', ascending=False)
+                df_cat, df_source = get_expense_data(year, month)
+
                 update_pilechart_and_table(fig_agg_down, df, ax1, ax2)
             else:
                 print('Error: year or month is blank')
