@@ -17,20 +17,46 @@ __location__ = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 __text_box_fontsize__ = 10
-__text_box_scale_x__ = 1
+__text_box_scale_x__ = 1.1
 __text_box_scale_x1_ = 2
-__text_box_scale_y__ = 2
+__text_box_scale_y__ = 1.5
+
+
+__piechart_font_size__ = 8
 
 __up_chart_size__ = (14.6, 2)
 __downleft_size__ = (8.4, 6)
 __downright_size__ = (6.2, 6)
 
+__init_year__ = '2021'
+__init_month__ = '02'
+
+
+def add_sum_to_display_df(df_display):
+
+    Total = df_display['Value'].sum()
+    df_display.loc[len(df_display)] = ['Sum Total', Total]
+
+    return df_display
+
+def add_comma_and_remove_zero(x):
+
+    print(x)
+    ret = remove_zero(f'{x:,}')
+
+    return ret
+
+def add_coma_to_data(df_display):
+
+    df_display['Value'] = df_display['Value'].apply(lambda x: "{:,}".format(x))
+
+    return df_display
 
 def declare_window():
 
     df_tb1, df_tb2, df_tb3 = update_balance_data()
 
-    df_cat, df_source = get_expense_data('2021', '02')
+    df_cat, df_source = get_expense_data(__init_year__, __init_month__)
 
     YearList = '2020', '2021'
     MonthList = 'All', '01', '02', '03', '04'
@@ -45,14 +71,14 @@ def declare_window():
                         sg.Button('Reload Table'),
                     ],
                    [sg.Canvas(key='-AccountSummary-')],
-                   [sg.Combo(values=YearList, key='-YEAR-', default_value='2021'),
-                    sg.Combo(values=MonthList, key='-MONTH-', default_value='02'),
+                   [sg.Combo(values=YearList, key='-YEAR-', default_value=__init_year__),
+                    sg.Combo(values=MonthList, key='-MONTH-', default_value=__init_month__),
                     sg.Button('Show')
                     ],
                    [sg.Canvas(key='-CatPieChartWithTable-'), sg.Canvas(key='-SourcePieChartWithTable-')]
                 ]
 
-    window = sg.Window('Home Accounting Tool Test', main_layout, finalize=True, location = (500, 100))
+    window = sg.Window('Home Accounting Tool Test', main_layout, finalize=True, location = (400, 100))
 
     return window, df_cat, df_source, df_tb1, df_tb2, df_tb3
 
@@ -117,12 +143,15 @@ def init_window_down_left(window, df_cat):
     ax1 = fig.add_subplot(121, aspect='equal')
 
     df_cat.plot(kind='pie', y='Value', ax=ax1, autopct=autopct_generator(3),
-            startangle=90, shadow=False, labels=get_new_labels_from_cat_df(df_cat, 3), legend=False, fontsize=10)
+            startangle=90, shadow=False, labels=get_new_labels_from_cat_df(df_cat, 3), legend=False, fontsize=__piechart_font_size__)
 
     ax2 = fig.add_subplot(122, aspect='equal')
     ax2.axis('off')
 
-    tbl = ax2.table(cellText=df_cat.values, colLabels=df_cat.keys(), loc='center')
+    df = add_sum_to_display_df(df_cat)
+    df = add_coma_to_data(df)
+
+    tbl = ax2.table(cellText=df.values, colLabels=df.keys(), loc='center')
     tbl.auto_set_font_size(False)
     tbl.set_fontsize(__text_box_fontsize__)
     tbl.scale(__text_box_scale_x__, __text_box_scale_y__) #width, heigth
@@ -143,12 +172,15 @@ def init_window_down_right(window, df_source):
     ax3 = fig.add_subplot(121, aspect='equal')
 
     df_source.plot(kind='pie', y='Value', ax=ax3, autopct=autopct_generator(3),
-            startangle=90, shadow=False, labels=df_source['Source'], legend=False, fontsize=10)
+            startangle=90, shadow=False, labels=df_source['Source'], legend=False, fontsize=__piechart_font_size__)
 
     ax4 = fig.add_subplot(122, aspect='equal')
     ax4.axis('off')
 
-    tbl = ax4.table(cellText=df_source.values, colLabels=df_source.keys(), loc='center')
+    df = add_sum_to_display_df(df_source)
+    df = add_coma_to_data(df)
+
+    tbl = ax4.table(cellText=df.values, colLabels=df.keys(), loc='center')
     tbl.auto_set_font_size(False)
     tbl.set_fontsize(__text_box_fontsize__)
     tbl.scale(__text_box_scale_x__, __text_box_scale_y__) #width, heigth
@@ -185,19 +217,40 @@ def update_account_tables(fig_agg, df_tb1, df_tb2, df_tb3, ax_tb1, ax_tb2, ax_tb
 
     fig_agg.draw()
 
-def update_pilechart_and_table(fig_agg, df, ax1, ax2):
+def update_cat_pilechart_and_table(fig_agg, df_cat, ax1, ax2):
 
     ax1.cla()
     ax1.axis('off')
-    df.plot(kind='pie', y='Value', ax=ax1, autopct=autopct_generator(3),
-            startangle=90, shadow=False, labels=get_new_labels(df, 3), legend=False, fontsize=10)
+    df_cat.plot(kind='pie', y='Value', ax=ax1, autopct=autopct_generator(3),
+            startangle=90, shadow=False, labels=get_new_labels_from_cat_df(df_cat, 3), legend=False, fontsize=__piechart_font_size__)
+
+    df = add_sum_to_display_df(df_cat)
+    df = add_coma_to_data(df)
 
     ax2.cla()
     ax2.axis('off')
     tbl = ax2.table(cellText=df.values, colLabels=df.keys(), loc='center')
     tbl.auto_set_font_size(False)
     tbl.set_fontsize(__text_box_fontsize__)
-    tbl.scale(1, 2)  # width, heigth
+    tbl.scale(__text_box_scale_x__, __text_box_scale_y__) #width, heigth
+
+    fig_agg.draw()
+
+def update_source_pilechart_and_table(fig_agg, df_source, ax3, ax4):
+    ax3.cla()
+    ax3.axis('off')
+    df_source.plot(kind='pie', y='Value', ax=ax3, autopct=autopct_generator(3),
+            startangle=90, shadow=False, labels=df_source['Source'], legend=False, fontsize=__piechart_font_size__)
+
+    df = add_sum_to_display_df(df_source)
+    df = add_coma_to_data(df)
+
+    ax4.cla()
+    ax4.axis('off')
+    tbl = ax4.table(cellText=df.values, colLabels=df.keys(), loc='center')
+    tbl.auto_set_font_size(False)
+    tbl.set_fontsize(__text_box_fontsize__)
+    tbl.scale(__text_box_scale_x__, __text_box_scale_y__) #width, heigth
 
     fig_agg.draw()
 
@@ -1113,7 +1166,10 @@ def main():
 
     fig_agg_down_right, ax3, ax4 = init_window_down_right(window, df_source)
 
-
+    # TODO: remove workaround to zoom table
+    df_cat, df_source = get_expense_data(__init_year__, __init_month__)
+    update_cat_pilechart_and_table(fig_agg_down_left, df_cat, ax1, ax2)
+    update_source_pilechart_and_table(fig_agg_down_right, df_source, ax3, ax4)
 
     # This is an Event Loop
     while True:
@@ -1183,7 +1239,8 @@ def main():
             if ((year != '') and (month != '')):
                 df_cat, df_source = get_expense_data(year, month)
 
-                update_pilechart_and_table(fig_agg_down, df, ax1, ax2)
+                update_cat_pilechart_and_table(fig_agg_down_left, df_cat, ax1, ax2)
+                update_source_pilechart_and_table(fig_agg_down_right, df_source, ax3, ax4)
             else:
                 print('Error: year or month is blank')
 
