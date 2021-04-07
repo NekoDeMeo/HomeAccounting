@@ -583,7 +583,7 @@ def process_import_Yahoo(csvPath):
                     print('Strange Data - Need Handle', payAt, category)
                     needModifiedRow.append(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                                 where=row.where,
-                                                whose=row.whose,
+                                                whose=whose,
                                                 totalPayment=float(row.totalPayment),
                                                 info=info,
                                                 category=category,
@@ -597,7 +597,7 @@ def process_import_Yahoo(csvPath):
                     # print('Classification = ', classification)
                     yahooTable.insert_ignore(dict(date=datetime.strptime(row.date, '%Y/%m/%d').date(),
                                                     info=info,
-                                                    whose='Home',
+                                                    whose=whose,
                                                     totalPayment=float(row.totalPayment),
                                                     category=category,
                                                     classification=classification,
