@@ -79,7 +79,7 @@ def declare_window():
                    [sg.Canvas(key='-CatPieChartWithTable-'), sg.Canvas(key='-SourcePieChartWithTable-')]
                 ]
 
-    window = sg.Window('Home Accounting Tool Test', main_layout, finalize=True, location = (400, 100))
+    window = sg.Window('Home Accounting Tool CreditReport_RAW', main_layout, finalize=True, location = (400, 100))
 
     return window, df_cat, df_source, df_tb1, df_tb2, df_tb3
 

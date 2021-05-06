@@ -17,6 +17,174 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\dumpDataPreview">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\ImportFiles\ConfirmedData\confirmed_202101_Amazon_20210407_000225.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\ImportFiles\ConfirmedData\confirmed_202101_Rakuten_20210407_000234.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\ImportFiles\ConfirmedData\confirmed_202101_Yahoo_20210407_000245.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\ImportFiles\ConfirmedData\confirmed_202102_Amazon_20210406_222642.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\ImportFiles\ConfirmedData\confirmed_202102_Rakuten_20210406_222557.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\ImportFiles\ConfirmedData\confirmed_202102_Yahoo_20210406_222706.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\ImportFiles\ConfirmedData\confirmed_202103_Amazon_20210405_152554.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\ImportFiles\ConfirmedData\confirmed_202103_Rakuten_20210405_145832.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\ImportFiles\ConfirmedData\confirmed_202103_Yahoo_20210405_154515.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\ImportFiles\Manual_MasterData.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Output\all_Expense_Data_2021_03_20210506_123915.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Output\confirmed_202104_Amazon_20210506_120931.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Output\confirmed_202104_Rakuten_20210506_120833.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Output\confirmed_202104_Yahoo_20210506_120940.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Output\tobeConfirmed_202104_Amazon_20210506_120931.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Output\tobeConfirmed_202104_Rakuten_20210506_120833.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Output\tobeConfirmed_202104_Yahoo_20210506_120940.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Preparation\ExpenseCategories.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Preparation\ExpenseLibrary.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Prepare_Manual\DBMappingList.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_SumByType\ExpenseCategories.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_TestQuery\Preparation\ExpenseCategories.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_TestQuery\Preparation\ExpenseLibrary.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

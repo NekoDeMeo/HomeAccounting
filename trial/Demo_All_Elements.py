@@ -40,7 +40,7 @@ def make_window(theme):
 
     asthetic_layout = [[sg.T('Anything that you would use for asthetics is in this tab!')],
                [sg.Image(data=sg.DEFAULT_BASE64_ICON,  k='-IMAGE-')],
-               [sg.ProgressBar(1000, orientation='h', size=(20, 20), key='-PROGRESS BAR-'), sg.Button('Test Progress bar')]]
+               [sg.ProgressBar(1000, orientation='h', size=(20, 20), key='-PROGRESS BAR-'), sg.Button('CreditReport_RAW Progress bar')]]
 
     logging_layout = [[sg.Text("Anything printed will display here!")], [sg.Output(size=(60,15), font='Courier 8')]]
     
@@ -101,8 +101,8 @@ def main():
             print("[LOG] Clicked Popup Button!")
             sg.popup("You pressed a button!")
             print("[LOG] Dismissing Popup!")
-        elif event == 'Test Progress bar':
-            print("[LOG] Clicked Test Progress Bar!")
+        elif event == 'CreditReport_RAW Progress bar':
+            print("[LOG] Clicked CreditReport_RAW Progress Bar!")
             progress_bar = window['-PROGRESS BAR-']
             for i in range(1000):
                 print("[LOG] Updating progress bar by 1 step ("+str(i)+")")

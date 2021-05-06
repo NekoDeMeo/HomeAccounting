@@ -79,7 +79,7 @@ def declare_window():
               ]
 
     # create the form and show it without the plot
-    window = sg.Window('Test Multiple chart',
+    window = sg.Window('CreditReport_RAW Multiple chart',
                        layout, force_toplevel=True, finalize=True)
 
 
@@ -136,7 +136,7 @@ def declare_window_1():
               ]
 
     # create the form and show it without the plot
-    window = sg.Window('Test Multiple chart',
+    window = sg.Window('CreditReport_RAW Multiple chart',
                        layout, force_toplevel=True, finalize=True)
 
     return window, df

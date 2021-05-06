@@ -33,7 +33,7 @@ def declare_window():
                    [sg.Canvas(key='-PieChartWithTable-'), sg.Canvas(key='-GraphChart-')]
                 ]
 
-    window = sg.Window('Home Accounting Tool Test', main_layout, finalize=True)
+    window = sg.Window('Home Accounting Tool CreditReport_RAW', main_layout, finalize=True)
 
     return window, df
 
