@@ -18,15 +18,20 @@ matplotlib.use('TkAgg')
 __location__ = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
+__window_top_x__ = 50
+__window_top_y__ = 50
+
 __text_box_fontsize__ = 10
 __text_box_scale_x__ = 1.1
-__text_box_scale_x1_ = 2
+__text_box_scale_x1_ = 1
+__text_box_scale_x2_ = 1.3
 __text_box_scale_y__ = 1.5
 
 
 __piechart_font_size__ = 8
 
-__up_chart_size__ = (14.6, 2)
+__upleft_chart_size__ = (8.4, 3)
+__upright_chart_size__ = (6.2, 3)
 __downleft_size__ = (8.4, 6)
 __downright_size__ = (6.2, 6)
 
@@ -60,6 +65,8 @@ def declare_window():
 
     df_cat, df_source = get_expense_data(__init_year__, __init_month__)
 
+    df_inex = get_incomeexpense_data_until(__init_year__, __init_month__)
+
     YearList = '2020', '2021'
     MonthList = 'All', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'
 
@@ -70,7 +77,7 @@ def declare_window():
                         sg.Button('Process Manual Data'),
                         sg.Button('Reload Table')
                     ],
-                   [sg.Canvas(key='-AccountSummary-')],
+                   [sg.Canvas(key='-AccountSummary-'), sg.Canvas(key='-IncomeExpenseLineChart-')],
                    [sg.Combo(values=YearList, key='-YEAR-', default_value=__init_year__),
                     sg.Combo(values=MonthList, key='-MONTH-', default_value=__init_month__),
                     sg.Button('Show'),
@@ -79,9 +86,9 @@ def declare_window():
                    [sg.Canvas(key='-CatPieChartWithTable-'), sg.Canvas(key='-SourcePieChartWithTable-')]
                 ]
 
-    window = sg.Window('Home Accounting Tool CreditReport_RAW', main_layout, finalize=True, location = (400, 100))
+    window = sg.Window('Home Accounting Tool CreditReport_RAW', main_layout, finalize=True, location = (__window_top_x__, __window_top_y__))
 
-    return window, df_cat, df_source, df_tb1, df_tb2, df_tb3
+    return window, df_cat, df_source, df_tb1, df_tb2, df_tb3, df_inex
 
 def autopct_generator(limit):
     def inner_autopct(pct):
@@ -103,19 +110,19 @@ def get_new_labels_from_cat_df(df, limit):
 
     return new_labels
 
-def init_window_up(window, df_tb1, df_tb2, df_tb3):
+def init_window_upleft(window, df_tb1, df_tb2, df_tb3):
     canvas_elem = window['-AccountSummary-']
     canvas = canvas_elem.TKCanvas
 
     # add the plot to the window
-    fig = Figure(figsize=__up_chart_size__)
+    fig = Figure(figsize=__upleft_chart_size__)
 
     ax_tb1 = fig.add_subplot(131, aspect='equal')
     ax_tb1.axis('off')
     tbl1 = ax_tb1.table(cellText=df_tb1.values, colLabels=df_tb1.keys(), loc='center')
     tbl1.auto_set_font_size(False)
     tbl1.set_fontsize(__text_box_fontsize__)
-    tbl1.scale(__text_box_scale_x1_, __text_box_scale_y__)
+    tbl1.scale(__text_box_scale_x2_, __text_box_scale_y__)
 
     ax_tb2 = fig.add_subplot(132, aspect='equal')
     ax_tb2.axis('off')
@@ -134,6 +141,30 @@ def init_window_up(window, df_tb1, df_tb2, df_tb3):
     fig_agg = draw_figure(canvas, fig)
 
     return fig_agg, ax_tb1, ax_tb2, ax_tb3
+
+def init_window_upright(window, df):
+    canvas_elem = window['-IncomeExpenseLineChart-']
+    canvas = canvas_elem.TKCanvas
+
+    # add the plot to the window
+    fig = Figure(figsize=__upright_chart_size__)
+    ax1 = fig.add_subplot(111)
+
+    df.plot(kind = 'line', x='x_values', y='y1_values', ax=ax1, marker='o', markerfacecolor='blue', markersize=12, color='skyblue',
+             linewidth=4)
+
+    df.plot(kind='line', x='x_values', y='y2_values', ax=ax1, marker='', color='olive', linewidth=2)
+
+    df.plot(kind='line', x='x_values', y='y3_values', ax=ax1, marker='', color='olive', linewidth=2, linestyle='dashed', label="toto")
+
+    # show legend
+    ax1.legend()
+
+    # plot chart
+    ax1.grid()
+    fig_agg = draw_figure(canvas, fig)
+
+    return fig_agg, ax1
 
 def init_window_down_left(window, df_cat):
     canvas_elem = window['-CatPieChartWithTable-']
@@ -216,6 +247,21 @@ def update_account_tables(fig_agg, df_tb1, df_tb2, df_tb3, ax_tb1, ax_tb2, ax_tb
     tbl3.set_fontsize(__text_box_fontsize__)
     tbl3.scale(2, 2)
 
+    fig_agg.draw()
+
+def update_incomeexpense_linechart(fig_agg, df, ax1):
+
+    ax1.cla()
+
+    df.plot(kind = 'line', x='x_values', y='y1_values', ax=ax1, marker='o', markerfacecolor='blue', markersize=12, color='skyblue',
+             linewidth=4)
+
+    df.plot(kind='line', x='x_values', y='y2_values', ax=ax1, marker='', color='olive', linewidth=2)
+
+    df.plot(kind='line', x='x_values', y='y3_values', ax=ax1, marker='', color='olive', linewidth=2, linestyle='dashed', label="toto")
+
+    ax1.legend()
+    ax1.grid()
     fig_agg.draw()
 
 def update_cat_pilechart_and_table(fig_agg, df_cat, ax1, ax2):
@@ -1145,6 +1191,18 @@ def get_source_list():
 
     return sourceList
 
+def get_incomeexpense_data_until(year, month):
+
+    raw_data = {'x_values': range(1, 13),
+                'y1_values': [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000],
+                'y2_values': [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200],
+                'y3_values': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120],
+                }
+
+    df = pd.DataFrame(raw_data, columns=['x_values', 'y1_values', 'y2_values', 'y3_values'])
+
+    return df
+
 def get_expense_data(year, month):
 
     # -----------------------
@@ -1224,9 +1282,11 @@ def process_import_raw_data(csvPath):
 def main():
 
     # create the form and show it without the plot
-    window, df_cat, df_source, df_tb1, df_tb2, df_tb3 = declare_window()
+    window, df_cat, df_source, df_tb1, df_tb2, df_tb3, df_inex = declare_window()
 
-    fig_agg_up, ax_tb1, ax_tb2, ax_tb3 = init_window_up(window, df_tb1, df_tb2, df_tb3)
+    fig_agg_up_left, ax_tb1, ax_tb2, ax_tb3 = init_window_upleft(window, df_tb1, df_tb2, df_tb3)
+
+    fig_agg_up_right, ax_inex = init_window_upright(window, df_inex)
 
     fig_agg_down_left, ax1, ax2 = init_window_down_left(window, df_cat)
 
@@ -1234,8 +1294,11 @@ def main():
 
     # TODO: remove workaround to zoom table
     df_cat, df_source = get_expense_data(__init_year__, __init_month__)
+    # down left
     update_cat_pilechart_and_table(fig_agg_down_left, df_cat, ax1, ax2)
+    #down right
     update_source_pilechart_and_table(fig_agg_down_right, df_source, ax3, ax4)
+
 
     # This is an Event Loop
     while True:
@@ -1270,7 +1333,10 @@ def main():
         elif event == 'Reload Table':
             print("[LOG] Clicked Reload Table!")
             df_tb1, df_tb2, df_tb3 = update_balance_data()
-            update_account_tables(fig_agg_up, df_tb1, df_tb2, df_tb3, ax_tb1, ax_tb2, ax_tb3)
+            update_account_tables(fig_agg_up_left, df_tb1, df_tb2, df_tb3, ax_tb1, ax_tb2, ax_tb3)
+
+            df_inex = get_incomeexpense_data_until(__init_year__, __init_month__)
+            update_incomeexpense_linechart(fig_agg_up_right, df_inex)
         elif event == 'Process Manual Data':
             print("[LOG] Clicked Process Manual Data Button!")
 
