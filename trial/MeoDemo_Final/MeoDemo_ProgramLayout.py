@@ -468,7 +468,7 @@ def process_import_Rakuten(csvPath):
                                                 whose=whose,
                                                 totalPayment=float(row.totalPayment),
                                                 info=info,
-                                                category=category,
+                                                category='Need_Confirmed',
                                                 type = 'Rakuten',
                                                 cycle = cycle,
                                                 note='Manual confirmed unclear transaction'
@@ -512,14 +512,15 @@ def process_import_Rakuten(csvPath):
     #for tran in rakutenTable.all():
     #    print(tran)
 
-    needModifiedRow_df = pd.DataFrame(needModifiedRow, columns=needModifiedRow_cols)
+    if needModifiedRow:
+        needModifiedRow_df = pd.DataFrame(needModifiedRow, columns=needModifiedRow_cols)
 
-    folderName = 'Output'
-    folderpath = os.path.join(__location__, folderName)
-    modCsvName = 'tobeConfirmed_' + cycle + '_Rakuten_{date:%Y%m%d_%H%M%S}.csv'.format(date=datetime.now())
-    modCsvPath = os.path.join(folderpath, modCsvName)
+        folderName = 'Output'
+        folderpath = os.path.join(__location__, folderName)
+        modCsvName = 'tobeConfirmed_' + cycle + '_Rakuten_{date:%Y%m%d_%H%M%S}.csv'.format(date=datetime.now())
+        modCsvPath = os.path.join(folderpath, modCsvName)
 
-    needModifiedRow_df.to_csv(modCsvPath)
+        needModifiedRow_df.to_csv(modCsvPath)
 
 def process_import_Yahoo(csvPath):
 
@@ -586,7 +587,7 @@ def process_import_Yahoo(csvPath):
                                                 whose=whose,
                                                 totalPayment=float(row.totalPayment),
                                                 info=info,
-                                                category=category,
+                                                category='Need_Confirmed',
                                                 type='Yahoo',
                                                 cycle=cycle,
                                                 note='Manually confirmed unclear transaction'
@@ -631,12 +632,13 @@ def process_import_Yahoo(csvPath):
     #for tran in yahooTable.all():
     #    print(tran)
 
-    needModifiedRow_df = pd.DataFrame(needModifiedRow, columns=needModifiedRow_cols)
+    if needModifiedRow:
+        needModifiedRow_df = pd.DataFrame(needModifiedRow, columns=needModifiedRow_cols)
 
-    modCsvName = 'Output//tobeConfirmed_' + cycle + '_Yahoo_{date:%Y%m%d_%H%M%S}.csv'.format(date=datetime.now())
-    modCsvPath = os.path.join(__location__, modCsvName)
+        modCsvName = 'Output//tobeConfirmed_' + cycle + '_Yahoo_{date:%Y%m%d_%H%M%S}.csv'.format(date=datetime.now())
+        modCsvPath = os.path.join(__location__, modCsvName)
 
-    needModifiedRow_df.to_csv(modCsvPath)
+        needModifiedRow_df.to_csv(modCsvPath)
 
 def process_import_Amazon(csvPath):
 

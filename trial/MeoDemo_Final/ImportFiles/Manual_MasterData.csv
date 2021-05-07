@@ -1,227 +1,227 @@
 ﻿date,info,totalPayment,processDB,category
-2020/6/29,First Balance,"569,456,889",MomVCB,Adjustment Up
-2020/6/29,First Balance,"9,590,343",MomYB,Adjustment Up
+2020/06/29,First Balance,"569,456,889",MomVCB,Adjustment Up
+2020/06/29,First Balance,"9,590,343",MomYB,Adjustment Up
 2020/12/31,First Balance,"16,700",HomeUSD,Adjustment Up
 2020/12/31,First Balance,"56,000",HomeCash,Adjustment Up
-2020/6/29,First Balance,"6,241,731",HomeYB_Saving,Adjustment Up
-2021/4/1,First Balance,"11,182",Paypay,Adjustment Up
-2020/6/29,First Balance,"213,136",MeoYB,Adjustment Up
-2020/4/1,First Balance,"8,700",MeoCash,Adjustment Up
-2020/9/12,First Balance,"40,000",VitYB,Adjustment Up
+2020/06/29,First Balance,"6,241,731",HomeYB_Saving,Adjustment Up
+2020/03/01,First Balance,"3,975",Paypay,Adjustment Down
+2020/06/29,First Balance,"213,136",MeoYB,Adjustment Up
+2020/04/01,First Balance,"8,700",MeoCash,Adjustment Up
+2020/09/12,First Balance,"40,000",VitYB,Adjustment Up
 2020/12/31,First Balance,"1,000",VitCash,Adjustment Up
-2021/1/7,Mangoes,"6,000",MeoYB,Groceries
-2021/1/15,Insurance (Meo) 2021.01,"5,000",HomeYB_Main,Insurances
-2021/1/25,Salary JP 2021.01,"606,705",HomeYB_Main,Salary
-2021/1/25,House rental 2021.01,"121,000",HomeYB_Main,Housing
-2021/1/26,Kindergarten Puppy,"65,000",HomeYB_Main,Kids
-2021/1/26,Amazon (Home),"17,742",HomeYB_Main,Credit Payment
-2021/1/27,Yahoo (Home),"103,812",HomeYB_Main,Credit Payment
-2021/1/27,Yahoo (Vit),"12,672",VitYB,Credit Payment
-2021/1/27,Yahoo,"12,672",HomeYB_Main,Transfer Out
-2021/1/27,Yahoo,"12,672",HomeYB_Saving,Transfer In
-2021/1/27,Rakuten (Home),"52,678",HomeYB_Main,Credit Payment
-2021/1/27,Rakuten (Meo),"9,592",MeoYB,Credit Payment
-2021/1/27,Rakuten (Vit),"19,025",VitYB,Credit Payment
-2021/1/27,Rakuten,"19,025",HomeYB_Main,Transfer Out
-2021/1/27,Rakuten,"19,025",HomeYB_Saving,Transfer In
-2021/1/9,Fee Card,"24,200",MomVCB,Transfer Out
-2021/1/9,Fee Card,107,MomYB,Transfer In
-2021/1/9,Fee Card,107,HomeYB_Main,Utilities
-2021/1/8,Books,"3,340,094",MomVCB,Transfer Out
-2021/1/8,Books,"14,832",MomYB,Transfer In
-2021/1/8,Books,"14,832",HomeYB_Main,Education
-2021/1/15,Interest,"203,836",MomVCB,Bonus
-2021/1/22,Interest,"127,397",MomVCB,Bonus
-2021/1/25,Interest,294,MomVCB,Bonus
-2021/1/31,Meo 2021.01,"10,000",MeoYB,Other Income
-2021/1/31,Meo 2021.01,"10,000",HomeYB_Main,Allowance
-2021/1/31,Phone Bill 2021,"13,680,000",MomVCB,Transfer Out
-2021/1/31,Phone Bill 2021,"60,749",MomYB,Transfer In
-2021/1/31,Phone Bill 2021,"60,749",HomeYB_Main,Utilities
-2021/1/31,Books Shipping,"2,600,000",MomVCB,Transfer Out
-2021/1/31,Books Shipping,"11,546",MomYB,Transfer In
-2021/1/31,Books Shipping,"11,546",HomeYB_Main,Education
-2021/1/31,Book Shipping (Meo paid),"2,000,000",MomVCB,Transfer Out
-2021/1/31,Book Shipping (Meo paid),"10,000",MomYB,Transfer In
-2021/1/31,Book Shipping (Meo paid),"10,000",MeoYB,Education
-2021/1/31,WFH Allowance 2021,"10,000",MeoYB,Other Income
-2021/1/31,WFH Allowance 2021,"10,000",HomeYB_Main,Allowance
-2021/1/31,Bonus Bukkun + Fee (Meo paid),"386,506",MomVCB,Transfer Out
-2021/1/31,Bonus Bukkun + Fee (Meo paid),"1,932",MomYB,Transfer In
-2021/1/31,Bonus Bukkun + Fee (Meo paid),"1,932",MeoYB,Other Expense
-2021/1/31,Interest,"1,233",MomVCB,Bonus
-2021/1/31,Adjustment,56,MeoYB,Adjustment Up
-2021/1/31,Adjustment,56,HomeYB_Main,Adjustment Down
-2021/1/31,Bonus Meo,"20,000",MeoYB,Other Income
-2021/1/31,Bonus Meo,"20,000",HomeYB_Main,Allowance
-2021/1/31,To Duck's bank,"82,486",HomeYB_Saving,Transfer In
-2021/1/31,To Duck's bank,"82,486",HomeYB_Main,Transfer Out
-2021/1/15,Insurance (Vit),"2,000",HomeYB_Saving,Insurances
-2021/1/26,Vietnam Food Online,"6,900",HomeYB_Saving,Groceries
-2021/1/30,Withdraw,"50,000",HomeYB_Saving,Transfer Out
-2021/1/30,Withdraw,"50,000",HomeCash,Transfer In
-2021/1/31,Vit 2021.01,"20,000",HomeYB_Saving,Allowance
-2021/1/31,Vit 2021.01,"20,000",VitYB,Other Income
-2021/2/15,Insurance (Meo) 2021.02,"5,000",HomeYB_Main,Insurances
-2021/2/25,Salary JP 2021.02,"683,765",HomeYB_Main,Salary
-2021/2/25,House rental 2021.02,"121,000",HomeYB_Main,Housing
-2021/2/26,Kindergarten Puppy,"65,000",HomeYB_Main,Kids
-2021/2/26,Amazon (Home),"16,161",HomeYB_Main,Credit Payment
-2021/2/26,Amazon (Meo),"1,899",MeoYB,Credit Payment
-2021/3/1,Rakuten (Home),"94,954",HomeYB_Main,Credit Payment
-2021/3/1,Rakuten (Meo),"13,090",MeoYB,Credit Payment
-2021/3/1,Rakuten (Vit),"1,419",VitYB,Credit Payment
-2021/3/1,Rakuten,"1,419",HomeYB_Main,Transfer Out
-2021/3/1,Rakuten,"1,419",HomeYB_Saving,Transfer In
-2021/3/1,Yahoo (Home),"128,909",HomeYB_Main,Credit Payment
-2021/3/1,Yahoo (Meo),"1,880",MeoYB,Credit Payment
-2021/3/1,Yahoo (Vit),"15,697",VitYB,Credit Payment
-2021/3/1,Yahoo,"15,697",HomeYB_Main,Transfer Out
-2021/3/1,Yahoo,"15,697",HomeYB_Saving,Transfer In
-2021/3/1,Fee Card,"24,200",MomVCB,Transfer Out
-2021/3/1,Fee Card,107,MomYB,Transfer In
-2021/3/1,Fee Card,107,HomeYB_Main,Utilities
-2021/2/15,Support Puppy,"60,000",HomeYB_Main,Other Income
-2021/2/1,Vit to B4,"20,002,200",MomVCB,Transfer Out
-2021/2/1,Vit to B4,"88,824",MomYB,Transfer In
-2021/2/1,Vit to B4,"88,824",HomeYB_Main,Transfer Out
-2021/2/1,Vit to B4,"88,824",HomeYB_Saving,Transfer In
-2021/2/1,Vit to B4,"88,824",VitYB,Other Expense
-2021/2/17,Interest,"218,389",MomVCB,Bonus
-2021/2/28,Meo 2021.02,"10,000",MeoYB,Other Income
-2021/2/28,Meo 2021.02,"10,000",HomeYB_Main,Allowance
-2021/2/28,Bonus Meo OT,"2,000",MeoYB,Other Income
-2021/2/28,Bonus Meo OT,"2,000",HomeYB_Main,Allowance
-2021/2/28,To Duck's bank,"200,000",HomeYB_Main,Transfer Out
-2021/2/28,To Duck's bank,"200,000",HomeYB_Saving,Transfer In
-2021/3/1,Charge Paypay,"3,600",HomeYB_Main,Transfer Out
-2021/3/1,Charge Paypay,"3,600",Paypay,Transfer In
-2021/2/15,Insurance (Vit),"2,000",HomeYB_Saving,Insurances
-2021/2/26,Withdraw,"24,000",HomeYB_Saving,Transfer Out
-2021/2/26,Withdraw,"24,000",HomeCash,Transfer In
-2021/2/28,Pocket Money,"20,000",HomeYB_Saving,Allowance
-2021/2/28,Pocket Money,"20,000",VitYB,Other Income
-2021/3/15,Insurance (Meo) 2021.03,"5,000",HomeYB_Main,Insurances
-2021/3/25,Salary JP 2021.03,"768,138",HomeYB_Main,Salary
-2021/3/25,House rental 2021.03,"121,000",HomeYB_Main,Housing
-2021/3/26,Kindergarten Puppy,"77,000",HomeYB_Main,Kids
-2021/3/26,Amazon,"11,980",HomeYB_Main,Credit Payment
-2021/3/26,Amazon,"3,722",MeoYB,Credit Payment
-2021/3/26,Amazon,727,HomeYB_Main,Transfer Out
-2021/3/26,Amazon,727,HomeYB_Saving,Transfer In
-2021/3/26,Amazon,727,VitYB,Credit Payment
-2021/3/29,Rakuten,"21,184",HomeYB_Main,Credit Payment
-2021/3/29,Rakuten,980,MeoYB,Credit Payment
-2021/3/29,Rakuten,"6,956",HomeYB_Main,Transfer Out
-2021/3/29,Rakuten,"6,956",HomeYB_Saving,Transfer In
-2021/3/29,Rakuten,"6,956",VitYB,Credit Payment
-2021/3/29,Yahoo,"106,604",HomeYB_Main,Credit Payment
-2021/3/29,Yahoo,0,MeoYB,Credit Payment
-2021/3/29,Yahoo,"1,518",HomeYB_Main,Transfer Out
-2021/3/29,Yahoo,"1,518",HomeYB_Saving,Transfer In
-2021/3/29,Yahoo,"1,518",VitYB,Credit Payment
-2021/3/31,Meo 2021.03,"10,000",MeoYB,Other Income
-2021/3/31,Meo 2021.03,"10,000",HomeYB_Main,Allowance
-2021/3/6,Fee Card,"24,200",MomVCB,Transfer Out
-2021/3/6,Fee Card,107,MomYB,Transfer In
-2021/3/6,Fee Card,107,HomeYB_Main,Utilities
-2021/3/15,Interest,"165,260",MomVCB,Bonus
-2021/3/25,Interest,"1,500",MomVCB,Bonus
-2021/3/31,To Duck's bank,"397,156",HomeYB_Main,Transfer Out
-2021/3/31,To Duck's bank,"397,156",HomeYB_Saving,Transfer In
-2021/3/15,Insurance (Vit),"2,000",HomeYB_Saving,Insurances
-2021/3/7,Withdraw,"30,000",HomeYB_Saving,Transfer Out
-2021/3/7,Withdraw,"30,000",HomeCash,Transfer In
-2021/3/30,Withdraw,"74,000",HomeYB_Saving,Transfer Out
-2021/3/30,Withdraw,"74,000",HomeCash,Transfer In
-2021/3/31,Pocket Money,"20,000",HomeYB_Saving,Allowance
-2021/3/31,Pocket Money,"20,000",VitYB,Other Income
-2021/4/1,Interest,50,HomeYB_Main,Bonus
-2021/4/1,Interest,42,HomeYB_Saving,Bonus
-2021/1/2,Lopia,"2,771",HomeCash,Groceries
-2021/1/6,Clinic - Meo,"2,190",HomeCash,Medical
-2021/1/10,Lopia,"4,761",HomeCash,Groceries
-2021/1/16,Lopia,"6,401",HomeCash,Groceries
-2021/1/19,Lopia,"2,728",HomeCash,Groceries
-2021/1/26,Water Bill,"4,615",HomeCash,Utilities
-2021/1/27,Lopia,"3,875",HomeCash,Groceries
-2021/2/4,Lopia,"2,276",HomeCash,Groceries
-2021/2/4,Ring,429,VitCash,Personal
-2021/2/11,MacDonald,800,Paypay,Eating Out
-2021/2/16,Gyomu Mark Nakamachidai,"5,753",HomeCash,Groceries
-2021/2/16,Lopia,"2,379",HomeCash,Groceries
-2021/2/22,Meo lost bet,"10,000",MeoYB,Other Expense
-2021/2/22,Vit won bet,"10,000",VitYB,Other Income
-2021/2/23,Lopia,"2,409",HomeCash,Groceries
-2021/2/23,Batting Center,"1,000",HomeCash,Transfer Out
-2021/2/23,Batting Center,"1,000",MeoYB,Entertainment
-2021/2/23,Batting Center,"1,000",HomeYB_Saving,Transfer In
-2021/2/23,Correct Muji Ball (wrong bill),590,MeoYB,Transfer Out
-2021/2/23,Correct Muji Ball (wrong bill),590,VitYB,Transfer In
-2021/2/26,Seria,660,HomeCash,Household Supplies
-2021/2/26,Lopia,"3,268",HomeCash,Groceries
-2021/2/27,Kodomo No Kuni,"1,200",HomeCash,Entertainment
-2021/2/27,Lunch at Kodomo Kuni,"2,210",HomeCash,Eating Out
-2021/3/1,SIM,"1,500",Paypay,Other Income
-2021/3/1,Mangoes,"2,400",Paypay,Transfer Out
-2021/3/1,Mangoes,"2,400",MeoYB,Groceries
-2021/3/1,Mangoes,"2,400",HomeYB_Saving,Transfer In
-2021/3/2,Lopia,"6,955",HomeCash,Groceries
-2021/3/6,Meo loan,"1,100",MeoYB,Entertainment
-2021/3/6,Meo loan,"1,100",HomeYB_Saving,Transfer In
-2021/3/6,Meo loan,"1,100",HomeCash,Transfer Out
-2021/3/6,Lopia,"9,550",HomeCash,Groceries
-2021/3/9,Lopia,"3,522",HomeCash,Groceries
-2021/3/8,Lopia,"2,303",HomeCash,Groceries
-2021/3/14,Sieu paid meal,"2,410",Paypay,Return
-2021/3/11,Lopia,"2,925",HomeCash,Groceries
-2021/3/14,Ramen,"2,530",HomeCash,Eating Out
-2021/3/14,To Sieu,"1,480",Paypay,Groceries
-2021/3/14,Lopia,"3,098",HomeCash,Groceries
-2021/3/20,Lopia,"4,280",HomeCash,Groceries
-2021/3/23,Print documents (claim),240,MeoYB,Return
-2021/3/23,Print documents (claim),240,HomeYB_Saving,Household Supplies
-2021/3/23,Nancy stocks,319,HomeCash,Kids
-2021/3/28,Dish washing fee,"3,000",MeoYB,Transfer Out
-2021/3/28,Dish washing fee,"3,000",VitYB,Transfer In
-2021/3/29,Lopia,"2,798",HomeCash,Groceries
-2021/4/1,Tool overdue fee,"20,000",MeoYB,Personal
-2021/4/1,Overdue won,"10,000",VitYB,Other Income
-2021/4/1,Overdue won,"10,000",HomeYB_Saving,Other Income
-2021/1/2,Shopping Kokoku,"2,602",Paypay,Unknown
-2021/1/2,Akachan Honpo,158,Paypay,Kids
-2021/1/2,HAC,"2,048",Paypay,Household Supplies
-2021/1/3,Lalaport,"1,650",Paypay,Unknown
-2021/1/30,"Electric, Gas","12,793",Paypay,Utilities
-2021/3/1,"Electric, Gas","11,533",Paypay,Utilities
-2021/1/8,To Sieu (probably food/eating out),"2,500",Paypay,Groceries
-2021/2/17,To Sieu (probably food/eating out),"1,270",Paypay,Eating Out
-2021/3/1,To Sieu (probably food/eating out),900,Paypay,Groceries
-2021/3/15,To Sieu (probably food/eating out),900,Paypay,Groceries
-2021/1/30,Charge from Credit Card,"6,408",Paypay,Transfer In
-2021/1/11,From Sieu,200,Paypay,Return
-2021/1/14,From Sieu,"2,400",Paypay,Return
-2021/1/18,From Sieu,"1,500",Paypay,Return
-2021/1/31,From Sieu,"5,600",Paypay,Return
-2021/2/2,From Sieu,"3,060",Paypay,Return
-2021/3/31,Bonus 2020/03,"3,123",Paypay,Bonus
-2021/2/28,Bonus 2020/02,"2,013",Paypay,Bonus
-2021/1/31,Bonus 2020/01,961,Paypay,Bonus
-2021/4/1,Vit withdraw,"10,000",VitCash,Transfer In
-2021/4/1,Vit withdraw,"10,000",HomeCash,Transfer Out
-2021/4/1,Vit withdraw,"10,000",VitYB,Transfer Out
-2021/4/1,Vit withdraw,"10,000",HomeYB_Saving,Transfer In
-2021/1/31,Japanese Lesson,"12,000",HomeCash,Education
-2021/2/28,Japanese Lesson,"24,000",HomeCash,Education
-2021/3/31,Japanese Lesson,"24,000",HomeCash,Education
-2021/4/1,Unknown Loss,"32,842",HomeCash,Unknown
-2021/1/16,Uniqlo,"1,419",HomeYB_Saving,Transfer In
-2021/1/16,Uniqlo,"1,419",VitYB,Fashion
+2021/01/07,Mangoes,"6,000",MeoYB,Groceries
+2021/01/15,Insurance (Meo) 2021.01,"5,000",HomeYB_Main,Insurances
+2021/01/25,Salary JP 2021.01,"606,705",HomeYB_Main,Salary
+2021/01/25,House rental 2021.01,"121,000",HomeYB_Main,Housing
+2021/01/26,Kindergarten Puppy,"65,000",HomeYB_Main,Kids
+2021/01/26,Amazon (Home),"17,742",HomeYB_Main,Credit Payment
+2021/01/27,Yahoo (Home),"103,812",HomeYB_Main,Credit Payment
+2021/01/27,Yahoo (Vit),"12,672",VitYB,Credit Payment
+2021/01/27,Yahoo,"12,672",HomeYB_Main,Transfer Out
+2021/01/27,Yahoo,"12,672",HomeYB_Saving,Transfer In
+2021/01/27,Rakuten (Home),"52,678",HomeYB_Main,Credit Payment
+2021/01/27,Rakuten (Meo),"9,592",MeoYB,Credit Payment
+2021/01/27,Rakuten (Vit),"19,025",VitYB,Credit Payment
+2021/01/27,Rakuten,"19,025",HomeYB_Main,Transfer Out
+2021/01/27,Rakuten,"19,025",HomeYB_Saving,Transfer In
+2021/01/09,Fee Card,"24,200",MomVCB,Transfer Out
+2021/01/09,Fee Card,107,MomYB,Transfer In
+2021/01/09,Fee Card,107,HomeYB_Main,Utilities
+2021/01/08,Books,"3,340,094",MomVCB,Transfer Out
+2021/01/08,Books,"14,832",MomYB,Transfer In
+2021/01/08,Books,"14,832",HomeYB_Main,Education
+2021/01/15,Interest,"203,836",MomVCB,Bonus
+2021/01/22,Interest,"127,397",MomVCB,Bonus
+2021/01/25,Interest,294,MomVCB,Bonus
+2021/01/31,Meo 2021.01,"10,000",MeoYB,Other Income
+2021/01/31,Meo 2021.01,"10,000",HomeYB_Main,Allowance
+2021/01/31,Phone Bill 2021,"13,680,000",MomVCB,Transfer Out
+2021/01/31,Phone Bill 2021,"60,749",MomYB,Transfer In
+2021/01/31,Phone Bill 2021,"60,749",HomeYB_Main,Utilities
+2021/01/31,Books Shipping,"2,600,000",MomVCB,Transfer Out
+2021/01/31,Books Shipping,"11,546",MomYB,Transfer In
+2021/01/31,Books Shipping,"11,546",HomeYB_Main,Education
+2021/01/31,Book Shipping (Meo paid),"2,000,000",MomVCB,Transfer Out
+2021/01/31,Book Shipping (Meo paid),"10,000",MomYB,Transfer In
+2021/01/31,Book Shipping (Meo paid),"10,000",MeoYB,Education
+2021/01/31,WFH Allowance 2021,"10,000",MeoYB,Other Income
+2021/01/31,WFH Allowance 2021,"10,000",HomeYB_Main,Allowance
+2021/01/31,Bonus Bukkun + Fee (Meo paid),"386,506",MomVCB,Transfer Out
+2021/01/31,Bonus Bukkun + Fee (Meo paid),"1,932",MomYB,Transfer In
+2021/01/31,Bonus Bukkun + Fee (Meo paid),"1,932",MeoYB,Other Expense
+2021/01/31,Interest,"1,233",MomVCB,Bonus
+2021/01/31,Adjustment,56,MeoYB,Adjustment Up
+2021/01/31,Adjustment,56,HomeYB_Main,Adjustment Down
+2021/01/31,Bonus Meo,"20,000",MeoYB,Other Income
+2021/01/31,Bonus Meo,"20,000",HomeYB_Main,Allowance
+2021/01/31,To Duck's bank,"82,486",HomeYB_Saving,Transfer In
+2021/01/31,To Duck's bank,"82,486",HomeYB_Main,Transfer Out
+2021/01/15,Insurance (Vit),"2,000",HomeYB_Saving,Insurances
+2021/01/26,Vietnam Food Online,"6,900",HomeYB_Saving,Groceries
+2021/01/30,Withdraw,"50,000",HomeYB_Saving,Transfer Out
+2021/01/30,Withdraw,"50,000",HomeCash,Transfer In
+2021/01/31,Vit 2021.01,"20,000",HomeYB_Saving,Allowance
+2021/01/31,Vit 2021.01,"20,000",VitYB,Other Income
+2021/02/15,Insurance (Meo) 2021.02,"5,000",HomeYB_Main,Insurances
+2021/02/25,Salary JP 2021.02,"683,765",HomeYB_Main,Salary
+2021/02/25,House rental 2021.02,"121,000",HomeYB_Main,Housing
+2021/02/26,Kindergarten Puppy,"65,000",HomeYB_Main,Kids
+2021/02/26,Amazon (Home),"16,161",HomeYB_Main,Credit Payment
+2021/02/26,Amazon (Meo),"1,899",MeoYB,Credit Payment
+2021/03/01,Rakuten (Home),"94,954",HomeYB_Main,Credit Payment
+2021/03/01,Rakuten (Meo),"13,090",MeoYB,Credit Payment
+2021/03/01,Rakuten (Vit),"1,419",VitYB,Credit Payment
+2021/03/01,Rakuten,"1,419",HomeYB_Main,Transfer Out
+2021/03/01,Rakuten,"1,419",HomeYB_Saving,Transfer In
+2021/03/01,Yahoo (Home),"128,909",HomeYB_Main,Credit Payment
+2021/03/01,Yahoo (Meo),"1,880",MeoYB,Credit Payment
+2021/03/01,Yahoo (Vit),"15,697",VitYB,Credit Payment
+2021/03/01,Yahoo,"15,697",HomeYB_Main,Transfer Out
+2021/03/01,Yahoo,"15,697",HomeYB_Saving,Transfer In
+2021/03/01,Fee Card,"24,200",MomVCB,Transfer Out
+2021/03/01,Fee Card,107,MomYB,Transfer In
+2021/03/01,Fee Card,107,HomeYB_Main,Utilities
+2021/02/15,Support Puppy,"60,000",HomeYB_Main,Other Income
+2021/02/01,Vit to B4,"20,002,200",MomVCB,Transfer Out
+2021/02/01,Vit to B4,"88,824",MomYB,Transfer In
+2021/02/01,Vit to B4,"88,824",HomeYB_Main,Transfer Out
+2021/02/01,Vit to B4,"88,824",HomeYB_Saving,Transfer In
+2021/02/01,Vit to B4,"88,824",VitYB,Other Expense
+2021/02/17,Interest,"218,389",MomVCB,Bonus
+2021/02/28,Meo 2021.02,"10,000",MeoYB,Other Income
+2021/02/28,Meo 2021.02,"10,000",HomeYB_Main,Allowance
+2021/02/28,Bonus Meo OT,"2,000",MeoYB,Other Income
+2021/02/28,Bonus Meo OT,"2,000",HomeYB_Main,Allowance
+2021/02/28,To Duck's bank,"200,000",HomeYB_Main,Transfer Out
+2021/02/28,To Duck's bank,"200,000",HomeYB_Saving,Transfer In
+2021/03/01,Charge Paypay,"3,600",HomeYB_Main,Transfer Out
+2021/03/01,Charge Paypay,"3,600",Paypay,Transfer In
+2021/02/15,Insurance (Vit),"2,000",HomeYB_Saving,Insurances
+2021/02/26,Withdraw,"24,000",HomeYB_Saving,Transfer Out
+2021/02/26,Withdraw,"24,000",HomeCash,Transfer In
+2021/02/28,Pocket Money,"20,000",HomeYB_Saving,Allowance
+2021/02/28,Pocket Money,"20,000",VitYB,Other Income
+2021/03/15,Insurance (Meo) 2021.03,"5,000",HomeYB_Main,Insurances
+2021/03/25,Salary JP 2021.03,"768,138",HomeYB_Main,Salary
+2021/03/25,House rental 2021.03,"121,000",HomeYB_Main,Housing
+2021/03/26,Kindergarten Puppy,"77,000",HomeYB_Main,Kids
+2021/03/26,Amazon,"11,980",HomeYB_Main,Credit Payment
+2021/03/26,Amazon,"3,722",MeoYB,Credit Payment
+2021/03/26,Amazon,727,HomeYB_Main,Transfer Out
+2021/03/26,Amazon,727,HomeYB_Saving,Transfer In
+2021/03/26,Amazon,727,VitYB,Credit Payment
+2021/03/29,Rakuten,"21,184",HomeYB_Main,Credit Payment
+2021/03/29,Rakuten,980,MeoYB,Credit Payment
+2021/03/29,Rakuten,"6,956",HomeYB_Main,Transfer Out
+2021/03/29,Rakuten,"6,956",HomeYB_Saving,Transfer In
+2021/03/29,Rakuten,"6,956",VitYB,Credit Payment
+2021/03/29,Yahoo,"106,604",HomeYB_Main,Credit Payment
+2021/03/29,Yahoo,0,MeoYB,Credit Payment
+2021/03/29,Yahoo,"1,518",HomeYB_Main,Transfer Out
+2021/03/29,Yahoo,"1,518",HomeYB_Saving,Transfer In
+2021/03/29,Yahoo,"1,518",VitYB,Credit Payment
+2021/03/31,Meo 2021.03,"10,000",MeoYB,Other Income
+2021/03/31,Meo 2021.03,"10,000",HomeYB_Main,Allowance
+2021/03/06,Fee Card,"24,200",MomVCB,Transfer Out
+2021/03/06,Fee Card,107,MomYB,Transfer In
+2021/03/06,Fee Card,107,HomeYB_Main,Utilities
+2021/03/15,Interest,"165,260",MomVCB,Bonus
+2021/03/25,Interest,"1,500",MomVCB,Bonus
+2021/03/31,To Duck's bank,"397,156",HomeYB_Main,Transfer Out
+2021/03/31,To Duck's bank,"397,156",HomeYB_Saving,Transfer In
+2021/03/15,Insurance (Vit),"2,000",HomeYB_Saving,Insurances
+2021/03/07,Withdraw,"30,000",HomeYB_Saving,Transfer Out
+2021/03/07,Withdraw,"30,000",HomeCash,Transfer In
+2021/03/30,Withdraw,"74,000",HomeYB_Saving,Transfer Out
+2021/03/30,Withdraw,"74,000",HomeCash,Transfer In
+2021/03/31,Pocket Money,"20,000",HomeYB_Saving,Allowance
+2021/03/31,Pocket Money,"20,000",VitYB,Other Income
+2021/04/01,Interest,50,HomeYB_Main,Bonus
+2021/04/01,Interest,42,HomeYB_Saving,Bonus
+2021/01/02,Lopia,"2,771",HomeCash,Groceries
+2021/01/06,Clinic - Meo,"2,190",HomeCash,Medical
+2021/01/10,Lopia,"4,761",HomeCash,Groceries
+2021/01/16,Lopia,"6,401",HomeCash,Groceries
+2021/01/19,Lopia,"2,728",HomeCash,Groceries
+2021/01/26,Water Bill,"4,615",HomeCash,Utilities
+2021/01/27,Lopia,"3,875",HomeCash,Groceries
+2021/02/04,Lopia,"2,276",HomeCash,Groceries
+2021/02/04,Ring,429,VitCash,Personal
+2021/02/11,MacDonald,800,Paypay,Eating Out
+2021/02/16,Gyomu Mark Nakamachidai,"5,753",HomeCash,Groceries
+2021/02/16,Lopia,"2,379",HomeCash,Groceries
+2021/02/22,Meo lost bet,"10,000",MeoYB,Other Expense
+2021/02/22,Vit won bet,"10,000",VitYB,Other Income
+2021/02/23,Lopia,"2,409",HomeCash,Groceries
+2021/02/23,Batting Center,"1,000",HomeCash,Transfer Out
+2021/02/23,Batting Center,"1,000",MeoYB,Entertainment
+2021/02/23,Batting Center,"1,000",HomeYB_Saving,Transfer In
+2021/02/23,Correct Muji Ball (wrong bill),590,MeoYB,Transfer Out
+2021/02/23,Correct Muji Ball (wrong bill),590,VitYB,Transfer In
+2021/02/26,Seria,660,HomeCash,Household Supplies
+2021/02/26,Lopia,"3,268",HomeCash,Groceries
+2021/02/27,Kodomo No Kuni,"1,200",HomeCash,Entertainment
+2021/02/27,Lunch at Kodomo Kuni,"2,210",HomeCash,Eating Out
+2021/03/01,SIM,"1,500",Paypay,Other Income
+2021/03/01,Mangoes,"2,400",Paypay,Transfer Out
+2021/03/01,Mangoes,"2,400",MeoYB,Groceries
+2021/03/01,Mangoes,"2,400",HomeYB_Saving,Transfer In
+2021/03/02,Lopia,"6,955",HomeCash,Groceries
+2021/03/06,Meo loan,"1,100",MeoYB,Entertainment
+2021/03/06,Meo loan,"1,100",HomeYB_Saving,Transfer In
+2021/03/06,Meo loan,"1,100",HomeCash,Transfer Out
+2021/03/06,Lopia,"9,550",HomeCash,Groceries
+2021/03/09,Lopia,"3,522",HomeCash,Groceries
+2021/03/08,Lopia,"2,303",HomeCash,Groceries
+2021/03/14,Sieu paid meal,"2,410",Paypay,Return
+2021/03/11,Lopia,"2,925",HomeCash,Groceries
+2021/03/14,Ramen,"2,530",HomeCash,Eating Out
+2021/03/14,To Sieu,"1,480",Paypay,Groceries
+2021/03/14,Lopia,"3,098",HomeCash,Groceries
+2021/03/20,Lopia,"4,280",HomeCash,Groceries
+2021/03/23,Print documents (claim),240,MeoYB,Return
+2021/03/23,Print documents (claim),240,HomeYB_Saving,Household Supplies
+2021/03/23,Nancy stocks,319,HomeCash,Kids
+2021/03/28,Dish washing fee,"3,000",MeoYB,Transfer Out
+2021/03/28,Dish washing fee,"3,000",VitYB,Transfer In
+2021/03/29,Lopia,"2,798",HomeCash,Groceries
+2021/04/01,Tool overdue fee,"20,000",MeoYB,Personal
+2021/04/01,Overdue won,"10,000",VitYB,Other Income
+2021/04/01,Overdue won,"10,000",HomeYB_Saving,Other Income
+2021/01/02,Shopping Kokoku,"2,602",Paypay,Unknown
+2021/01/02,Akachan Honpo,158,Paypay,Kids
+2021/01/02,HAC,"2,048",Paypay,Household Supplies
+2021/01/03,Lalaport,"1,650",Paypay,Unknown
+2021/01/30,"Electric, Gas","12,793",Paypay,Utilities
+2021/03/01,"Electric, Gas","11,533",Paypay,Utilities
+2021/01/08,To Sieu (probably food/eating out),"2,500",Paypay,Groceries
+2021/02/17,To Sieu (probably food/eating out),"1,270",Paypay,Eating Out
+2021/03/01,To Sieu (probably food/eating out),900,Paypay,Groceries
+2021/03/15,To Sieu (probably food/eating out),900,Paypay,Groceries
+2021/01/30,Charge from Credit Card,"6,408",Paypay,Transfer In
+2021/01/11,From Sieu,200,Paypay,Return
+2021/01/14,From Sieu,"2,400",Paypay,Return
+2021/01/18,From Sieu,"1,500",Paypay,Return
+2021/01/31,From Sieu,"5,600",Paypay,Return
+2021/02/02,From Sieu,"3,060",Paypay,Return
+2021/03/31,Bonus 2020/03,"3,123",Paypay,Bonus
+2021/02/28,Bonus 2020/02,"2,013",Paypay,Bonus
+2021/01/31,Bonus 2020/01,961,Paypay,Bonus
+2021/04/01,Vit withdraw,"10,000",VitCash,Transfer In
+2021/04/01,Vit withdraw,"10,000",HomeCash,Transfer Out
+2021/04/01,Vit withdraw,"10,000",VitYB,Transfer Out
+2021/04/01,Vit withdraw,"10,000",HomeYB_Saving,Transfer In
+2021/01/31,Japanese Lesson,"12,000",HomeCash,Education
+2021/02/28,Japanese Lesson,"24,000",HomeCash,Education
+2021/03/31,Japanese Lesson,"24,000",HomeCash,Education
+2021/04/01,Unknown Loss,"32,842",HomeCash,Unknown
+2021/01/16,Uniqlo,"1,419",HomeYB_Saving,Transfer In
+2021/01/16,Uniqlo,"1,419",VitYB,Fashion
 2020/12/14,Uniqlo,"11,055",HomeYB_Saving,Transfer In
 2020/12/14,Uniqlo,"11,055",VitYB,Fashion
 2020/12/19,Tamaplaza Terrace shopping,"1,617",HomeYB_Saving,Transfer In
 2020/12/19,Tamaplaza Terrace shopping,"1,617",VitYB,Fashion
-2020/12/2,Reimbursment EB,3649,MeoYB,Other Income
+2020/12/02,Reimbursment EB,3649,MeoYB,Other Income
 2020/12/15,Insurance (Meo) 2020.12,5000,HomeYB_Main,Insurances
 2020/12/25,Salary JP 2020.12,883903,HomeYB_Main,Salary
 2020/12/25,House rental 2020.12,121000,HomeYB_Main,Housing
@@ -250,16 +250,16 @@
 2020/12/26,Wedding Tori,502200,MomVCB,Transfer Out
 2020/12/26,Wedding Tori,2500,MeoYB,Other Expense
 2020/12/26,Wedding Tori,2500,MomYB,Transfer In
-2021/1/1,Gap transaction,577,MomVCB,Transfer In
-2021/1/1,Gap transaction,300,MomYB,Transfer Out
-2021/1/1,Gap transaction,300,MeoYB,Adjustment Up
+2021/01/01,Gap transaction,577,MomVCB,Transfer In
+2021/01/01,Gap transaction,300,MomYB,Transfer Out
+2021/01/01,Gap transaction,300,MeoYB,Adjustment Up
 2020/12/31,Meo 2020.12,10000,MeoYB,Other Income
 2020/12/31,Meo 2020.12,10000,HomeYB_Main,Allowance
-2021/1/1,To Duck's bank,673729,HomeYB_Main,Transfer Out
-2021/1/1,To Duck's bank,673729,HomeYB_Saving,Transfer In
-2020/11/4,Kids Tairiku Entrance Fee,176390,HomeYB_Main,Kids
-2020/11/4,Transfer Fee,440,HomeYB_Main,Kids
-2020/11/5,Meo Withdraw,10000,MeoYB,Transfer Out
+2021/01/01,To Duck's bank,673729,HomeYB_Main,Transfer Out
+2021/01/01,To Duck's bank,673729,HomeYB_Saving,Transfer In
+2020/11/04,Kids Tairiku Entrance Fee,176390,HomeYB_Main,Kids
+2020/11/04,Transfer Fee,440,HomeYB_Main,Kids
+2020/11/05,Meo Withdraw,10000,MeoYB,Transfer Out
 2020/11/15,Insurance (Meo) 2020.11,5000,HomeYB_Main,Insurances
 2020/11/17,Insurance Cashback from IT Kantou,50500,HomeYB_Main,Return
 2020/11/25,Salary JP 2020.11,641923,HomeYB_Main,Salary
@@ -269,12 +269,12 @@
 2020/11/27,Yahoo,78829,HomeYB_Main,Credit Payment
 2020/11/27,Rakuten,49412,HomeYB_Main,Credit Payment
 2020/11/27,Rakuten,1130,MeoYB,Credit Payment
-2020/11/1,Fee Card,24200,MomVCB,Transfer Out
+2020/11/01,Fee Card,24200,MomVCB,Transfer Out
 2020/12/12,Fee Card,111,MomYB,Transfer In
 2020/12/12,Fee Card,111,HomeYB_Main,Utilities
-2020/11/2,Keychron refund,196423,MomVCB,Transfer In
-2020/11/2,Keychron refund,2000,MomYB,Transfer Out
-2020/11/2,Keychron refund,2000,MeoYB,Return
+2020/11/02,Keychron refund,196423,MomVCB,Transfer In
+2020/11/02,Keychron refund,2000,MomYB,Transfer Out
+2020/11/02,Keychron refund,2000,MeoYB,Return
 2020/11/16,Interest,217425,MomVCB,Bonus
 2020/11/23,Interest,135890,MomVCB,Bonus
 2020/11/25,Interest,77,MomVCB,Bonus
@@ -282,7 +282,7 @@
 2020/11/30,Meo 2020.11,10000,HomeYB_Main,Allowance
 2020/11/30,To Duck's bank,239255,HomeYB_Main,Transfer Out
 2020/11/30,To Duck's bank,239255,HomeYB_Saving,Transfer In
-2020/10/5,Payment Immigration Trips x3,8290,MeoYB,Transportation
+2020/10/05,Payment Immigration Trips x3,8290,MeoYB,Transportation
 2020/10/15,Insurance (Meo) 2020.10,5000,HomeYB_Main,Insurances
 2020/10/15,Yokohama child support,60000,HomeYB_Main,Other Income
 2020/10/23,Salary JP 2020.10,579566,HomeYB_Main,Salary
@@ -295,9 +295,9 @@
 2020/10/31,Fee Card,22000,MomVCB,Transfer Out
 2020/10/31,Fee Card,97,MomYB,Transfer In
 2020/10/31,Fee Card,97,HomeYB_Main,Utilities
-2020/10/6,Japanese Fee (Co My) Vit - 10,2502200,MomVCB,Transfer Out
-2020/10/6,Japanese Fee (Co My) Vit - 10,11077,MomYB,Transfer In
-2020/10/6,Japanese Fee (Co My) Vit - 10,11077,HomeYB_Main,Education
+2020/10/06,Japanese Fee (Co My) Vit - 10,2502200,MomVCB,Transfer Out
+2020/10/06,Japanese Fee (Co My) Vit - 10,11077,MomYB,Transfer In
+2020/10/06,Japanese Fee (Co My) Vit - 10,11077,HomeYB_Main,Education
 2020/10/22,Interest,365904,MomVCB,Bonus
 2020/10/18,Fish sauce,227200,MomVCB,Transfer Out
 2020/10/18,Fish sauce,1006,MomYB,Transfer In
@@ -310,216 +310,216 @@
 2020/10/31,To Duck's bank,340681,HomeYB_Main,Transfer Out
 2020/10/31,Pay debt Meo,3000,MeoYB,Other Expense
 2020/10/31,To Duck's bank,340681,HomeYB_Saving,Transfer In
-2020/8/29,Charge Paypay,9000,HomeYB_Main,Transfer Out
-2020/9/15,Insurance (Meo) 2020.09,5000,HomeYB_Main,Insurances
-2020/9/25,Salary JP 2020.09,578945,HomeYB_Main,Salary
-2020/9/25,House rental 2020.09,121000,HomeYB_Main,Housing
-2020/9/28,Amazon,9444,HomeYB_Main,Credit Payment
-2020/9/28,Amazon,588,MeoYB,Return
-2020/9/28,Yahoo,48259,HomeYB_Main,Credit Payment
-2020/9/28,Rakuten,124900,HomeYB_Main,Credit Payment
-2020/9/28,Rakuten,130,MeoYB,Credit Payment
-2020/10/1,Interest,50,MomYB,Bonus
-2020/10/5,Fee Card,26400,MomVCB,Transfer Out
-2020/10/5,Fee Card,118,MomYB,Transfer In
-2020/10/5,Fee Card,118,HomeYB_Main,Utilities
-2020/9/25,Interest,377147,MomVCB,Bonus
-2020/9/4,Japanese Fee (Co My) Vit - 09,1252200,MomVCB,Transfer Out
-2020/9/4,Japanese Fee (Co My) Vit - 09,5606,MomYB,Transfer In
-2020/9/4,Japanese Fee (Co My) Vit - 09,5606,HomeYB_Main,Education
-2020/9/28,Meo 2020.09,10000,MeoYB,Other Income
-2020/9/28,Meo 2020.09,10000,HomeYB_Main,Allowance
-2020/10/5,To Duck's bank,250785,HomeYB_Main,Transfer Out
-2020/10/5,To Duck's bank,250785,HomeYB_Saving,Transfer In
-2020/9/28,Yahoo (mis calculation),5168,HomeYB_Main,Other Income
-2020/9/28,Yahoo (mis calculation),5168,MomYB,Other Expense
-2020/8/15,Insurance (Meo),5000,HomeYB_Main,Insurances
-2020/8/25,Salary JP 2020.08,580421,HomeYB_Main,Salary
-2020/8/25,House rental 2020.08,121000,HomeYB_Main,Housing
-2020/8/26,Amazon,14076,HomeYB_Main,Credit Payment
-2020/8/26,Amazon,10117,MeoYB,Credit Payment
-2020/8/27,Yahoo,58557,HomeYB_Main,Credit Payment
-2020/8/27,Yahoo,58500,MeoYB,Credit Payment
-2020/8/27,Rakuten,27181,HomeYB_Main,Credit Payment
-2020/8/27,Rakuten,17529,MeoYB,Credit Payment
-2020/8/9,Japanese Fee (Co My) 1/2 Meo - 08,1125000,MomVCB,Transfer Out
-2020/8/9,Japanese Fee (Co My) 1/2 Meo - 08,5500,MomYB,Transfer In
-2020/8/9,Japanese Fee (Co My) 1/2 Meo - 08,5500,MeoYB,Education
-2020/8/9,Japanese Fee (Co My) 1/2 Vit - 08,1125000,MomVCB,Transfer Out
-2020/8/9,Japanese Fee (Co My) 1/2 Vit - 08,5082,MomYB,Transfer In
-2020/8/9,Japanese Fee (Co My) 1/2 Vit - 08,5082,HomeYB_Main,Education
-2020/8/27,Fee Card,73733,MomVCB,Transfer Out
-2020/8/27,Fee Card,333,MomYB,Transfer In
-2020/8/27,Fee Card,333,HomeYB_Main,Utilities
-2020/8/24,Interest,167260,MomVCB,Bonus
-2020/8/10,Interest,291946,MomVCB,Bonus
-2020/8/15,Withdraw saving 90m -> Save 80m,1233,MomVCB,Bonus
-2020/8/15,Exchange duck,10577500,MomVCB,Transfer Out
-2020/8/15,Exchange duck,50000,MomYB,Transfer In
-2020/8/27,Meo 2020.08,30000,MeoYB,Other Income
-2020/8/27,Meo 2020.08,30000,HomeYB_Main,Allowance
-2020/8/28,To Duck's bank,268504,HomeYB_Main,Transfer Out
-2020/8/28,To Duck's bank,268504,HomeYB_Saving,Transfer In
-2020/8/26,Amazon (mis calc),688,HomeYB_Main,Transfer Out
-2020/8/26,Amazon (mis calc),688,MomYB,Transfer In
-2020/8/28,Duck withdraw,50000,HomeYB_Main,Transfer Out
-2020/6/30,Charge Paypay,3000,HomeYB_Main,Transfer Out
-2020/7/15,Insurance (Meo),4000,HomeYB_Main,Insurances
-2020/7/17,Mimikara Oboeru,1370,HomeYB_Main,Education
-2020/7/22,Salary JP 2020.07,584666,HomeYB_Main,Salary
-2020/7/27,House rental 2020.07,121000,HomeYB_Main,Housing
-2020/7/27,Amazon,23555,HomeYB_Main,Credit Payment
-2020/7/27,Amazon,6629,MeoYB,Credit Payment
-2020/7/27,Amazon (wrong calc),688,MomYB,Transfer In
-2020/7/27,Yahoo,52809,HomeYB_Main,Credit Payment
-2020/7/27,Yahoo,34896,MeoYB,Credit Payment
-2020/7/27,Yahoo (wrong calc),16463,MomYB,Transfer In
-2020/7/27,Rakuten,25098,HomeYB_Main,Credit Payment
-2020/7/27,Rakuten,6642,MeoYB,Credit Payment
-2020/7/29,Charge Paypay,3000,HomeYB_Main,Transfer Out
-2020/7/29,Meo 2020.07,30000,MeoYB,Other Income
-2020/7/29,Meo 2020.07,30000,HomeYB_Main,Allowance
-2020/8/1,Fee Card,19873,MomVCB,Transfer Out
-2020/8/1,Fee Card,89,MomYB,Transfer In
-2020/8/1,Fee Card,89,HomeYB_Main,Utilities
-2020/7/6,Japanese Fee (Co My) 1/2 Meo - 07,1001100,MomVCB,Transfer Out
-2020/7/6,Japanese Fee (Co My) 1/2 Meo - 07,5000,MomYB,Transfer In
-2020/7/6,Japanese Fee (Co My) 1/2 Meo - 07,5000,MeoYB,Education
-2020/7/6,Japanese Fee (Co My) 1/2 Vit - 07,1001100,MomVCB,Transfer Out
-2020/7/6,Japanese Fee (Co My) 1/2 Vit - 07,4461,MomYB,Transfer In
-2020/7/6,Japanese Fee (Co My) 1/2 Vit - 07,4461,HomeYB_Main,Education
-2020/7/22,Paypal gift for Urano-san,358424,MomVCB,Transfer Out
-2020/7/22,Paypal gift for Urano-san,1800,MomYB,Transfer In
-2020/7/22,Paypal gift for Urano-san,1800,MeoYB,Other Expense
-2020/7/9,Interest,295890,MomVCB,Bonus
-2020/8/1,To Duck's bank,316285,HomeYB_Main,Transfer Out
-2020/8/1,To Duck's bank,316285,HomeYB_Saving,Transfer In
-2020/5/27,Yahoo,87998,HomeYB_Main,Credit Payment
-2020/5/27,Rakuten,87044,HomeYB_Main,Credit Payment
-2020/5/29,Charge Paypay,3000,HomeYB_Main,Transfer Out
-2020/6/1,Charge Paypay,3000,HomeYB_Main,Transfer Out
-2020/6/2,Charge Paypay,10000,HomeYB_Main,Transfer Out
-2020/6/3,Yokohama Corona support,300000,HomeYB_Main,Other Income
-2020/6/15,Insurance (Meo),4000,HomeYB_Main,Insurances
-2020/6/15,Yokohama child support,60000,HomeYB_Main,Other Income
-2020/6/15,Yokohama child support (bonus),10000,HomeYB_Main,Other Income
-2020/6/20,Meo Withdraw,49000,MeoYB,Transfer Out
-2020/6/25,Salary JP 2020.06,583866,HomeYB_Main,Salary
-2020/6/25,House rental 2020.06,121000,HomeYB_Main,Housing
-2020/6/26,Amazon,9398,HomeYB_Main,Credit Payment
-2020/6/26,Amazon,8158,MeoYB,Credit Payment
-2020/6/29,Yahoo,52809,HomeYB_Main,Credit Payment
-2020/6/29,Yahoo,3272,MeoYB,Credit Payment
-2020/6/29,Rakuten,32713,HomeYB_Main,Credit Payment
-2020/6/29,Rakuten,53269,MeoYB,Credit Payment
-2020/6/1,Fee Card,8174,MomVCB,Transfer Out
-2020/6/1,Fee Card,38,MomYB,Transfer In
-2020/6/1,Fee Card,38,HomeYB_Main,Utilities
-2020/6/3,Japanese Fee (Co My) 1/2 Meo - 06,876100,MomVCB,Transfer Out
-2020/6/3,Japanese Fee (Co My) 1/2 Meo - 06,4380,MomYB,Transfer In
-2020/6/3,Japanese Fee (Co My) 1/2 Meo - 06,4380,MeoYB,Education
-2020/6/3,Japanese Fee (Co My) 1/2 Vit - 06,876100,MomVCB,Transfer Out
-2020/6/3,Japanese Fee (Co My) 1/2 Vit - 06,4075,MomYB,Transfer In
-2020/6/3,Japanese Fee (Co My) 1/2 Vit - 06,4075,HomeYB_Main,Education
-2020/6/9,Interest,293178,MomVCB,Bonus
-2020/6/29,Meo 2020.06,30000,MeoYB,Other Income
-2020/6/29,Meo 2020.06,30000,HomeYB_Main,Allowance
-2020/7/1,To Duck's bank,686833,HomeYB_Main,Transfer Out
-2020/7/1,To Duck's bank,686833,HomeYB_Saving,Transfer In
-2020/5/29,Missing Paypay 05/29 3000 for both 2020/05 - 06,3000,HomeYB_Main,Adjustment Up
-2020/5/29,Missing Paypay 05/29 3000 for both 2020/05 - 06,3000,MomYB,Adjustment Down
-2020/4/26,Withdraw,19000,MeoYB,Transfer Out
-2020/4/27,House rental 2020.04,121000,HomeYB_Main,Housing
-2020/4/27,Amazon,43466,HomeYB_Main,Credit Payment
-2020/4/27,Amazon,7794,MeoYB,Credit Payment
-2020/4/27,Yahoo,108675,HomeYB_Main,Credit Payment
-2020/4/27,Rakuten,96923,HomeYB_Main,Credit Payment
-2020/4/27,Rakuten,19255,MeoYB,Credit Payment
-2020/4/30,Charge Paypay,10000,HomeYB_Main,Transfer Out
-2020/5/10,Exchange to Duck's friend,21500000,MomVCB,Transfer In
-2020/5/10,Exchange to Duck's friend,100000,MomYB,Transfer Out
-2020/5/15,Insurance (Meo),4100,HomeYB_Main,Insurances
-2020/5/25,Salary JP 2020.04,606345,HomeYB_Main,Salary
-2020/5/25,House rental 2020.05,121000,HomeYB_Main,Housing
-2020/5/26,Amazon,20165,HomeYB_Main,Credit Payment
-2020/5/26,Amazon,13041,MeoYB,Credit Payment
-2020/5/26,Meo 2020.05,30000,MeoYB,Other Income
-2020/5/26,Meo 2020.05,30000,HomeYB_Main,Allowance
-2020/5/26,Fee Card,20144,MomVCB,Transfer Out
-2020/5/26,Fee Card,94,MomYB,Transfer In
-2020/5/26,Fee Card,94,HomeYB_Main,Utilities
-2020/5/11,Interest,339288,MomVCB,Bonus
-2020/5/26,To Duck's bank,124944,HomeYB_Main,Transfer Out
-2020/5/26,To Duck's bank,124944,HomeYB_Saving,Transfer In
-2020/3/26,Amazon,59215,HomeYB_Main,Credit Payment
-2020/3/26,Yahoo,129218,HomeYB_Main,Credit Payment
-2020/3/27,Rakuten,407728,HomeYB_Main,Credit Payment
-2020/3/27,Rakuten,19244,MeoYB,Credit Payment
-2020/3/27,Charge Paypay,15000,HomeYB_Main,Transfer Out
-2020/3/30,Charge Paypay,3000,HomeYB_Main,Transfer Out
-2020/3/30,Bosch Final OT,13619,MeoYB,Salary
-2020/4/1,Interest,45,MomYB,Bonus
-2020/4/20,Exchange 5 man to Tien,50000,MomYB,Transfer In
-2020/4/20,Exchange 5 man to Tien,10603700,MomVCB,Transfer Out
-2020/4/24,Salary JP 2020.04,621111,HomeYB_Main,Salary
-2020/4/26,Meo 2020.03,30000,MeoYB,Other Income
-2020/4/26,Meo 2020.03,30000,HomeYB_Main,Allowance
-2020/4/21,Books,4002200,MomVCB,Transfer Out
-2020/4/21,Books,20000,MomYB,Transfer In
-2020/4/21,Books,20000,MeoYB,Education
-2020/4/26,Fee Card,48200,MomVCB,Transfer Out
-2020/4/26,Fee Card,224,MomYB,Transfer In
-2020/4/26,Fee Card,224,HomeYB_Main,Utilities
-2020/4/9,Interest,344025,MomVCB,Bonus
-2020/4/17,Japanese Fee (Co My) 1/2 Meo - 04+05,1951100,MomVCB,Transfer Out
-2020/4/17,Japanese Fee (Co My) 1/2 Meo - 04+05,9250,MomYB,Transfer In
-2020/4/17,Japanese Fee (Co My) 1/2 Meo - 04+05,9250,MeoYB,Education
-2020/4/17,Japanese Fee (Co My) 1/2 Vit - 04+05,1951100,MomVCB,Transfer Out
-2020/4/17,Japanese Fee (Co My) 1/2 Vit - 04+05,9076,MomYB,Transfer In
-2020/4/17,Japanese Fee (Co My) 1/2 Vit - 04+05,9076,HomeYB_Main,Education
-2020/4/26,VCB Error? Query 2403->2604,4581,MomVCB,Adjustment Up
-2020/4/26,To Duck's bank,314747,HomeYB_Main,Transfer Out
-2020/4/26,To Duck's bank,314747,HomeYB_Saving,Transfer In
-2020/2/26,Amazon,14531,HomeYB_Main,Credit Payment
-2020/2/26,Amazon,760,MeoYB,Credit Payment
-2020/2/27,Yahoo,105102,HomeYB_Main,Credit Payment
-2020/2/27,Rakuten,102386,HomeYB_Main,Credit Payment
-2020/2/27,Rakuten,10000,MeoYB,Credit Payment
-2020/2/28,Bosch Travel claim,5266,MeoYB,Return
-2020/2/28,Salary JP 2020.02 (Bosch),544411,HomeYB_Main,Salary
-2020/2/29,Charge Paypay,10000,HomeYB_Main,Transfer Out
-2020/2/29,Charge Paypay,3000,HomeYB_Main,Transfer Out
-2020/3/2,Vinh Vien exchange 200 man,1950000,MomYB,Transfer In
-2020/3/2,Vinh Vien exchange 200 man (2),50000,MomYB,Transfer In
-2020/3/2,Vinh Vien exchange 200 man,421604200,MomVCB,Transfer Out
-2020/3/2,To Duck's directly,50000,HomeYB_Main,Transfer Out
-2020/3/2,Withdraw Cash,50000,HomeCash,Transfer In
-2020/3/30,Unclear Cash Payment,50000,HomeCash,Unknown
-2020/3/7,Charge Paypay,3000,HomeYB_Main,Transfer Out
-2020/3/25,House rental 2020.03,23330,HomeYB_Main,Housing
-2020/3/25,Salary JP 2020.03,679250,HomeYB_Main,Salary
-2020/3/25,Meo 2020.03,30000,MeoYB,Other Income
-2020/3/25,Meo 2020.03,30000,HomeYB_Main,Allowance
-2020/3/24,Fee Card,166409,MomVCB,Transfer Out
-2020/3/24,Fee Card,804,MomYB,Transfer In
-2020/3/24,Fee Card,804,HomeYB_Main,Utilities
-2020/2/23,Wallet,1519780,MomVCB,Transfer Out
-2020/2/23,Wallet,6391,MomYB,Transfer In
-2020/2/23,Wallet,6391,MeoYB,Fashion
-2020/3/9,Interest,296876,MomVCB,Bonus
-2020/2/28,Salary RBVH??,200000,MomVCB,Transfer In
-2020/2/28,Salary RBVH??,1000,MomYB,Transfer Out
-2020/2/28,Salary RBVH??,1000,MeoYB,Other Income
-2020/3/26,To Duck's bank,507366,HomeYB_Main,Transfer Out
-2020/3/26,To Duck's bank,507366,HomeYB_Saving,Transfer In
-2020/3/30,Adjust Delay Credit 2020/03-04 (Mom),222019,MomYB,Adjustment Down
-2020/3/30,Adjust Delay Credit 2020/03-04 (MainYB),222019,HomeYB_Main,Adjustment Up
-2020/3/30,"Final Adjustment, too tired",10758,MomYB,Adjustment Up
+2020/08/29,Charge Paypay,9000,HomeYB_Main,Transfer Out
+2020/09/15,Insurance (Meo) 2020.09,5000,HomeYB_Main,Insurances
+2020/09/25,Salary JP 2020.09,578945,HomeYB_Main,Salary
+2020/09/25,House rental 2020.09,121000,HomeYB_Main,Housing
+2020/09/28,Amazon,9444,HomeYB_Main,Credit Payment
+2020/09/28,Amazon,588,MeoYB,Return
+2020/09/28,Yahoo,48259,HomeYB_Main,Credit Payment
+2020/09/28,Rakuten,124900,HomeYB_Main,Credit Payment
+2020/09/28,Rakuten,130,MeoYB,Credit Payment
+2020/10/01,Interest,50,MomYB,Bonus
+2020/10/05,Fee Card,26400,MomVCB,Transfer Out
+2020/10/05,Fee Card,118,MomYB,Transfer In
+2020/10/05,Fee Card,118,HomeYB_Main,Utilities
+2020/09/25,Interest,377147,MomVCB,Bonus
+2020/09/04,Japanese Fee (Co My) Vit - 09,1252200,MomVCB,Transfer Out
+2020/09/04,Japanese Fee (Co My) Vit - 09,5606,MomYB,Transfer In
+2020/09/04,Japanese Fee (Co My) Vit - 09,5606,HomeYB_Main,Education
+2020/09/28,Meo 2020.09,10000,MeoYB,Other Income
+2020/09/28,Meo 2020.09,10000,HomeYB_Main,Allowance
+2020/10/05,To Duck's bank,250785,HomeYB_Main,Transfer Out
+2020/10/05,To Duck's bank,250785,HomeYB_Saving,Transfer In
+2020/09/28,Yahoo (mis calculation),5168,HomeYB_Main,Other Income
+2020/09/28,Yahoo (mis calculation),5168,MomYB,Other Expense
+2020/08/15,Insurance (Meo),5000,HomeYB_Main,Insurances
+2020/08/25,Salary JP 2020.08,580421,HomeYB_Main,Salary
+2020/08/25,House rental 2020.08,121000,HomeYB_Main,Housing
+2020/08/26,Amazon,14076,HomeYB_Main,Credit Payment
+2020/08/26,Amazon,10117,MeoYB,Credit Payment
+2020/08/27,Yahoo,58557,HomeYB_Main,Credit Payment
+2020/08/27,Yahoo,58500,MeoYB,Credit Payment
+2020/08/27,Rakuten,27181,HomeYB_Main,Credit Payment
+2020/08/27,Rakuten,17529,MeoYB,Credit Payment
+2020/08/09,Japanese Fee (Co My) 1/2 Meo - 08,1125000,MomVCB,Transfer Out
+2020/08/09,Japanese Fee (Co My) 1/2 Meo - 08,5500,MomYB,Transfer In
+2020/08/09,Japanese Fee (Co My) 1/2 Meo - 08,5500,MeoYB,Education
+2020/08/09,Japanese Fee (Co My) 1/2 Vit - 08,1125000,MomVCB,Transfer Out
+2020/08/09,Japanese Fee (Co My) 1/2 Vit - 08,5082,MomYB,Transfer In
+2020/08/09,Japanese Fee (Co My) 1/2 Vit - 08,5082,HomeYB_Main,Education
+2020/08/27,Fee Card,73733,MomVCB,Transfer Out
+2020/08/27,Fee Card,333,MomYB,Transfer In
+2020/08/27,Fee Card,333,HomeYB_Main,Utilities
+2020/08/24,Interest,167260,MomVCB,Bonus
+2020/08/10,Interest,291946,MomVCB,Bonus
+2020/08/15,Withdraw saving 90m -> Save 80m,1233,MomVCB,Bonus
+2020/08/15,Exchange duck,10577500,MomVCB,Transfer Out
+2020/08/15,Exchange duck,50000,MomYB,Transfer In
+2020/08/27,Meo 2020.08,30000,MeoYB,Other Income
+2020/08/27,Meo 2020.08,30000,HomeYB_Main,Allowance
+2020/08/28,To Duck's bank,268504,HomeYB_Main,Transfer Out
+2020/08/28,To Duck's bank,268504,HomeYB_Saving,Transfer In
+2020/08/26,Amazon (mis calc),688,HomeYB_Main,Transfer Out
+2020/08/26,Amazon (mis calc),688,MomYB,Transfer In
+2020/08/28,Duck withdraw,50000,HomeYB_Main,Transfer Out
+2020/06/30,Charge Paypay,3000,HomeYB_Main,Transfer Out
+2020/07/15,Insurance (Meo),4000,HomeYB_Main,Insurances
+2020/07/17,Mimikara Oboeru,1370,HomeYB_Main,Education
+2020/07/22,Salary JP 2020.07,584666,HomeYB_Main,Salary
+2020/07/27,House rental 2020.07,121000,HomeYB_Main,Housing
+2020/07/27,Amazon,23555,HomeYB_Main,Credit Payment
+2020/07/27,Amazon,6629,MeoYB,Credit Payment
+2020/07/27,Amazon (wrong calc),688,MomYB,Transfer In
+2020/07/27,Yahoo,52809,HomeYB_Main,Credit Payment
+2020/07/27,Yahoo,34896,MeoYB,Credit Payment
+2020/07/27,Yahoo (wrong calc),16463,MomYB,Transfer In
+2020/07/27,Rakuten,25098,HomeYB_Main,Credit Payment
+2020/07/27,Rakuten,6642,MeoYB,Credit Payment
+2020/07/29,Charge Paypay,3000,HomeYB_Main,Transfer Out
+2020/07/29,Meo 2020.07,30000,MeoYB,Other Income
+2020/07/29,Meo 2020.07,30000,HomeYB_Main,Allowance
+2020/08/01,Fee Card,19873,MomVCB,Transfer Out
+2020/08/01,Fee Card,89,MomYB,Transfer In
+2020/08/01,Fee Card,89,HomeYB_Main,Utilities
+2020/07/06,Japanese Fee (Co My) 1/2 Meo - 07,1001100,MomVCB,Transfer Out
+2020/07/06,Japanese Fee (Co My) 1/2 Meo - 07,5000,MomYB,Transfer In
+2020/07/06,Japanese Fee (Co My) 1/2 Meo - 07,5000,MeoYB,Education
+2020/07/06,Japanese Fee (Co My) 1/2 Vit - 07,1001100,MomVCB,Transfer Out
+2020/07/06,Japanese Fee (Co My) 1/2 Vit - 07,4461,MomYB,Transfer In
+2020/07/06,Japanese Fee (Co My) 1/2 Vit - 07,4461,HomeYB_Main,Education
+2020/07/22,Paypal gift for Urano-san,358424,MomVCB,Transfer Out
+2020/07/22,Paypal gift for Urano-san,1800,MomYB,Transfer In
+2020/07/22,Paypal gift for Urano-san,1800,MeoYB,Other Expense
+2020/07/09,Interest,295890,MomVCB,Bonus
+2020/08/01,To Duck's bank,316285,HomeYB_Main,Transfer Out
+2020/08/01,To Duck's bank,316285,HomeYB_Saving,Transfer In
+2020/05/27,Yahoo,87998,HomeYB_Main,Credit Payment
+2020/05/27,Rakuten,87044,HomeYB_Main,Credit Payment
+2020/05/29,Charge Paypay,3000,HomeYB_Main,Transfer Out
+2020/06/01,Charge Paypay,3000,HomeYB_Main,Transfer Out
+2020/06/02,Charge Paypay,10000,HomeYB_Main,Transfer Out
+2020/06/03,Yokohama Corona support,300000,HomeYB_Main,Other Income
+2020/06/15,Insurance (Meo),4000,HomeYB_Main,Insurances
+2020/06/15,Yokohama child support,60000,HomeYB_Main,Other Income
+2020/06/15,Yokohama child support (bonus),10000,HomeYB_Main,Other Income
+2020/06/20,Meo Withdraw,49000,MeoYB,Transfer Out
+2020/06/25,Salary JP 2020.06,583866,HomeYB_Main,Salary
+2020/06/25,House rental 2020.06,121000,HomeYB_Main,Housing
+2020/06/26,Amazon,9398,HomeYB_Main,Credit Payment
+2020/06/26,Amazon,8158,MeoYB,Credit Payment
+2020/06/29,Yahoo,52809,HomeYB_Main,Credit Payment
+2020/06/29,Yahoo,3272,MeoYB,Credit Payment
+2020/06/29,Rakuten,32713,HomeYB_Main,Credit Payment
+2020/06/29,Rakuten,53269,MeoYB,Credit Payment
+2020/06/01,Fee Card,8174,MomVCB,Transfer Out
+2020/06/01,Fee Card,38,MomYB,Transfer In
+2020/06/01,Fee Card,38,HomeYB_Main,Utilities
+2020/06/03,Japanese Fee (Co My) 1/2 Meo - 06,876100,MomVCB,Transfer Out
+2020/06/03,Japanese Fee (Co My) 1/2 Meo - 06,4380,MomYB,Transfer In
+2020/06/03,Japanese Fee (Co My) 1/2 Meo - 06,4380,MeoYB,Education
+2020/06/03,Japanese Fee (Co My) 1/2 Vit - 06,876100,MomVCB,Transfer Out
+2020/06/03,Japanese Fee (Co My) 1/2 Vit - 06,4075,MomYB,Transfer In
+2020/06/03,Japanese Fee (Co My) 1/2 Vit - 06,4075,HomeYB_Main,Education
+2020/06/09,Interest,293178,MomVCB,Bonus
+2020/06/29,Meo 2020.06,30000,MeoYB,Other Income
+2020/06/29,Meo 2020.06,30000,HomeYB_Main,Allowance
+2020/07/01,To Duck's bank,686833,HomeYB_Main,Transfer Out
+2020/07/01,To Duck's bank,686833,HomeYB_Saving,Transfer In
+2020/05/29,Missing Paypay 05/29 3000 for both 2020/05 - 06,3000,HomeYB_Main,Adjustment Up
+2020/05/29,Missing Paypay 05/29 3000 for both 2020/05 - 06,3000,MomYB,Adjustment Down
+2020/04/26,Withdraw,19000,MeoYB,Transfer Out
+2020/04/27,House rental 2020.04,121000,HomeYB_Main,Housing
+2020/04/27,Amazon,43466,HomeYB_Main,Credit Payment
+2020/04/27,Amazon,7794,MeoYB,Credit Payment
+2020/04/27,Yahoo,108675,HomeYB_Main,Credit Payment
+2020/04/27,Rakuten,96923,HomeYB_Main,Credit Payment
+2020/04/27,Rakuten,19255,MeoYB,Credit Payment
+2020/04/30,Charge Paypay,10000,HomeYB_Main,Transfer Out
+2020/05/10,Exchange to Duck's friend,21500000,MomVCB,Transfer In
+2020/05/10,Exchange to Duck's friend,100000,MomYB,Transfer Out
+2020/05/15,Insurance (Meo),4100,HomeYB_Main,Insurances
+2020/05/25,Salary JP 2020.04,606345,HomeYB_Main,Salary
+2020/05/25,House rental 2020.05,121000,HomeYB_Main,Housing
+2020/05/26,Amazon,20165,HomeYB_Main,Credit Payment
+2020/05/26,Amazon,13041,MeoYB,Credit Payment
+2020/05/26,Meo 2020.05,30000,MeoYB,Other Income
+2020/05/26,Meo 2020.05,30000,HomeYB_Main,Allowance
+2020/05/26,Fee Card,20144,MomVCB,Transfer Out
+2020/05/26,Fee Card,94,MomYB,Transfer In
+2020/05/26,Fee Card,94,HomeYB_Main,Utilities
+2020/05/11,Interest,339288,MomVCB,Bonus
+2020/05/26,To Duck's bank,124944,HomeYB_Main,Transfer Out
+2020/05/26,To Duck's bank,124944,HomeYB_Saving,Transfer In
+2020/03/26,Amazon,59215,HomeYB_Main,Credit Payment
+2020/03/26,Yahoo,129218,HomeYB_Main,Credit Payment
+2020/03/27,Rakuten,407728,HomeYB_Main,Credit Payment
+2020/03/27,Rakuten,19244,MeoYB,Credit Payment
+2020/03/27,Charge Paypay,15000,HomeYB_Main,Transfer Out
+2020/03/30,Charge Paypay,3000,HomeYB_Main,Transfer Out
+2020/03/30,Bosch Final OT,13619,MeoYB,Salary
+2020/04/01,Interest,45,MomYB,Bonus
+2020/04/20,Exchange 5 man to Tien,50000,MomYB,Transfer In
+2020/04/20,Exchange 5 man to Tien,10603700,MomVCB,Transfer Out
+2020/04/24,Salary JP 2020.04,621111,HomeYB_Main,Salary
+2020/04/26,Meo 2020.03,30000,MeoYB,Other Income
+2020/04/26,Meo 2020.03,30000,HomeYB_Main,Allowance
+2020/04/21,Books,4002200,MomVCB,Transfer Out
+2020/04/21,Books,20000,MomYB,Transfer In
+2020/04/21,Books,20000,MeoYB,Education
+2020/04/26,Fee Card,48200,MomVCB,Transfer Out
+2020/04/26,Fee Card,224,MomYB,Transfer In
+2020/04/26,Fee Card,224,HomeYB_Main,Utilities
+2020/04/09,Interest,344025,MomVCB,Bonus
+2020/04/17,Japanese Fee (Co My) 1/2 Meo - 04+05,1951100,MomVCB,Transfer Out
+2020/04/17,Japanese Fee (Co My) 1/2 Meo - 04+05,9250,MomYB,Transfer In
+2020/04/17,Japanese Fee (Co My) 1/2 Meo - 04+05,9250,MeoYB,Education
+2020/04/17,Japanese Fee (Co My) 1/2 Vit - 04+05,1951100,MomVCB,Transfer Out
+2020/04/17,Japanese Fee (Co My) 1/2 Vit - 04+05,9076,MomYB,Transfer In
+2020/04/17,Japanese Fee (Co My) 1/2 Vit - 04+05,9076,HomeYB_Main,Education
+2020/04/26,VCB Error? Query 2403->2604,4581,MomVCB,Adjustment Up
+2020/04/26,To Duck's bank,314747,HomeYB_Main,Transfer Out
+2020/04/26,To Duck's bank,314747,HomeYB_Saving,Transfer In
+2020/02/26,Amazon,14531,HomeYB_Main,Credit Payment
+2020/02/26,Amazon,760,MeoYB,Credit Payment
+2020/02/27,Yahoo,105102,HomeYB_Main,Credit Payment
+2020/02/27,Rakuten,102386,HomeYB_Main,Credit Payment
+2020/02/27,Rakuten,10000,MeoYB,Credit Payment
+2020/02/28,Bosch Travel claim,5266,MeoYB,Return
+2020/02/28,Salary JP 2020.02 (Bosch),544411,HomeYB_Main,Salary
+2020/02/29,Charge Paypay,10000,HomeYB_Main,Transfer Out
+2020/02/29,Charge Paypay,3000,HomeYB_Main,Transfer Out
+2020/03/02,Vinh Vien exchange 200 man,1950000,MomYB,Transfer In
+2020/03/02,Vinh Vien exchange 200 man (2),50000,MomYB,Transfer In
+2020/03/02,Vinh Vien exchange 200 man,421604200,MomVCB,Transfer Out
+2020/03/02,To Duck's directly,50000,HomeYB_Main,Transfer Out
+2020/03/02,Withdraw Cash,50000,HomeCash,Transfer In
+2020/03/30,Unclear Cash Payment,50000,HomeCash,Unknown
+2020/03/07,Charge Paypay,3000,HomeYB_Main,Transfer Out
+2020/03/25,House rental 2020.03,23330,HomeYB_Main,Housing
+2020/03/25,Salary JP 2020.03,679250,HomeYB_Main,Salary
+2020/03/25,Meo 2020.03,30000,MeoYB,Other Income
+2020/03/25,Meo 2020.03,30000,HomeYB_Main,Allowance
+2020/03/24,Fee Card,166409,MomVCB,Transfer Out
+2020/03/24,Fee Card,804,MomYB,Transfer In
+2020/03/24,Fee Card,804,HomeYB_Main,Utilities
+2020/02/23,Wallet,1519780,MomVCB,Transfer Out
+2020/02/23,Wallet,6391,MomYB,Transfer In
+2020/02/23,Wallet,6391,MeoYB,Fashion
+2020/03/09,Interest,296876,MomVCB,Bonus
+2020/02/28,Salary RBVH??,200000,MomVCB,Transfer In
+2020/02/28,Salary RBVH??,1000,MomYB,Transfer Out
+2020/02/28,Salary RBVH??,1000,MeoYB,Other Income
+2020/03/26,To Duck's bank,507366,HomeYB_Main,Transfer Out
+2020/03/26,To Duck's bank,507366,HomeYB_Saving,Transfer In
+2020/03/30,Adjust Delay Credit 2020/03-04 (Mom),222019,MomYB,Adjustment Down
+2020/03/30,Adjust Delay Credit 2020/03-04 (MainYB),222019,HomeYB_Main,Adjustment Up
+2020/03/30,"Final Adjustment, too tired",10758,MomYB,Adjustment Up
 2020/12/28,Vietnam Food Online,4300,HomeYB_Saving,Groceries
 2020/12/28,Vietnam Food Online,7600,HomeYB_Saving,Groceries
 2020/12/27,Withdraw Cash,50000,HomeYB_Saving,Transfer Out
 2020/12/15,Insurance (Vit),2000,HomeYB_Saving,Insurances
-2020/12/9,Vietnam Food Online,4900,HomeYB_Saving,Groceries
+2020/12/09,Vietnam Food Online,4900,HomeYB_Saving,Groceries
 2020/12/27,Withdraw Cash,50000,HomeCash,Transfer In
 2020/12/30,Unclear Cash Payment,50000,HomeCash,Unknown
 2020/11/23,Withdraw Cash,50000,HomeYB_Saving,Transfer Out
@@ -529,30 +529,374 @@
 2020/11/30,Unclear Cash Payment,50000,HomeCash,Unknown
 2020/10/15,Insurance (Vit),2000,HomeYB_Saving,Insurances
 2020/10/15,Interest,33,HomeYB_Saving,Bonus
-2020/9/15,Insurance (Vit),2000,HomeYB_Saving,Insurances
-2020/9/14,Vit personal money deposit,660000,VitYB,Other Income
-2020/9/12,Charge Paypay,10000,HomeYB_Saving,Transfer Out
-2020/8/17,Insurance (Vit),2000,HomeYB_Saving,Insurances
-2020/8/1,Withdraw Cash,100000,HomeYB_Saving,Transfer Out
-2020/8/26,Claim Insurance,150000,HomeYB_Saving,Return
-2020/8/1,Withdraw Cash,100000,HomeCash,Transfer In
-2020/8/30,Unclear Cash Payment,100000,HomeCash,Unknown
-2020/7/29,Charge Paypay,5222,HomeYB_Saving,Transfer Out
-2020/7/15,Insurance (Vit),2000,HomeYB_Saving,Insurances
-2020/7/2,Withdraw Cash,200000,HomeYB_Saving,Transfer Out
-2020/7/2,Withdraw Cash,200000,HomeCash,Transfer In
-2020/7/30,Unclear Cash Payment,200000,HomeCash,Unknown
-2020/6/15,Insurance (Vit),2000,HomeYB_Saving,Insurances
-2020/5/30,Charge Paypay,6437,HomeYB_Saving,Transfer Out
-2020/5/15,Insurance (Vit),2100,HomeYB_Saving,Insurances
-2020/4/1,Interest,26,HomeYB_Saving,Bonus
-2020/3/28,Charge Paypay,1631,HomeYB_Saving,Transfer Out
-2020/3/15,Vietnam Food Online,11060,HomeYB_Saving,Groceries
-2020/2/8,Vietnam Food Online,11860,HomeYB_Saving,Groceries
-2020/2/8,Withdraw Cash,300000,HomeYB_Saving,Transfer Out
-2020/2/8,Withdraw Cash,300000,HomeCash,Transfer In
-2020/2/29,Unclear Cash Payment,300000,HomeCash,Unknown
+2020/09/15,Insurance (Vit),2000,HomeYB_Saving,Insurances
+2020/09/14,Vit personal money deposit,660000,VitYB,Other Income
+2020/09/12,Charge Paypay,10000,HomeYB_Saving,Transfer Out
+2020/08/17,Insurance (Vit),2000,HomeYB_Saving,Insurances
+2020/08/01,Withdraw Cash,100000,HomeYB_Saving,Transfer Out
+2020/08/26,Claim Insurance,150000,HomeYB_Saving,Return
+2020/08/01,Withdraw Cash,100000,HomeCash,Transfer In
+2020/08/30,Unclear Cash Payment,100000,HomeCash,Unknown
+2020/07/29,Charge Paypay,5222,HomeYB_Saving,Transfer Out
+2020/07/15,Insurance (Vit),2000,HomeYB_Saving,Insurances
+2020/07/02,Withdraw Cash,200000,HomeYB_Saving,Transfer Out
+2020/07/02,Withdraw Cash,200000,HomeCash,Transfer In
+2020/07/30,Unclear Cash Payment,200000,HomeCash,Unknown
+2020/06/15,Insurance (Vit),2000,HomeYB_Saving,Insurances
+2020/05/30,Charge Paypay,6437,HomeYB_Saving,Transfer Out
+2020/05/15,Insurance (Vit),2100,HomeYB_Saving,Insurances
+2020/04/01,Interest,26,HomeYB_Saving,Bonus
+2020/03/28,Charge Paypay,1631,HomeYB_Saving,Transfer Out
+2020/03/15,Vietnam Food Online,11060,HomeYB_Saving,Groceries
+2020/02/08,Vietnam Food Online,11860,HomeYB_Saving,Groceries
+2020/02/08,Withdraw Cash,300000,HomeYB_Saving,Transfer Out
+2020/02/08,Withdraw Cash,300000,HomeCash,Transfer In
+2020/02/29,Unclear Cash Payment,300000,HomeCash,Unknown
 2019/12/15,Withdraw Cash,10000,HomeYB_Saving,Transfer Out
 2019/12/15,Withdraw Cash,10000,HomeCash,Transfer In
 2019/12/30,Unclear Cash Payment,10000,HomeCash,Unknown
 2019/11/30,Adjustment for whole 2020,646998,HomeYB_Saving,Adjustment Up
+2021/05/06,Adjustment Incorrect Calc 2020 (MomYB),9671,MomYB,Adjustment Down
+2021/05/06,Adjustment Incorrect Calc 2020 (MainYB),9671,HomeYB_Main,Adjustment Up
+2021/05/06,Refund missing Calc 2020,235,HomeYB_Main,Adjustment Down
+2021/05/06,Refund missing Calc 2020,235,MeoYB,Adjustment Up
+2021/05/06,Refund missing Calc 2020,235,HomeYB_Main,Transfer In
+2021/05/06,Refund missing Calc 2020,235,HomeYB_Saving,Transfer Out
+2021/04/09,Tax Return,31604,HomeYB_Main,Return
+2021/04/15,Insurance Meo,5000,HomeYB_Main,Insurances
+2021/04/23,Salary Meo,672139,HomeYB_Main,Salary
+2021/04/26,House rental 2021.04,121000,HomeYB_Main,Housing
+2021/04/26,Amazon,28966,HomeYB_Main,Credit Payment
+2021/04/27,Yahoo,88237,HomeYB_Main,Credit Payment
+2021/04/27,Yahoo (Vit),1000,VitYB,Credit Payment
+2021/04/27,Yahoo (Adjust),1000,HomeYB_Main,Transfer Out
+2021/04/27,Yahoo (Adjust),1000,HomeYB_Saving,Transfer In
+2021/04/27,Rakuten,50572,HomeYB_Main,Credit Payment
+2021/04/27,Rakuten (Meo),980,MeoYB,Credit Payment
+2021/04/27,Rakuten (Vit),7490,VitYB,Credit Payment
+2021/04/27,Rakuten (Adjust),8470,HomeYB_Main,Transfer Out
+2021/04/27,Rakuten (Adjust),8470,HomeYB_Saving,Transfer In
+2021/04/29,Charge Paypay,5800,HomeYB_Main,Transfer Out
+2021/04/30,Kindergarten Puppy (deducted on 05/06),65000,HomeYB_Main,Kids
+2021/04/15,Insurace Vit,2000,HomeYB_Saving,Insurances
+2021/04/20,Vit withdraw,29000,HomeYB_Saving,Transfer Out
+2021/04/20,Vit withdraw,29000,HomeCash,Transfer In
+2021/04/30,Exchange VND - JPY,520000,HomeYB_Saving,Transfer In
+2021/05/02,Vit withdraw,54000,HomeYB_Saving,Transfer Out
+2021/05/02,Vit withdraw,54000,HomeCash,Transfer In
+2021/04/30,Meo pocket money,10000,HomeYB_Saving,Allowance
+2021/04/30,Meo pocket money,10000,MeoYB,Other Income
+2021/04/30,Vit pocket money,20000,HomeYB_Saving,Allowance
+2021/04/30,Vit pocket money,20000,VitYB,Other Income
+2021/04/04,Charge LINE Pay,2778,HomeCash,Transfer Out
+2021/04/04,Lopia,6697,HomeCash,Groceries
+2021/04/07,Water Bills (2 months),5222,HomeCash,Utilities
+2021/04/10,Return PASSMO Card,4651,HomeCash,Return
+2021/04/11,Lopia,4731,HomeCash,Groceries
+2021/04/12,PR documents,460,HomeCash,Other Expense
+2021/04/12,Lopia,4694,HomeCash,Groceries
+2021/04/15,Lopia,6678,HomeCash,Groceries
+2021/04/19,Lopia,7683,HomeCash,Groceries
+2021/04/22,PR documents,3200,HomeCash,Other Expense
+2021/04/22,Bank documents,300,HomeCash,Other Expense
+2021/04/27,Lopia,3072,HomeCash,Groceries
+2021/04/27,Flu (Meo),2170,MeoYB,Transfer In
+2021/04/27,Flu (Meo),2170,HomeYB_Saving,Medical
+2021/04/01,SIM,1500,Paypay,Other Income
+2021/04/02,Cash back food court Sieu,1771,Paypay,Return
+2021/04/03,Charge Paypay (credit),3732,Paypay,Transfer In
+2021/04/08,Charge Paypay (credit),1000,Paypay,Transfer In
+2021/04/29,Charge Paypay (bank),5800,Paypay,Transfer In
+2021/04/30,Charge Paypay (credit),8063,Paypay,Transfer In
+2021/04/30,Bonus 2020/04,1854,Paypay,Bonus
+2021/04/30,"Electric, Gas",9878,Paypay,Utilities
+2021/04/30,To Sieu (Food),5755,Paypay,Groceries
+2021/04/08,Farewell Meo colleague,1000,Paypay,Transfer Out
+2021/04/08,Farewell Meo colleague,1000,HomeYB_Saving,Transfer In
+2021/04/08,Farewell Meo colleague,1000,MeoYB,Personal
+2021/04/03,"Electric, Gas",10010,Paypay,Utilities
+2021/04/30,Japanese Lesson,27000,HomeCash,Education
+2021/04/30,Unclear Cash Payment,18000,HomeCash,Unknown
+2021/04/30,Unclear Cash Payment,9000,HomeYB_Saving,Transfer In
+2021/04/30,Unclear Cash Payment,9000,VitYB,Transfer Out
+2021/12/30,"Electric, Gas",9131,Paypay,Utilities
+2021/12/30,Maruetsu,1784,Paypay,Groceries
+2021/12/30,Fitcare,3792,Paypay,Groceries
+2021/12/29,Ladies Clinic,1300,Paypay,Medical
+2021/12/27,K&A Flower Shop,638,Paypay,Furniture
+2021/12/27,Maruetsu,170,Paypay,Groceries
+2021/12/26,Uniqlo,2948,Paypay,Fashion
+2021/12/21,Maruetsu,819,Paypay,Groceries
+2021/12/21,Fitcare,1592,Paypay,Groceries
+2021/12/21,Daiso,220,Paypay,Household Supplies
+2021/12/21,Fitcare,3132,Paypay,Groceries
+2021/12/20,Paypay Free Market,150,Paypay,Furniture
+2021/12/19,KOBEYA Bakery Tama Plaza,443,Paypay,Groceries
+2021/12/16,Maruetsu,84,Paypay,Groceries
+2021/12/16,Maruetsu,1989,Paypay,Groceries
+2021/12/16,Fitcare,2248,Paypay,Groceries
+2021/12/15,Ladies Clinic,302,Paypay,Medical
+2021/12/13,Lalaport,3020,Paypay,Eating Out
+2021/12/13,Family Mart,150,Paypay,Groceries
+2021/12/12,Maruetsu,1366,Paypay,Groceries
+2021/12/12,Junberry Bakery,875,Paypay,Groceries
+2020/12/11,Maruetsu,1299,Paypay,Groceries
+2020/12/10,Maruetsu,1615,Paypay,Groceries
+2020/12/10,Family Mart,132,Paypay,Groceries
+2020/12/09,Yurindo Tama Plaza (Book Store),2035,Paypay,Education
+2020/12/09,Maruetsu,1288,Paypay,Groceries
+2020/12/08,Maruetsu,427,Paypay,Groceries
+2020/12/08,Maruetsu,2677,Paypay,Groceries
+2020/12/07,Maruetsu,982,Paypay,Groceries
+2020/12/06,Maruetsu,524,Paypay,Groceries
+2020/12/04,Maruetsu,1303,Paypay,Groceries
+2020/12/04,Fitcare,1663,Paypay,Groceries
+2020/12/03,"Electric, Gas",8076,Paypay,Utilities
+2020/12/03,Maruetsu,605,Paypay,Groceries
+2020/11/29,Mister Donut,291,Paypay,Eating Out
+2020/11/29,Uniqlo,4257,Paypay,Fashion
+2020/11/27,Maruetsu,1105,Paypay,Groceries
+2020/11/26,Maruetsu,1582,Paypay,Groceries
+2020/11/26,Fitcare,1246,Paypay,Groceries
+2020/11/25,Ladies Clinic,3840,Paypay,Medical
+2020/11/23,Coke On,160,Paypay,Groceries
+2020/11/23,Maruetsu,997,Paypay,Groceries
+2020/11/22,Daiso,330,Paypay,Household Supplies
+2020/11/22,HAC,408,Paypay,Household Supplies
+2020/11/19,OK,736,Paypay,Groceries
+2020/11/18,Maruetsu,1278,Paypay,Groceries
+2020/11/17,Maruetsu,829,Paypay,Groceries
+2020/11/17,Kura Sushi,2662,Paypay,Eating Out
+2020/11/17,Maruetsu,332,Paypay,Groceries
+2020/11/15,Pombador Bakery,302,Paypay,Groceries
+2020/11/13,Junberry Bakery,1274,Paypay,Groceries
+2020/11/12,Fitcare,1118,Paypay,Groceries
+2020/11/11,Fitcare,254,Paypay,Groceries
+2020/11/10,Uniqlo,2387,Paypay,Fashion
+2020/11/10,Ladies Clinic,1300,Paypay,Medical
+2020/11/09,Maruetsu,1094,Paypay,Groceries
+2020/11/07,Maruetsu,1112,Paypay,Groceries
+2020/11/06,Maruetsu,1115,Paypay,Groceries
+2020/11/06,Fitcare,2394,Paypay,Groceries
+2020/11/06,Junberry Bakery,562,Paypay,Groceries
+2020/11/04,Maruetsu,101,Paypay,Groceries
+2020/11/04,HANS,5240,Paypay,Other Expense
+2020/11/04,Daiso,660,Paypay,Household Supplies
+2020/11/03,Steak KEN,7953,Paypay,Eating Out
+2020/11/01,Maruetsu,593,Paypay,Groceries
+2020/11/01,Coke On,130,Paypay,Groceries
+2021/12/31,From Sieu (Maybe Food),2450,Paypay,Groceries
+2021/12/21,From Sieu (Maybe Food),8780,Paypay,Groceries
+2021/12/19,From Sieu (Maybe Food),5606,Paypay,Groceries
+2021/12/15,From Sieu (Maybe Food),2937,Paypay,Groceries
+2021/11/12,Farewell Meo colleague,1000,Paypay,Transfer Out
+2021/12/26,From Sieu (Maybe Food),5027,Paypay,Return
+2021/12/25,From Sieu (Maybe Food),7000,Paypay,Return
+2021/12/01,SIM,1500,Paypay,Other Income
+2021/11/24,From Sieu (Maybe Food),1200,Paypay,Return
+2021/11/20,From Sieu (Maybe Food),1150,Paypay,Return
+2021/11/03,SIM,1500,Paypay,Other Income
+2021/11/03,From Sieu (Maybe Food),4356,Paypay,Return
+2021/12/31,Charge Paypay (credit),10000,Paypay,Transfer In
+2021/12/30,Charge Paypay (credit),10000,Paypay,Transfer In
+2021/12/21,Charge Paypay (credit),10000,Paypay,Transfer In
+2021/12/19,Charge Paypay (credit),10000,Paypay,Transfer In
+2021/12/15,Charge Paypay (credit),10000,Paypay,Transfer In
+2021/12/12,Charge Paypay (credit),8000,Paypay,Transfer In
+2021/12/07,Charge Paypay (credit),10000,Paypay,Transfer In
+2021/12/03,Charge Paypay (credit),10000,Paypay,Transfer In
+2021/11/25,Charge Paypay (credit),10000,Paypay,Transfer In
+2021/11/11,Charge Paypay (credit),10000,Paypay,Transfer In
+2021/11/03,Charge Paypay (credit),10000,Paypay,Transfer In
+2021/11/01,Charge Paypay (credit),10000,Paypay,Transfer In
+2020/12/31,Paypay Bonus 2020/12,823,Paypay,Bonus
+2020/11/30,Paypay Bonus 2020/11,1265,Paypay,Bonus
+2020/10/31,Fitcare,406,Paypay,Groceries
+2020/10/31,Maruetsu,232,Paypay,Groceries
+2020/10/30,"Electric, Gas",6869,Paypay,Utilities
+2020/10/30,Big Yosun,3636,Paypay,Groceries
+2020/10/30,Maruetsu,2271,Paypay,Groceries
+2020/10/30,Uber Eats,1162,Paypay,Eating Out
+2020/10/29,Maruetsu,254,Paypay,Groceries
+2020/10/29,Maruetsu,351,Paypay,Groceries
+2020/10/29,Junberry Bakery,1080,Paypay,Groceries
+2020/10/29,Fitcare,419,Paypay,Groceries
+2020/10/29,Lawson,140,Paypay,Household Supplies
+2020/10/27,HAC,203,Paypay,Household Supplies
+2020/10/26,Ladies Clinic,3780,Paypay,Medical
+2020/10/24,Junberry Bakery,734,Paypay,Groceries
+2020/10/22,Maruetsu,233,Paypay,Groceries
+2020/10/21,Maruetsu,635,Paypay,Groceries
+2020/10/21,Ladies Clinic,3850,Paypay,Medical
+2020/10/20,Kura Sushi,2772,Paypay,Eating Out
+2020/10/20,San Marc Café,605,Paypay,Eating Out
+2020/10/20,Ladies Clinic,4620,Paypay,Medical
+2020/10/19,Daiso,330,Paypay,Household Supplies
+2020/10/19,Yahoo Auction,2972,Paypay,Other Expense
+2020/10/18,Maruetsu,347,Paypay,Groceries
+2020/10/18,San Marc Café,363,Paypay,Eating Out
+2020/10/17,Yahoo Auction,2847,Paypay,Other Expense
+2020/10/17,Maruetsu,253,Paypay,Groceries
+2020/10/16,Maruetsu,2069,Paypay,Groceries
+2020/10/16,Junberry Bakery,562,Paypay,Groceries
+2020/10/16,Big Yosun,3515,Paypay,Groceries
+2020/10/14,Uniqlo,1298,Paypay,Fashion
+2020/10/14,Daiso,990,Paypay,Household Supplies
+2020/10/13,GU,649,Paypay,Fashion
+2020/10/13,Big Yosun,3549,Paypay,Groceries
+2020/10/12,Maruetsu,146,Paypay,Groceries
+2020/10/12,Maruetsu,451,Paypay,Groceries
+2020/10/11,Daiso,330,Paypay,Household Supplies
+2020/10/09,Maruetsu,1470,Paypay,Groceries
+2020/10/07,Paypay Free Market,300,Paypay,Other Expense
+2020/10/06,Big Yosun,4853,Paypay,Groceries
+2020/10/05,Hankyuu,180,Paypay,Unknown
+2020/10/05,Maruetsu,953,Paypay,Groceries
+2020/10/03,"Electric, Gas",8309,Paypay,Utilities
+2020/10/03,Maruetsu,1736,Paypay,Groceries
+2020/10/02,San Marc Café,363,Paypay,Eating Out
+2020/10/02,Maruetsu,175,Paypay,Groceries
+2020/10/01,Maruetsu,744,Paypay,Groceries
+2020/10/01,Hankyuu,420,Paypay,Unknown
+2020/10/01,Dorimu Shop,187,Paypay,Eating Out
+2020/09/30,Maruetsu,570,Paypay,Groceries
+2020/09/30,Daiso,660,Paypay,Household Supplies
+2020/09/30,Gindako Takoyaki,590,Paypay,Eating Out
+2020/09/30,Hankyuu,561,Paypay,Unknown
+2020/09/29,Big Yosun,5280,Paypay,Groceries
+2020/09/28,Maruetsu,1448,Paypay,Groceries
+2020/09/25,Maruetsu,1215,Paypay,Groceries
+2020/09/24,Maruetsu,295,Paypay,Groceries
+2020/09/22,Yokohama Ya Ramen,1758,Paypay,Eating Out
+2020/09/22,HAC,1298,Paypay,Household Supplies
+2020/09/22,Yahoo Auction,1610,Paypay,Other Expense
+2020/09/21,Hokkaido Kitchen,5500,Paypay,Eating Out
+2020/09/20,Create,1518,Paypay,Household Supplies
+2020/09/19,Daiso,330,Paypay,Household Supplies
+2020/09/19,Bike Shop,500,Paypay,Other Expense
+2020/09/19,Hankyuu,540,Paypay,Unknown
+2020/09/19,Hankyuu,1620,Paypay,Unknown
+2020/09/18,Daiso,990,Paypay,Household Supplies
+2020/09/18,Bike Shop,5400,Paypay,Other Expense
+2020/09/18,Junberry Bakery,1436,Paypay,Groceries
+2020/09/16,Maruetsu,203,Paypay,Groceries
+2020/09/16,Junberry Bakery,529,Paypay,Groceries
+2020/09/14,Maruetsu,1423,Paypay,Groceries
+2020/09/14,HAC,1304,Paypay,Household Supplies
+2020/09/14,Daiso,328,Paypay,Household Supplies
+2020/09/13,Big Yosun,2108,Paypay,Groceries
+2020/09/12,Tea Shop Maruki,1210,Paypay,Eating Out
+2020/09/11,Maruetsu,1684,Paypay,Groceries
+2020/09/11,Kura Sushi,3454,Paypay,Eating Out
+2020/09/11,Konan,492,Paypay,Household Supplies
+2020/09/10,Fitcare,1321,Paypay,Groceries
+2020/09/09,Junberry Bakery,605,Paypay,Groceries
+2020/09/09,GU,1089,Paypay,Fashion
+2020/09/09,Hankyuu,172,Paypay,Unknown
+2020/09/08,Paypay Free Market,625,Paypay,Other Expense
+2020/09/08,Maruetsu,1589,Paypay,Groceries
+2020/09/06,Maruetsu,2060,Paypay,Groceries
+2020/09/06,Big Yosun,7212,Paypay,Groceries
+2020/09/06,OK,3633,Paypay,Groceries
+2020/09/05,Bikuri Sushi,6762,Paypay,Eating Out
+2020/09/03,Maruetsu,265,Paypay,Groceries
+2020/09/02,Maruetsu,619,Paypay,Groceries
+2020/09/01,Konan,1239,Paypay,Household Supplies
+2020/09/01,Big Yosun,523,Paypay,Groceries
+2020/09/01,Big Yosun,2867,Paypay,Groceries
+2020/08/31,Maruetsu,1257,Paypay,Groceries
+2020/08/31,Fitcare,1079,Paypay,Groceries
+2020/08/30,Maruetsu,244,Paypay,Groceries
+2020/08/30,Book Off,310,Paypay,Other Expense
+2020/08/29,"Electric, Gas",9124,Paypay,Utilities
+2020/08/29,Yokohama Ya Ramen,1109,Paypay,Eating Out
+2020/08/29,Lalaport,216,Paypay,Eating Out
+2020/08/29,GU,858,Paypay,Fashion
+2020/08/28,Udon Hanamaru,1089,Paypay,Eating Out
+2020/08/25,San Marc Café,737,Paypay,Eating Out
+2020/08/24,Fitcare,1417,Paypay,Groceries
+2020/08/24,Maruetsu,693,Paypay,Groceries
+2020/08/11,Coke On,150,Paypay,Groceries
+2020/08/11,Coke On,130,Paypay,Groceries
+2020/08/10,Coke On,150,Paypay,Groceries
+2020/08/09,Coke On,150,Paypay,Groceries
+2020/08/09,Coke On,130,Paypay,Groceries
+2020/08/01,"Electric, Gas",8176,Paypay,Utilities
+2020/10/05,Farewell Meo colleague,1000,Paypay,Other Expense
+2020/10/02,To Sieu (Food),3069,Paypay,Groceries
+2020/09/04,To Sieu (Food),430,Paypay,Groceries
+2020/10/07,SIM,1500,Paypay,Other Income
+2020/09/04,From Sieu (Maybe Food),3380,Paypay,Return
+2020/08/08,SIM,1500,Paypay,Other Income
+2020/10/30,Charge Paypay (credit),5000,Paypay,Transfer In
+2020/10/29,Charge Paypay (credit),10000,Paypay,Transfer In
+2020/10/21,Charge Paypay (credit),10000,Paypay,Transfer In
+2020/10/20,Charge Paypay (credit),10000,Paypay,Transfer In
+2020/10/16,Charge Paypay (credit),10000,Paypay,Transfer In
+2020/10/12,Charge Paypay (credit),10000,Paypay,Transfer In
+2020/10/05,Charge Paypay (credit),10000,Paypay,Transfer In
+2020/10/03,Charge Paypay (credit),3200,Paypay,Transfer In
+2020/10/02,Charge Paypay (credit),10000,Paypay,Transfer In
+2020/09/25,Charge Paypay (credit),10000,Paypay,Transfer In
+2020/09/22,Charge Paypay (credit),5000,Paypay,Transfer In
+2020/09/22,Charge Paypay (credit),1500,Paypay,Transfer In
+2020/09/19,Charge Paypay (credit),10000,Paypay,Transfer In
+2020/09/14,Charge Paypay (credit),10000,Paypay,Transfer In
+2020/09/11,Charge Paypay (credit),5000,Paypay,Transfer In
+2020/09/03,Charge Paypay (credit),5000,Paypay,Transfer In
+2020/09/02,Charge Paypay (credit),10000,Paypay,Transfer In
+2020/09/01,Charge Paypay (credit),10000,Paypay,Transfer In
+2020/08/29,Charge Paypay (credit),5000,Paypay,Transfer In
+2020/08/29,Charge Paypay (bank),9000,Paypay,Transfer In
+2020/08/13,Charge Paypay (credit),3000,Paypay,Transfer In
+2020/10/30,Bonus Paypay,406,Paypay,Bonus
+2020/09/30,Bonus Paypay,5800,Paypay,Bonus
+2020/08/30,Bonus Paypay,1056,Paypay,Bonus
+2020/07/30,Bonus Paypay,1258,Paypay,Bonus
+2020/06/30,Bonus Paypay,1848,Paypay,Bonus
+2020/05/30,Bonus Paypay,2953,Paypay,Bonus
+2020/04/30,Bonus Paypay,1716,Paypay,Bonus
+2020/03/30,Bonus Paypay,2704,Paypay,Bonus
+2020/07/19,Yahoo Auction,58500,Paypay,Other Expense
+2020/07/17,Yahoo Auction,3300,Paypay,Other Expense
+2020/06/30,"Electric, Gas",8454,Paypay,Utilities
+2020/06/26,Yahoo Auction,33616,Paypay,Other Expense
+2020/06/06,Book Off,660,Paypay,Other Expense
+2020/06/02,"Electric, Gas",9072,Paypay,Utilities
+2020/05/23,Yahoo Auction,462,Paypay,Other Expense
+2020/04/30,"Electric, Gas",11390,Paypay,Utilities
+2020/07/25,To Meo Paypay,410,Paypay,Transfer Out
+2020/07/19,To Sieu (Food),680,Paypay,Groceries
+2020/07/06,Farewell Meo colleague,700,Paypay,Other Expense
+2020/06/01,To Sieu (Food),2000,Paypay,Groceries
+2020/05/29,To Sieu (Food),2760,Paypay,Groceries
+2020/05/29,To Sieu (Food),4210,Paypay,Groceries
+2020/05/24,To Sieu (Food),800,Paypay,Groceries
+2020/05/12,To Sieu (Food),272,Paypay,Groceries
+2020/07/19,From Sieu (Maybe Food),550,Paypay,Return
+2020/07/12,From Sieu (Maybe Food),3750,Paypay,Return
+2020/07/10,From Sieu (Maybe Food),100,Paypay,Return
+2020/07/09,SIM,1500,Paypay,Other Income
+2020/06/28,From Sieu (Maybe Food),512,Paypay,Return
+2020/06/19,From Sieu (Maybe Food),2150,Paypay,Return
+2020/05/18,From Sieu (Maybe Food),2200,Paypay,Return
+2020/05/14,From Sieu (Maybe Food),1000,Paypay,Return
+2020/07/29,Charge Paypay (credit),1000,Paypay,Transfer In
+2020/07/29,Charge Paypay (bank),3000,Paypay,Transfer In
+2020/07/19,Charge Paypay (credit),60000,Paypay,Transfer In
+2020/06/30,Charge Paypay (bank),3000,Paypay,Transfer In
+2020/06/26,Charge Paypay (credit),3616,Paypay,Transfer In
+2020/06/26,Charge Paypay (credit),30000,Paypay,Transfer In
+2020/06/02,Charge Paypay (bank),10000,Paypay,Transfer In
+2020/06/01,Charge Paypay (bank),3000,Paypay,Transfer In
+2020/05/29,Charge Paypay (bank),3000,Paypay,Transfer In
+2020/04/30,Charge Paypay (bank),10000,Paypay,Transfer In
+2020/03/30,Charge Paypay (bank),3000,Paypay,Transfer In
+2020/03/27,Charge Paypay (bank),15000,Paypay,Transfer In
+2020/03/07,Charge Paypay (bank),3000,Paypay,Transfer In
+2020/03/30,"Electric, Gas",6192,Paypay,Utilities
+2020/03/27,"Electric, Gas",6548,Paypay,Utilities
+2020/03/27,"Electric, Gas",6880,Paypay,Utilities
+2020/03/25,Fitcare,521,Paypay,Groceries
+2020/03/07,"Electric, Gas",1313,Paypay,Utilities
+2020/03/07,"Electric, Gas",3363,Paypay,Utilities

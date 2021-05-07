@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="CreditDB" uuid="6a81309b-60b8-4eab-93be-e26181fa7eae">
+    <data-source source="LOCAL" name="CreditDB" uuid="7fa98036-e24a-46c2-87b1-176cac17a847">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\miph272640\PycharmProjects\HomeAccounting\trial\MeoDemo_Final\CreditDB.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/trial/MeoDemo_Final/CreditDB.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
