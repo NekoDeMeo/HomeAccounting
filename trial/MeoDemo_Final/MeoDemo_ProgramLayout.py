@@ -31,7 +31,7 @@ __downleft_size__ = (8.4, 6)
 __downright_size__ = (6.2, 6)
 
 __init_year__ = '2021'
-__init_month__ = '02'
+__init_month__ = '04'
 
 
 def add_sum_to_display_df(df_display):
@@ -61,7 +61,7 @@ def declare_window():
     df_cat, df_source = get_expense_data(__init_year__, __init_month__)
 
     YearList = '2020', '2021'
-    MonthList = 'All', '01', '02', '03', '04'
+    MonthList = 'All', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'
 
     main_layout = [[sg.Text('Enter File Link')],
                    [sg.Input(key='-INPUT-'), sg.FileBrowse('Select File')],
