@@ -9,7 +9,7 @@ from matplotlib.figure import Figure
 import os
 import dataset
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 import ntpath
 ntpath.basename("a/b/c")
 
@@ -23,21 +23,24 @@ __window_top_y__ = 50
 
 __text_box_fontsize__ = 10
 __text_box_scale_x__ = 1.1
-__text_box_scale_x1_ = 1
+__text_box_scale_x1_ = 1.7
 __text_box_scale_x2_ = 1.3
 __text_box_scale_y__ = 1.5
 
 
 __piechart_font_size__ = 8
 
-__upleft_chart_size__ = (8.4, 3)
-__upright_chart_size__ = (6.2, 3)
+__upleft_chart_size__ = (6.2, 4)
+__upright_chart_size__ = (8.4, 4)
 __downleft_size__ = (8.4, 6)
 __downright_size__ = (6.2, 6)
 
-__init_year__ = '2021'
-__init_month__ = '04'
+__lastMonth__ = datetime.utcnow().replace(day=1) - timedelta(days=1)
 
+__init_year__ = __lastMonth__.strftime("%Y")
+__init_month__ = __lastMonth__.strftime("%m")
+
+__number_of_months_linechart__ = 12
 
 def add_sum_to_display_df(df_display):
 
@@ -117,21 +120,21 @@ def init_window_upleft(window, df_tb1, df_tb2, df_tb3):
     # add the plot to the window
     fig = Figure(figsize=__upleft_chart_size__)
 
-    ax_tb1 = fig.add_subplot(131, aspect='equal')
+    ax_tb1 = fig.add_subplot(221, aspect='equal')
     ax_tb1.axis('off')
     tbl1 = ax_tb1.table(cellText=df_tb1.values, colLabels=df_tb1.keys(), loc='center')
     tbl1.auto_set_font_size(False)
     tbl1.set_fontsize(__text_box_fontsize__)
-    tbl1.scale(__text_box_scale_x2_, __text_box_scale_y__)
+    tbl1.scale(__text_box_scale_x1_, __text_box_scale_y__)
 
-    ax_tb2 = fig.add_subplot(132, aspect='equal')
+    ax_tb2 = fig.add_subplot(212, aspect='equal')
     ax_tb2.axis('off')
     tbl2 = ax_tb2.table(cellText=df_tb2.values, colLabels=df_tb2.keys(), loc='center')
     tbl2.auto_set_font_size(False)
     tbl2.set_fontsize(__text_box_fontsize__)
     tbl2.scale(__text_box_scale_x1_, __text_box_scale_y__)
 
-    ax_tb3 = fig.add_subplot(133, aspect='equal')
+    ax_tb3 = fig.add_subplot(222, aspect='equal')
     ax_tb3.axis('off')
     tbl3 = ax_tb3.table(cellText=df_tb3.values, colLabels=df_tb3.keys(), loc='center')
     tbl3.auto_set_font_size(False)
@@ -150,18 +153,20 @@ def init_window_upright(window, df):
     fig = Figure(figsize=__upright_chart_size__)
     ax1 = fig.add_subplot(111)
 
-    df.plot(kind = 'line', x='x_values', y='y1_values', ax=ax1, marker='o', markerfacecolor='blue', markersize=12, color='skyblue',
-             linewidth=4)
+    df.plot(kind='line', x='timeline', y='income', ax=ax1, marker='', color='skyblue', linewidth=2)
+    df.plot(kind='line', x='timeline', y='expense', ax=ax1, marker='', color='red', linewidth=2)
+    df.plot(kind='line', x='timeline', y='networth', ax=ax1, marker='', color='green', linewidth=2, linestyle='dashed')
 
-    df.plot(kind='line', x='x_values', y='y2_values', ax=ax1, marker='', color='olive', linewidth=2)
-
-    df.plot(kind='line', x='x_values', y='y3_values', ax=ax1, marker='', color='olive', linewidth=2, linestyle='dashed', label="toto")
+    ax1.tick_params(axis='x', rotation=90)
 
     # show legend
     ax1.legend()
 
     # plot chart
     ax1.grid()
+
+    fig.tight_layout()
+
     fig_agg = draw_figure(canvas, fig)
 
     return fig_agg, ax1
@@ -190,6 +195,7 @@ def init_window_down_left(window, df_cat):
 
     # plot chart
     ax1.grid()
+    fig.tight_layout()
     fig_agg = draw_figure(canvas, fig)
 
     return fig_agg, ax1, ax2
@@ -219,6 +225,7 @@ def init_window_down_right(window, df_source):
 
     # plot chart
     ax3.grid()
+    fig.tight_layout()
     fig_agg = draw_figure(canvas, fig)
 
     return fig_agg, ax3, ax4
@@ -253,12 +260,13 @@ def update_incomeexpense_linechart(fig_agg, df, ax1):
 
     ax1.cla()
 
-    df.plot(kind = 'line', x='x_values', y='y1_values', ax=ax1, marker='o', markerfacecolor='blue', markersize=12, color='skyblue',
-             linewidth=4)
+    df.plot(kind='line', x='timeline', y='income', ax=ax1, marker='', color='skyblue', linewidth=2)
+    df.plot(kind='line', x='timeline', y='expense', ax=ax1, marker='', color='red', linewidth=2)
+    df.plot(kind='line', x='timeline', y='networth', ax=ax1, marker='', color='green', linewidth=2, linestyle='dashed')
 
-    df.plot(kind='line', x='x_values', y='y2_values', ax=ax1, marker='', color='olive', linewidth=2)
-
-    df.plot(kind='line', x='x_values', y='y3_values', ax=ax1, marker='', color='olive', linewidth=2, linestyle='dashed', label="toto")
+    # other line sample
+    # df.plot(kind = 'line', x='timeline', y='income', ax=ax1, marker='o', markerfacecolor='blue', markersize=12, color='skyblue', linewidth=4)
+    # df.plot(kind='line', x='timeline', y='networth', ax=ax1, marker='', color='olive', linewidth=2, linestyle='dashed', label="toto")
 
     ax1.legend()
     ax1.grid()
@@ -1073,6 +1081,7 @@ def get_df_by_year_month(year, month, dbPath, tableName, source, mode):
         if (tmonth == month) and (tyear == year):
             expense.append(dict(totalPayment=float(tran['totalPayment']),
                            category=tran['category'],
+                            classification=tran['classification'],
                             source=source,
                             date=tran['date'],
                             info=tran['info']
@@ -1083,6 +1092,8 @@ def get_df_by_year_month(year, month, dbPath, tableName, source, mode):
         df = pd.DataFrame(expense, columns=['totalPayment', 'category', 'source'])
     elif (mode == 'Detail'):
         df = pd.DataFrame(expense, columns=['date', 'info', 'totalPayment', 'category', 'source'])
+    elif (mode == 'IncomeExpense'):
+        df = pd.DataFrame(expense, columns=['totalPayment', 'classification'])
     else:
         print('Error: Not supported Mode')
 
@@ -1105,6 +1116,7 @@ def get_df_by_year_month_whose_credit(year, month, whose, dbPath, tableName, sou
         if (tmonth == month) and (tyear == year) and (whose == tran['whose']):
             expense.append(dict(totalPayment=float(tran['totalPayment']),
                            category=tran['category'],
+                            classification=tran['classification'],
                             source=source,
                             date=tran['date'],
                             info=tran['info']
@@ -1115,6 +1127,8 @@ def get_df_by_year_month_whose_credit(year, month, whose, dbPath, tableName, sou
         df = pd.DataFrame(expense, columns=['totalPayment', 'category', 'source'])
     elif (mode == 'Detail'):
         df = pd.DataFrame(expense, columns=['date', 'info', 'totalPayment', 'category', 'source'])
+    elif (mode == 'IncomeExpense'):
+        df = pd.DataFrame(expense, columns=['totalPayment', 'classification'])
     else:
         print('Error: Not supported Mode')
 
@@ -1191,15 +1205,73 @@ def get_source_list():
 
     return sourceList
 
+def get_latest_x_months_list(months, to_year, to_month):
+
+
+    yr = []
+    mth = []
+
+    lastMonth = datetime.utcnow().replace(day=1)
+
+    # Get previous months and years list - backward
+
+    for i in range(0, months):
+        lastMonth = lastMonth - timedelta(days=1)
+        lastMonth = lastMonth.replace(day=1)
+        yr.append(lastMonth.strftime("%Y"))
+        mth.append(lastMonth.strftime("%m"))
+
+    # Reverse the order
+    yr = yr[::-1]
+    mth = mth[::-1]
+
+    data = {'year': yr, 'month': mth}
+
+    df = pd.DataFrame(data, columns=['year', 'month'])
+
+    return df
+
 def get_incomeexpense_data_until(year, month):
 
-    raw_data = {'x_values': range(1, 13),
-                'y1_values': [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000],
-                'y2_values': [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200],
-                'y3_values': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120],
+    # -----------------------
+    # Get all data base on year month
+    # -----------------------
+
+    timeList = get_latest_x_months_list(__number_of_months_linechart__, year, month)
+
+    x_list = []
+    y1_list = []
+    y2_list = []
+    y3_list = []
+
+    for t in timeList.itertuples():
+
+        yr = t.year
+        mth = t.month
+        expense_df = get_all_expense_df_by_year_month(yr, mth, 'IncomeExpense')
+
+        incomeonly_df = expense_df[expense_df['classification'] == 'Income']
+        expenseonly_df = expense_df[expense_df['classification'] == 'Expense']
+
+        income = incomeonly_df['totalPayment'].sum()/10000
+        expense = expenseonly_df['totalPayment'].sum()/10000
+
+        x_list.append(yr[2:] + '/' + mth)
+        y1_list.append(income)
+        y2_list.append(expense)
+        y3_list.append(income - expense)
+
+    #range(1, 13)
+
+    raw_data = {'timeline': x_list,
+                'income': y1_list,
+                'expense': y2_list,
+                'networth': y3_list
                 }
 
-    df = pd.DataFrame(raw_data, columns=['x_values', 'y1_values', 'y2_values', 'y3_values'])
+    df = pd.DataFrame(raw_data, columns=['timeline', 'income', 'expense', 'networth'])
+
+    print(df)
 
     return df
 
