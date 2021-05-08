@@ -70,6 +70,8 @@ def declare_window():
 
     df_inex = get_incomeexpense_data_until(__init_year__, __init_month__)
 
+    df_inexnet = get_income_expense_networth(__init_year__, __init_month__)
+
     YearList = '2020', '2021'
     MonthList = 'All', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'
 
@@ -91,7 +93,7 @@ def declare_window():
 
     window = sg.Window('Home Accounting Tool CreditReport_RAW', main_layout, finalize=True, location = (__window_top_x__, __window_top_y__))
 
-    return window, df_cat, df_source, df_tb1, df_tb2, df_tb3, df_inex
+    return window, df_cat, df_source, df_tb1, df_tb2, df_tb3, df_inex, df_inexnet
 
 def autopct_generator(limit):
     def inner_autopct(pct):
@@ -200,19 +202,19 @@ def init_window_down_left(window, df_cat):
 
     return fig_agg, ax1, ax2
 
-def init_window_down_right(window, df_source):
+def init_window_down_right(window, df_source, df_inexnet):
 
     canvas_elem = window['-SourcePieChartWithTable-']
     canvas = canvas_elem.TKCanvas
 
     # add the plot to the window
     fig = Figure(figsize=__downright_size__)
-    ax3 = fig.add_subplot(121, aspect='equal')
+    ax3 = fig.add_subplot(221, aspect='equal')
 
     df_source.plot(kind='pie', y='Value', ax=ax3, autopct=autopct_generator(3),
             startangle=90, shadow=False, labels=df_source['Source'], legend=False, fontsize=__piechart_font_size__)
 
-    ax4 = fig.add_subplot(122, aspect='equal')
+    ax4 = fig.add_subplot(222, aspect='equal')
     ax4.axis('off')
 
     df = add_sum_to_display_df(df_source)
@@ -223,12 +225,28 @@ def init_window_down_right(window, df_source):
     tbl.set_fontsize(__text_box_fontsize__)
     tbl.scale(__text_box_scale_x__, __text_box_scale_y__) #width, heigth
 
+    ax5 = fig.add_subplot(223, aspect='equal')
+    df_inexnet_show = df_inexnet.copy()
+    df_inexnet_show['Value']=df_inexnet_show['Value'].div(100000)
+    df_inexnet_show.plot(kind='bar', x='Category', y='Value', ax=ax5, color = ['blue','red','green'], align='center', legend=False)
+
+    ax6 = fig.add_subplot(224, aspect='equal')
+    ax6.axis('off')
+
+    df_ = add_coma_to_data(df_inexnet.copy())
+
+    tbl_ = ax6.table(cellText=df_.values, colLabels=df_.keys(), loc='center')
+    tbl_.auto_set_font_size(False)
+    tbl_.set_fontsize(__text_box_fontsize__)
+    tbl_.scale(__text_box_scale_x__, __text_box_scale_y__) #width, heigth
+
     # plot chart
     ax3.grid()
+    #ax5.grid()
     fig.tight_layout()
     fig_agg = draw_figure(canvas, fig)
 
-    return fig_agg, ax3, ax4
+    return fig_agg, ax3, ax4, ax5, ax6
 
 def update_account_tables(fig_agg, df_tb1, df_tb2, df_tb3, ax_tb1, ax_tb2, ax_tb3):
 
@@ -291,7 +309,7 @@ def update_cat_pilechart_and_table(fig_agg, df_cat, ax1, ax2):
 
     fig_agg.draw()
 
-def update_source_pilechart_and_table(fig_agg, df_source, ax3, ax4):
+def update_source_pilechart_and_table(fig_agg, df_source, df_inexnet, ax3, ax4, ax5, ax6):
     ax3.cla()
     ax3.axis('off')
     df_source.plot(kind='pie', y='Value', ax=ax3, autopct=autopct_generator(3),
@@ -306,6 +324,22 @@ def update_source_pilechart_and_table(fig_agg, df_source, ax3, ax4):
     tbl.auto_set_font_size(False)
     tbl.set_fontsize(__text_box_fontsize__)
     tbl.scale(__text_box_scale_x__, __text_box_scale_y__) #width, heigth
+
+    ax5.cla()
+
+    df_inexnet_show = df_inexnet.copy()
+    df_inexnet_show['Value'] = df_inexnet_show['Value'].div(100000)
+    df_inexnet_show.plot(kind='bar', x='Category', y='Value', ax=ax5, color=['blue', 'red', 'green'], align='center',
+                         legend=False)
+
+    ax6.cla()
+    ax6.axis('off')
+    df_=add_coma_to_data(df_inexnet.copy())
+
+    tbl_ = ax6.table(cellText=df_.values, colLabels=df_.keys(), loc='center')
+    tbl_.auto_set_font_size(False)
+    tbl_.set_fontsize(__text_box_fontsize__)
+    tbl_.scale(__text_box_scale_x__, __text_box_scale_y__) #width, heigth
 
     fig_agg.draw()
 
@@ -1239,10 +1273,10 @@ def get_incomeexpense_data_until(year, month):
 
     timeList = get_latest_x_months_list(__number_of_months_linechart__, year, month)
 
-    x_list = []
-    y1_list = []
-    y2_list = []
-    y3_list = []
+    timeline_list = []
+    income_list = []
+    expense_list = []
+    networth_list = []
 
     for t in timeList.itertuples():
 
@@ -1256,22 +1290,44 @@ def get_incomeexpense_data_until(year, month):
         income = incomeonly_df['totalPayment'].sum()/10000
         expense = expenseonly_df['totalPayment'].sum()/10000
 
-        x_list.append(yr[2:] + '/' + mth)
-        y1_list.append(income)
-        y2_list.append(expense)
-        y3_list.append(income - expense)
+        timeline_list.append(yr[2:] + '/' + mth)
+        income_list.append(income)
+        expense_list.append(expense)
+        networth_list.append(income - expense)
 
     #range(1, 13)
 
-    raw_data = {'timeline': x_list,
-                'income': y1_list,
-                'expense': y2_list,
-                'networth': y3_list
+    raw_data = {'timeline': timeline_list,
+                'income': income_list,
+                'expense': expense_list,
+                'networth': networth_list
                 }
 
     df = pd.DataFrame(raw_data, columns=['timeline', 'income', 'expense', 'networth'])
 
-    print(df)
+    return df
+
+def get_income_expense_networth(year, month):
+
+    expense_df = get_all_expense_df_by_year_month(year, month, 'IncomeExpense')
+
+    incomeonly_df = expense_df[expense_df['classification'] == 'Income']
+    expenseonly_df = expense_df[expense_df['classification'] == 'Expense']
+
+    income = int(incomeonly_df['totalPayment'].sum())
+    expense = int(expenseonly_df['totalPayment'].sum())
+    networth = income - expense
+
+    data = {'Category': ['Income', 'Expense', 'Networth'],
+            'Value': [income, expense, networth]
+            }
+    #data = {'Income': [income],
+    #        'Expense': [expense],
+    #        'Networth': [networth]
+    #        }
+
+    df = pd.DataFrame(data, columns=['Category', 'Value'])
+    #df = pd.DataFrame(data, columns=['Income', 'Expense', 'Networth'])
 
     return df
 
@@ -1354,7 +1410,7 @@ def process_import_raw_data(csvPath):
 def main():
 
     # create the form and show it without the plot
-    window, df_cat, df_source, df_tb1, df_tb2, df_tb3, df_inex = declare_window()
+    window, df_cat, df_source, df_tb1, df_tb2, df_tb3, df_inex, df_inexnet = declare_window()
 
     fig_agg_up_left, ax_tb1, ax_tb2, ax_tb3 = init_window_upleft(window, df_tb1, df_tb2, df_tb3)
 
@@ -1362,14 +1418,14 @@ def main():
 
     fig_agg_down_left, ax1, ax2 = init_window_down_left(window, df_cat)
 
-    fig_agg_down_right, ax3, ax4 = init_window_down_right(window, df_source)
+    fig_agg_down_right, ax3, ax4, ax5, ax6 = init_window_down_right(window, df_source, df_inexnet)
 
     # TODO: remove workaround to zoom table
     df_cat, df_source = get_expense_data(__init_year__, __init_month__)
     # down left
     update_cat_pilechart_and_table(fig_agg_down_left, df_cat, ax1, ax2)
     #down right
-    update_source_pilechart_and_table(fig_agg_down_right, df_source, ax3, ax4)
+    update_source_pilechart_and_table(fig_agg_down_right, df_source, df_inexnet, ax3, ax4, ax5, ax6)
 
 
     # This is an Event Loop
@@ -1419,9 +1475,10 @@ def main():
 
             if ((year != '') and (month != '')):
                 df_cat, df_source = get_expense_data(year, month)
+                df_inexnet = get_income_expense_networth(year, month)
 
                 update_cat_pilechart_and_table(fig_agg_down_left, df_cat, ax1, ax2)
-                update_source_pilechart_and_table(fig_agg_down_right, df_source, ax3, ax4)
+                update_source_pilechart_and_table(fig_agg_down_right, df_source, df_inexnet, ax3, ax4, ax5, ax6)
             else:
                 print('Error: year or month is blank')
 
