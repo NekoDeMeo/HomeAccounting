@@ -1,0 +1,130 @@
+,date,info,totalPayment,category,source
+0,2021-01-31,Asahi NET,770.0,Utilities,Credit
+1,2021-01-29,AEON,3636.0,Kids,Credit
+2,2021-01-30,La Vie Douce,2138.0,Eating Out,Credit
+3,2021-01-29,Mobie Suica,1000.0,Transportation,Credit
+4,2021-01-24,Nitori Café,150.0,Eating Out,Credit
+5,2021-01-24,Nitori,1551.0,Household Supplies,Credit
+6,2021-01-16,Suica,5000.0,Transportation,Credit
+7,2021-01-15,Nitori,1420.0,Household Supplies,Credit
+8,2021-01-13,Apple payment,400.0,Utilities,Credit
+9,2021-01-13,Maruetsu,1968.0,Groceries,Credit
+10,2021-01-11,Nitori Net,61879.0,Furniture,Credit
+11,2021-01-10,Mobie Suica,1000.0,Transportation,Credit
+12,2021-01-07,Nishimatsuya,746.0,Kids,Credit
+13,2021-01-05,Nitori,1290.0,Household Supplies,Credit
+14,2021-01-03,Mobie Suica,1000.0,Transportation,Credit
+15,2021-01-02,Kohoku Tokkyu,808.0,Groceries,Credit
+16,2021-01-02,McDonalds,1190.0,Eating Out,Credit
+17,2021-01-01,My Basket Nakagawa Ekikita,373.0,Groceries,Credit
+18,2021-01-30,Mosaic Mall,510.0,Unknown,Credit
+19,2021-01-20,Tokyu Department Store Tama Plaza,1749.0,Unknown,Credit
+20,2021-01-19,Mosaic Mall,410.0,Unknown,Credit
+21,2021-01-16,AEON,3514.0,Kids,Credit
+22,2021-01-10,Northport mall,4549.0,Kids,Credit
+23,2021-01-10,AEON,2278.0,Kids,Credit
+24,2021-01-29,Mobie Suica,1000.0,Transportation,Credit
+25,2021-01-10,Nancy bottle & detergent,3926.0,Household Supplies,Credit
+26,2021-01-10,Dish washer detergent,739.0,Household Supplies,Credit
+27,2021-01-11,Medicine & tooth paste & phone case,2872.0,Household Supplies,Credit
+28,2021-01-15,Minna Chukyu Book,1446.0,Education,Credit
+29,2021-01-18,Cosmetic Vit,1280.0,Household Supplies,Credit
+30,2021-01-24,Internet,3732.0,Utilities,Credit
+31,2021-01-25,Nancy soap,786.0,Kids,Credit
+32,2021-01-26,Mask,1380.0,Household Supplies,Credit
+33,2021-01-02,Paypay Tsutaya,878.0,Education,Credit
+34,2021-01-02,Paypay Seven Eleven,108.0,Groceries,Credit
+35,2021-01-02,Paypay Ponpadour,1143.0,Groceries,Credit
+36,2021-01-02,Paypay Daiso,330.0,Household Supplies,Credit
+37,2021-01-02,Tsutaya Kohoku,600.0,Education,Credit
+38,2021-01-04,Paypay Fitcare,330.0,Household Supplies,Credit
+39,2021-01-04,Paypay Big Yosun,492.0,Groceries,Credit
+40,2021-01-04,Paypay Big Yosun,3948.0,Groceries,Credit
+41,2021-01-05,Paypay Maruetsu,3946.0,Groceries,Credit
+42,2021-01-05,Paypay Maruetsu,859.0,Groceries,Credit
+43,2021-01-05,Paypay Fitcare,3727.0,Household Supplies,Credit
+44,2021-01-06,Paypay Fitcare,1114.0,Household Supplies,Credit
+45,2021-01-06,Paypay Maruetsu,2437.0,Groceries,Credit
+46,2021-01-07,Paypay Petit Main,3609.0,Kids,Credit
+47,2021-01-08,Paypay Maruetsu,2353.0,Groceries,Credit
+48,2021-01-09,Paypay Big Yosun,4902.0,Groceries,Credit
+49,2021-01-10,Paypay Maruetsu,73.0,Groceries,Credit
+50,2021-01-10,Paypay Daiso,660.0,Household Supplies,Credit
+51,2021-01-10,Paypay Fitcare,1451.0,Household Supplies,Credit
+52,2021-01-10,Paypay Maruetsu,1595.0,Groceries,Credit
+53,2021-01-11,Paypay Maruetsu,1885.0,Groceries,Credit
+54,2021-01-13,Paypay Maruetsu,851.0,Groceries,Credit
+55,2021-01-13,Paypay Fitcare,1724.0,Household Supplies,Credit
+56,2021-01-14,Paypay Maruetsu,636.0,Groceries,Credit
+57,2021-01-15,Paypay Maruetsu,213.0,Groceries,Credit
+58,2021-01-15,Paypay Maruetsu,2463.0,Groceries,Credit
+59,2021-01-15,Paypay Maruetsu,170.0,Groceries,Credit
+60,2021-01-15,Paypay Fitcare,1083.0,Household Supplies,Credit
+61,2021-01-16,Paypay Hankyu Hanshin Food (Near Mosaic Food Court),2322.0,Groceries,Credit
+62,2021-01-16,Paypay Yamada Denki,19980.0,Furniture,Credit
+63,2021-01-17,Paypay Maruetsu,3720.0,Groceries,Credit
+64,2021-01-18,Paypay Maruetsu,973.0,Groceries,Credit
+65,2021-01-19,Paypay Maruetsu,1205.0,Groceries,Credit
+66,2021-01-19,Paypay Create,492.0,Household Supplies,Credit
+67,2021-01-19,Paypay Tsuzuki Ladies Clinic,2640.0,Medical,Credit
+68,2021-01-19,Paypay Sugei Center Kita (Hand craft),746.0,Household Supplies,Credit
+69,2021-01-20,Paypay Maruetsu,3464.0,Groceries,Credit
+70,2021-01-20,Paypay Japan Post,980.0,Utilities,Credit
+71,2021-01-21,Paypay Maruetsu,1263.0,Groceries,Credit
+72,2021-01-21,Paypay Fitcare,829.0,Household Supplies,Credit
+73,2021-01-22,Paypay Maruetsu,3157.0,Groceries,Credit
+74,2021-01-23,Paypay Maruetsu,394.0,Groceries,Credit
+75,2021-01-24,Paypay Maruetsu,2407.0,Groceries,Credit
+76,2021-01-24,Paypay Maruetsu,849.0,Groceries,Credit
+77,2021-01-25,Paypay Maruetsu,3152.0,Groceries,Credit
+78,2021-01-25,Paypay Maruetsu,74.0,Groceries,Credit
+79,2021-01-25,Paypay Maruetsu,460.0,Groceries,Credit
+80,2021-01-26,Paypay Maruetsu,1728.0,Groceries,Credit
+81,2021-01-26,Paypay Fitcare,1459.0,Household Supplies,Credit
+82,2021-01-26,Paypay Junberry Bakery Nakagawa,302.0,Groceries,Credit
+83,2021-01-27,Paypay Tsuzuki Ladies Clinic,660.0,Medical,Credit
+84,2021-01-27,Paypay Fitcare,2001.0,Household Supplies,Credit
+85,2021-01-27,Paypay Family Mart,150.0,Groceries,Credit
+86,2021-01-27,Paypay Maruetsu,1040.0,Groceries,Credit
+87,2021-01-27,Paypay Junberry Bakery Nakagawa,302.0,Groceries,Credit
+88,2021-01-27,Kid Republic,2278.0,Kids,Credit
+89,2021-01-28,Paypay Seven Eleven,395.0,Groceries,Credit
+90,2021-01-28,Paypay Maruetsu,1055.0,Groceries,Credit
+91,2021-01-28,Paypay Vietshop Yokohama,5700.0,Groceries,Credit
+92,2021-01-29,Paypay Kurasushi,3575.0,Eating Out,Credit
+93,2021-01-29,Paypay Maruetsu,1800.0,Groceries,Credit
+94,2021-01-30,Paypay Maruetsu,689.0,Groceries,Credit
+95,2021-01-30,Paypay Maruetsu,1979.0,Groceries,Credit
+97,2021-01-31,Paypay Fitcare,779.0,Household Supplies,Credit
+98,2021-01-31,Paypay Maruetsu,1125.0,Groceries,Credit
+99,2021-01-31,Paypay Maruetsu,2465.0,Groceries,Credit
+100,2021-01-03,Paypay Lalaport Yokohama (Food Court),2750.0,Eating Out,Credit
+101,2021-01-08,Paypay Tamaplaza Terrace (MUJI),650.0,Household Supplies,Credit
+102,2021-01-15,Insurance (Meo) 2021.01,5000.0,Insurances,Bank
+104,2021-01-25,House rental 2021.01,121000.0,Housing,Bank
+105,2021-01-26,Kindergarten Puppy,65000.0,Kids,Bank
+111,2021-01-09,Fee Card,107.0,Utilities,Bank
+112,2021-01-08,Books,14832.0,Education,Bank
+113,2021-01-31,Meo 2021.01,10000.0,Allowance,Bank
+114,2021-01-31,Phone Bill 2021,60749.0,Utilities,Bank
+115,2021-01-31,Books Shipping,11546.0,Education,Bank
+116,2021-01-31,WFH Allowance 2021,10000.0,Allowance,Bank
+117,2021-01-31,Adjustment,56.0,Adjustment Down,Bank
+118,2021-01-31,Bonus Meo,20000.0,Allowance,Bank
+124,2021-01-15,Insurance (Vit),2000.0,Insurances,Bank
+125,2021-01-26,Vietnam Food Online,6900.0,Groceries,Bank
+127,2021-01-31,Vit 2021.01,20000.0,Allowance,Bank
+131,2021-01-02,Lopia,2771.0,Groceries,Cash
+132,2021-01-06,Clinic - Meo,2190.0,Medical,Cash
+133,2021-01-10,Lopia,4761.0,Groceries,Cash
+134,2021-01-16,Lopia,6401.0,Groceries,Cash
+135,2021-01-19,Lopia,2728.0,Groceries,Cash
+136,2021-01-26,Water Bill,4615.0,Utilities,Cash
+137,2021-01-27,Lopia,3875.0,Groceries,Cash
+138,2021-01-31,Japanese Lesson,12000.0,Education,Cash
+139,2021-01-02,Shopping Kokoku,2602.0,Unknown,Paypay
+140,2021-01-02,Akachan Honpo,158.0,Kids,Paypay
+141,2021-01-02,HAC,2048.0,Household Supplies,Paypay
+142,2021-01-03,Lalaport,1650.0,Unknown,Paypay
+143,2021-01-30,"Electric, Gas",12793.0,Utilities,Paypay
+144,2021-01-08,To Sieu (probably food/eating out),2500.0,Groceries,Paypay
