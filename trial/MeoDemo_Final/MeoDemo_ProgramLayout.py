@@ -1464,7 +1464,7 @@ def main():
             update_account_tables(fig_agg_up_left, df_tb1, df_tb2, df_tb3, ax_tb1, ax_tb2, ax_tb3)
 
             df_inex = get_incomeexpense_data_until(__init_year__, __init_month__)
-            update_incomeexpense_linechart(fig_agg_up_right, df_inex)
+            update_incomeexpense_linechart(fig_agg_up_right, df_inex, ax_inex)
         elif event == 'Process Manual Data':
             print("[LOG] Clicked Process Manual Data Button!")
 
