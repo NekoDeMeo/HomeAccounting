@@ -80,6 +80,48 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\trial\MeoDemo_Final\Output\confirmed_202105_Amazon_20210531_143417.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Output\confirmed_202105_Rakuten_20210531_143431.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Output\confirmed_202105_Yahoo_20210531_143447.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Output\tobeConfirmed_202105_Amazon_20210531_143417.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Output\tobeConfirmed_202105_Rakuten_20210531_143431.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\trial\MeoDemo_Final\Output\tobeConfirmed_202105_Yahoo_20210531_143447.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\trial\MeoDemo_Final\Preparation\ExpenseCategories.csv">
           <value>
             <Attribute>
