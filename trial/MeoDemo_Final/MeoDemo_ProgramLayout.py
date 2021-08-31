@@ -958,6 +958,7 @@ def calc_HomeBalance():
     homeBalance = 0
     HomeYB_Main = 0
     HomeYB_Saving = 0
+    HomeSMBC = 0
     HomeCash = 0
 
     dbName = 'Database//Home.db'
@@ -965,11 +966,12 @@ def calc_HomeBalance():
 
     HomeYB_Main = calc_all_transaction_in_table(dbPath, 'HomeYB_Main')
     HomeYB_Saving = calc_all_transaction_in_table(dbPath, 'HomeYB_Saving')
+    HomeSMBC = calc_all_transaction_in_table(dbPath, 'HomeSMBC')
     HomeCash = calc_all_transaction_in_table(dbPath, 'HomeCash')
 
-    homeBalance= HomeYB_Main + HomeYB_Saving + HomeCash
+    homeBalance= HomeYB_Main + HomeYB_Saving + HomeSMBC + HomeCash
 
-    return homeBalance, HomeYB_Main, HomeYB_Saving, HomeCash
+    return homeBalance, HomeYB_Main, HomeYB_Saving, HomeSMBC,  HomeCash
 
 def calc_PersonalBalance():
 
@@ -992,6 +994,7 @@ def calc_OptionalBalance():
     usd = 0
     yb1 = 0
     yb2 = 0
+    smbc = 0
     vcb = 0
 
     HomeDBName = 'Database//Home.db'
@@ -1005,14 +1008,16 @@ def calc_OptionalBalance():
     momYB = calc_all_transaction_in_table(MomDBPath, 'MomYB')
     momVCB = calc_all_transaction_in_table(MomDBPath, 'MomVCB')
 
-    homeBalance, HomeYB_Main, HomeYB_Saving, HomeCash = calc_HomeBalance()
+    homeBalance, HomeYB_Main, HomeYB_Saving, HomeSMBC, HomeCash = calc_HomeBalance()
     meoYB, vitYB = calc_PersonalBalance()
 
     yb1 = HomeYB_Main + momYB
     yb2 = HomeYB_Saving + meoYB + vitYB
+    smbc = HomeSMBC
     vcb = momVCB
 
-    return usd, yb1, yb2, vcb
+
+    return usd, yb1, yb2, smbc, vcb
 
 def remove_zero(str):
 
@@ -1024,12 +1029,13 @@ def update_balance_data():
     # Calc Home Balance
     # ----------------------
 
-    homeBalance, HomeYB_Main, HomeYB_Saving, HomeCash = calc_HomeBalance()
+    homeBalance, HomeYB_Main, HomeYB_Saving, HomeSMBC, HomeCash = calc_HomeBalance()
 
-    acc_table1 = {'Account': ['Home Balance', '- Yucho Main', '- Yucho Saving', '- Cash'],
+    acc_table1 = {'Account': ['Home Balance', '- Yucho Main', '- Yucho Saving', '- SMBC', '- Cash'],
                   'Value': [remove_zero(f'{homeBalance:,}'),
                             remove_zero(f'{HomeYB_Main:,}'),
                             remove_zero(f'{HomeYB_Saving:,}'),
+                            remove_zero(f'{HomeSMBC:,}'),
                             remove_zero(f'{HomeCash:,}')
                             ]
                   }
@@ -1054,12 +1060,13 @@ def update_balance_data():
     # Calc Optional Balance
     # ----------------------
 
-    usd, yb1, yb2, vcb = calc_OptionalBalance()
+    usd, yb1, yb2, smbc, vcb = calc_OptionalBalance()
 
-    acc_table3 = {'Account': ['USD', 'Yucho 1', 'Yucho 2', 'VCB'],
+    acc_table3 = {'Account': ['USD', 'Yucho 1', 'Yucho 2', 'SMBC', 'VCB'],
                   'Value': [remove_zero(f'{usd:,}'),
                             remove_zero(f'{yb1:,}'),
                             remove_zero(f'{yb2:,}'),
+                            remove_zero(f'{smbc:,}'),
                             remove_zero(f'{vcb:,}')
                             ]
                   }
@@ -1183,6 +1190,7 @@ def get_all_expense_df_by_year_month(year, month, mode):
 
     df_HomeYB_Main = get_df_by_year_month(year, month, HomeDBPath, 'HomeYB_Main', 'Bank', mode)
     df_HomeYB_Saving = get_df_by_year_month(year, month, HomeDBPath, 'HomeYB_Saving', 'Bank', mode)
+    df_HomeSMBC = get_df_by_year_month(year, month, HomeDBPath, 'HomeSMBC', 'Bank', mode)
 
     df_HomeCash = get_df_by_year_month(year, month, HomeDBPath, 'HomeCash', 'Cash', mode)
     df_Paypay = get_df_by_year_month(year, month, HomeDBPath, 'Paypay', 'Paypay', mode)
@@ -1192,6 +1200,7 @@ def get_all_expense_df_by_year_month(year, month, mode):
                     df_Yahoo,
                     df_HomeYB_Main,
                     df_HomeYB_Saving,
+                    df_HomeSMBC,
                     df_HomeCash,
                     df_Paypay
                     ],
